@@ -24,10 +24,10 @@ export default function LoginComponent() {
         <h2>Sign up!</h2>
         <form action="POST" className="group">
           <div className="form-item email-group-login">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="login-email">Email</label>
             <input
               type="email"
-              id="email"
+              id="login-email"
               name="email"
               value={email}
               required
@@ -36,10 +36,10 @@ export default function LoginComponent() {
             />
           </div>
           <div className="group">
-            <label htmlFor="passwprd">Password</label>
+            <label htmlFor="login-passwprd">Password</label>
             <input
               type="password"
-              id="password"
+              id="login-password"
               name="password"
               value={password}
               required
@@ -47,19 +47,17 @@ export default function LoginComponent() {
             />
           </div>
           <div className="group">
-            <label htmlFor="password-confirm">Confirm Password</label>
+            <label htmlFor="login-password-confirm">Confirm Password</label>
             <input
               type="password"
-              id="password-confirm"
+              id="login-password-confirm"
               name="passwordConfirm"
               value={passwordConfirm}
               required
               onChange={handlePasswordConfirmChange}
             />
           </div>
-          <button type="sumbit">
-            Register
-          </button>
+          <button type="sumbit">Register</button>
         </form>
       </div>
       <div>Already have an account? Login</div>

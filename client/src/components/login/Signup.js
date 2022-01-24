@@ -9,15 +9,16 @@ export default function Signup() {
 
   const register = async () => {
     try {
-    
+
       if (password === passwordConfirm) {
-        const user = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(user);
+         const user = await createUserWithEmailAndPassword(
+           auth,
+           email,
+           password
+         );
+         console.log(user);
       }
+       
     } catch (error) {
       console.log(error.message);
     }
@@ -41,10 +42,10 @@ export default function Signup() {
         <h2>Sign up!</h2>
         <form action="POST" className="group">
           <div className="form-item email-group-login">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="signup-email">Email</label>
             <input
               type="email"
-              id="email"
+              id="signup-email"
               name="email"
               value={email}
               required
@@ -53,10 +54,10 @@ export default function Signup() {
             />
           </div>
           <div className="group">
-            <label htmlFor="passwprd">Password</label>
+            <label htmlFor="signup-passwprd">Password</label>
             <input
               type="password"
-              id="password"
+              id="signup-password"
               name="password"
               value={password}
               required
@@ -64,17 +65,17 @@ export default function Signup() {
             />
           </div>
           <div className="group">
-            <label htmlFor="password-confirm">Confirm Password</label>
+            <label htmlFor="signup-password-confirm">Confirm Password</label>
             <input
               type="password"
-              id="password-confirm"
+              id="signup-password-confirm"
               name="passwordConfirm"
               value={passwordConfirm}
               required
               onChange={handlePasswordConfirmChange}
             />
           </div>
-          <button type="sumbit" >
+          <button type="sumbit" onClick={register}>
             Register
           </button>
         </form>
