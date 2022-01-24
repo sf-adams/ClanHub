@@ -1,10 +1,20 @@
 import React, {useState, useEffect} from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState("");
+
+    const register = async ()=> {
+      try {
+        const user = await createUserWithEmailAndPassword()
+      }
+      catch(error) {
+        console.log(error.message)
+      }
+    }
 
     const handleEmailChange = (ev)=> {
       setEmail(ev.target.value)
