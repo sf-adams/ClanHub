@@ -23,7 +23,7 @@ export default function Signup() {
   return (
     <>
       <div>
-        <h2>Sign up</h2>
+        <h2>Sign up!</h2>
         <form action="POST" className="group">
           <div className="form-item email-group-login">
             <label htmlFor="email">Email</label>
