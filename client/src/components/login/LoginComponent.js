@@ -1,22 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from 'react';
 
-export default function Signup() {
+export default function LoginComponent() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
-    const handleEmailChange = (ev)=> {
-      setEmail(ev.target.value)
-    }
+  const handleEmailChange = (ev) => {
+    setEmail(ev.target.value);
+  };
 
-     const handlePasswordChange = (ev) => {
-       setPassword(ev.target.value);
-     };
+  const handlePasswordChange = (ev) => {
+    setPassword(ev.target.value);
+  };
 
-      const handlePasswordConfirmChange = (ev) => {
-        setPasswordConfirm(ev.target.value);
-      };
+  const handlePasswordConfirmChange = (ev) => {
+    setPasswordConfirm(ev.target.value);
+  };
 
   return (
     <>
@@ -57,7 +57,9 @@ export default function Signup() {
               onChange={handlePasswordConfirmChange}
             />
           </div>
-          <button type="sumbit" onClick="handleSubmit">Register</button>
+          <button type="sumbit" onClick="handleSubmit">
+            Register
+          </button>
         </form>
       </div>
       <div>Already have an account? Login</div>
