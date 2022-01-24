@@ -5,7 +5,7 @@ function FeedContainer() {
   return (
     <div>
       <h1>This is the feed.</h1>
-      <Link to="/">Click to view your feed.</Link>
+      <Link to="profile">Click to view your profile.</Link>
     </div>
   );
 }
