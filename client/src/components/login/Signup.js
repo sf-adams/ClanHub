@@ -17,6 +17,8 @@ export default function Signup() {
            password
          );
          console.log(user);
+      } else {
+        console.log("Your passwords did not match please try again")
       }
        
     } catch (error) {
@@ -81,6 +83,7 @@ export default function Signup() {
         </form>
       </div>
       <div>Already have an account? Login</div>
+    
     </>
   );
 }

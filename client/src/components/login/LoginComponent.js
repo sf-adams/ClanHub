@@ -21,7 +21,7 @@ export default function LoginComponent() {
   return (
     <>
       <div>
-        <h2>Sign up!</h2>
+        <h2>Login!</h2>
         <form action="POST" className="group">
           <div className="form-item email-group-login">
             <label htmlFor="login-email">Email</label>
@@ -46,21 +46,10 @@ export default function LoginComponent() {
               onChange={handlePasswordChange}
             />
           </div>
-          <div className="group">
-            <label htmlFor="login-password-confirm">Confirm Password</label>
-            <input
-              type="password"
-              id="login-password-confirm"
-              name="passwordConfirm"
-              value={passwordConfirm}
-              required
-              onChange={handlePasswordConfirmChange}
-            />
-          </div>
           <button type="sumbit">Register</button>
         </form>
       </div>
-      <div>Already have an account? Login</div>
+      
     </>
   );
 }
