@@ -1,5 +1,10 @@
 body {
-  color: red;
+  color: white;
+  background-color: #1B3445;
+}
+
+a {
+  color: white;
 }
 
 h1 {
