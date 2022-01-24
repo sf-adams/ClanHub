@@ -1,9 +1,15 @@
 import "./styles/css/style.css";
+import { Routes, Route } from "react-router-dom";
+import FeedContainer from "./containers/FeedContainer";
+import ProfileContainer from "./containers/ProfileContainer";
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <Routes>
+        <Route path="/" element={ <FeedContainer/> } />
+        <Route path="profile" element={ <ProfileContainer/> } />
+      </Routes>
     </div>
   );
 }
