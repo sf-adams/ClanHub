@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { getFirestore } from '@firebase/firestore';
 require('dotenv').config();
 
@@ -15,3 +17,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = app.auth();
+
+export default app;

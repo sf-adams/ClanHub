@@ -1,9 +1,13 @@
 body {
-  color: red;
+  color: #0c0707;
 }
 
 h1 {
   font-size: 10em;
+}
+
+body {
+  background-color: #ffffff;
 }
 
 /*# sourceMappingURL=style.css.map */
