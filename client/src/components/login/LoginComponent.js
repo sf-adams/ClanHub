@@ -31,7 +31,7 @@ export default function LoginComponent() {
               name="email"
               value={email}
               required
-              autocomplete="off"
+              autoComplete="off"
               onChange={handleEmailChange}
             />
           </div>
@@ -57,7 +57,7 @@ export default function LoginComponent() {
               onChange={handlePasswordConfirmChange}
             />
           </div>
-          <button type="sumbit" onClick="handleSubmit">
+          <button type="sumbit">
             Register
           </button>
         </form>
