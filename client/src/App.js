@@ -5,13 +5,18 @@ import FeedContainer from "./containers/FeedContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 
+import { auth } from "./auth/firebase-config";
+
+
+
+
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path = "/" element= {<Navigate to="/login" />} />
         <Route path="/login" element={<LoginContainer />} />
-        <Route path="/feed" element={<FeedContainer />} />
+        <Route path="/feed" element={auth.currentUser==null?<FeedContainer/>: <Navigate to="/login" />} />
         <Route path="/profile" element={<ProfileContainer />} />
       </Routes>
     </div>
