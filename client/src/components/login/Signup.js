@@ -31,10 +31,6 @@ export default function Signup({navigate, user, setUser, auth}) {
     }
   };
 
-   onAuthStateChanged(auth, (currentUser) => {
-     setUser(currentUser);
-   });
-
   const handleEmailChange = (ev) => {
     setEmail(ev.target.value);
   };
