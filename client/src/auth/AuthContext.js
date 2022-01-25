@@ -17,5 +17,5 @@ export function AuthProvider() {
     <AuthContext.Provider value>
         {children}
     </AuthContext.Provider>
-  )   
+  )
 };

@@ -7,10 +7,10 @@ import LoginContainer from './containers/LoginContainer';
 function App() {
   return (
     <div className="App">
-      <LoginContainer />
       <Routes>
-        <Route path="/" element={ <FeedContainer/> } />
-        <Route path="profile" element={ <ProfileContainer/> } />
+        <Route path="/login" element={ <LoginContainer /> } />
+        <Route path="/feed" element={ <FeedContainer/> } />
+        <Route path="/profile" element={ <ProfileContainer/> } />
       </Routes>
     </div>
   );
