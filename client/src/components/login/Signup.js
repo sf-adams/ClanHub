@@ -5,11 +5,12 @@ import {
 } from "firebase/auth";
 import { auth } from "../../auth/firebase-config";
 
-export default function Signup() {
+export default function Signup({navigate}) {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -24,6 +25,7 @@ export default function Signup() {
           password
         );
         console.log(user);
+        navigate('/feed')
       } else {
         console.log("Your passwords did not match please try again");
       }

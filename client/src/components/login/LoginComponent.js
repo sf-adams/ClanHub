@@ -3,7 +3,7 @@ import { auth } from "../../auth/firebase-config";
 
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
-export default function LoginComponent() {
+export default function LoginComponent({navigate}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +17,7 @@ export default function LoginComponent() {
         password
       );
       console.log(user);
+      navigate("/feed");
     } catch (error) {
       console.log(error.message);
     }
