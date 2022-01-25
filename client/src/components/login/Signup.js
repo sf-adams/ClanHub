@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../auth/firebase-config";
 
-export default function Signup() {
+export default function Signup({navigate}) {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  let navigate = useNavigate();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
