@@ -1,13 +1,18 @@
 import "./styles/css/style.css";
+import { Routes, Route } from "react-router-dom";
+import FeedContainer from "./containers/FeedContainer";
+import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from './containers/LoginContainer';
-
 
 function App() {
   return (
-    <>
-      {/* <h1>hello</h1> */}
+    <div className="App">
       <LoginContainer />
-    </>
+      <Routes>
+        <Route path="/" element={ <FeedContainer/> } />
+        <Route path="profile" element={ <ProfileContainer/> } />
+      </Routes>
+    </div>
   );
 }
 
