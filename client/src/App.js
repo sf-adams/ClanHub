@@ -8,19 +8,23 @@ import LoginContainer from "./containers/LoginContainer";
 
 import { auth } from "./auth/firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
+import { AuthProvider } from "./auth/AuthContext"
 
 function App() {
   const [user, setUser] = useState({});
 
-  const checkSignIn = () => {
-    console.log(user)
-    if (Object.keys(user).length != 0) {
-      return true;
-    } else {
-      return false;
-    }
+  function useAuth() {
+    const [authed, setAuthed] = useState(false);
   }
 
+  // const checkSignIn = () => {
+  //   console.log(user)
+  //   if (Object.keys(user).length != 0) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   // const authInitialise = async () => {
   //   await onAuthStateChanged(auth, (currentUser) => {
@@ -31,18 +35,26 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route
-          path="/login"
-          element={<LoginContainer auth={auth} user={user} onAuthStateChanged={onAuthStateChanged} />}
-        />
-        <Route
-          path="/feed"
-          element={checkSignIn() ? <FeedContainer /> : <Navigate to="/login" />}
-        />
-        <Route path="/profile" element={<ProfileContainer />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route
+            path="/login"
+            element={
+              <LoginContainer
+                auth={auth}
+                user={user}
+                onAuthStateChanged={onAuthStateChanged}
+              />
+            }
+          />
+          <Route
+            path="/feed"
+            element={2 + 2 == 4 ? <FeedContainer /> : <Navigate to="/login" />}
+          />
+          <Route path="/profile" element={<ProfileContainer />} />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }
