@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -10,6 +11,8 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+
+  let navigate = useNavigate();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -24,6 +27,7 @@ export default function Signup() {
           password
         );
         console.log(user);
+        navigate('/feed')
       } else {
         console.log("Your passwords did not match please try again");
       }
