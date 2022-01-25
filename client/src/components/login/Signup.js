@@ -48,9 +48,33 @@ export default function Signup() {
     <>
       <div>
         <h3> Register User </h3>
-        <input placeholder="Email..." onChange={handleEmailChange} />
-        <input placeholder="Password..." onChange={handlePasswordChange} />
-        <label htmlFor="signup-confirm-password">Confirm password</label>
+        <div className="group">
+          <label htmlFor="signup-Email"> Email:</label>
+          <input
+            type="email"
+            id="signup-email"
+            name="email"
+            value={email}
+            required
+            autoComplete="off"
+            placeholder="Email"
+            onChange={handleEmailChange}
+          />
+        </div>
+        <div className="group">
+          <label htmlFor="signup-password"> Password:</label>
+          <input
+            type="password"
+            id="-signup-password"
+            name="[password]"
+            value={password}
+            required
+            autoComplete="off"
+            placeholder="Password"
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <label htmlFor="signup-confirm-password">Confirm password:</label>
         <input
           type="password"
           id="signup-confirm-password"
