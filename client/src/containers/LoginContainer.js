@@ -7,9 +7,9 @@ import { auth } from "../auth/firebase-config";
 import Signup from "../components/login/Signup";
 import Login from "../components/login/LoginComponent";
 
-function App() {
+function LoginContainer({user, onAuthStateChanged}) {
 
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   let navigate = useNavigate();
 
   // onAuthStateChanged(auth, (currentUser) => {
@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <Signup navigate={navigate} user={user} setUser={setUser} auth={auth} />
-      <Login navigate={navigate} user={user} setUser={setUser} auth={auth} />
+      <Signup navigate={navigate} user={user} auth={auth} onAuthStateChanged={onAuthStateChanged}/>
+      <Login navigate={navigate} user={user} auth={auth} onAuthStateChanged={onAuthStateChanged}/>
     </>
   );
 }
-export default App;
+export default LoginContainer;

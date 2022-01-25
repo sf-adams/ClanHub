@@ -3,37 +3,47 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
+import { useAuth } from "../../auth/AuthContext";
 
-
-export default function Signup({navigate, user, setUser, auth}) {
+export default function Signup({ navigate, user, setUser, auth }) {
   // const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const { signup } = useAuth();
+   const [loading, setLoading] = useState(false);
 
-
-  const register = async () => {user = { user };
+  async function handleSubmit(e) {
+    e.preventDefault();
     try {
       if (password === passwordConfirm) {
-         user = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(auth.currentUser);
-        navigate('/feed')
+        setLoading(true);
+        await signup(email, password);
       } else {
         console.log("Your passwords did not match please try again");
-        console.log(auth.currentUser);
+        console.log(auth.currentUser.email);
       }
     } catch (error) {
       console.log(error.message);
     }
-  };
+    setLoading(false);
+  }
 
-   onAuthStateChanged(auth, (currentUser) => {
-     setUser(currentUser);
-   });
+  // const register = async () => {
+  //   user = { user };
+  //   try {
+  //     if (password === passwordConfirm) {
+  //       user = await createUserWithEmailAndPassword(auth, email, password);
+  //       console.log(auth.currentUser);
+  //       navigate("/feed");
+  //     } else {
+  //       console.log("Your passwords did not match please try again");
+  //       console.log(auth.currentUser);
+  //     }
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 
   const handleEmailChange = (ev) => {
     setEmail(ev.target.value);
@@ -89,9 +99,9 @@ export default function Signup({navigate, user, setUser, auth}) {
           placeholder="Password Confirmation..."
           onChange={handlePasswordConfirmChange}
         />
-        <button onClick={register}> Create User</button>
+        <button disabled = {loading} onClick={handleSubmit}> Create User</button>
         <h4> User Logged In: </h4>
-        {user?.email}
+        {auth.currentUser?.email}
       </div>
     </>
   );
