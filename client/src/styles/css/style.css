@@ -2,8 +2,140 @@ body {
   color: #3b2c2c;
 }
 
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+
 h1 {
-  font-size: 10em;
+  font-size: 1em;
+}
+
+.menu {
+  width: 300px;
+  height: 100vh;
+  background-color: #1b3445;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+}
+.menu.active {
+  right: 0;
+}
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 30px;
+  font-weight: 300;
+  color: white;
+  width: 60%;
+}
+.menu ul li {
+  margin-bottom: 25px;
+}
+.menu ul li a {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+.menu ul li:hover {
+  font-weight: 500;
+}
+.menu .social-links {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 2%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.menu .social-links .icon {
+  color: white;
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
+.menu .social-links .icon:hover {
+  opacity: 1;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  background-color: #1b3445;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  transition: all 1s ease;
+}
+.navbar .wrapper {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .wrapper .left {
+  display: flex;
+  align-items: center;
+}
+.navbar .wrapper .left .logo {
+  font-size: 2rem;
+  text-decoration: none;
+  color: inherit;
+}
+.navbar .wrapper .left .itemContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+.navbar .wrapper .left .itemContainer .icon {
+  font-size: 18px;
+  margin-right: 5px;
+}
+.navbar .wrapper .left .itemContainer span {
+  font-size: 15px;
+  font-weight: 400;
+}
+.navbar .wrapper .middle {
+  display: flex;
+  align-items: center;
+}
+.navbar .wrapper .right .hamburger {
+  width: 32px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.navbar .wrapper .right .hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transform-origin: left;
+  transition: all 2s ease;
+}
+.navbar.active {
+  background-color: #1b3445;
+  color: white;
+}
+.navbar.active .hamburger span:first-child {
+  background-color: white;
+  transform: rotate(45deg);
+}
+.navbar.active .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.navbar.active .hamburger span:last-child {
+  background-color: white;
+  transform: rotate(-45deg);
 }
 
 /*# sourceMappingURL=style.css.map */
