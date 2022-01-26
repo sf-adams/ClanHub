@@ -6,6 +6,10 @@ function ProfileContainer() {
     <div>
       <h1>This is the profile page.</h1>
       <Link to="/feed">Click to view your feed.</Link>
+
+
+
+
     </div>
   );
 }
