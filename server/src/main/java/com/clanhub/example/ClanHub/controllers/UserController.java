@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("api")
 public class UserController {
@@ -28,5 +28,11 @@ public class UserController {
     public ResponseEntity getUsersById(@PathVariable Long id){
         Optional<User> foundUser = userRepository.findById(id);
         return new ResponseEntity(foundUser, HttpStatus.OK);
+    }
+
+    @PostMapping("/users")
+    public ResponseEntity saveUser(@RequestBody User user) throws Exception{
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
