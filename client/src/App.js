@@ -17,10 +17,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 function App() {
 
   const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(()=> {
-
+    setUsers()
   })
 
   onAuthStateChanged(auth, (currentUser) => {
