@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function FeedList() {
+const FeedList =()=> {
   return (
       <div>Hello world</div>
   );
 }
 
+export default FeedList;
