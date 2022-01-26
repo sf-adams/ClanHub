@@ -21,11 +21,9 @@
       align-items: center;
 
       .logo {
-        font-size: 40px;
-        font-weight: 700px;
+        font-size: 2rem;
         text-decoration: none;
         color: inherit;
-        margin-right: 40px;
       }
 
       .itemContainer {
@@ -62,7 +60,7 @@
         span {
           width: 100%;
           height: 3px;
-          background-color: $background-primary;
+          background-color: $background-secondary;
           transform-origin: left;
           transition: all 2s ease;
         }
