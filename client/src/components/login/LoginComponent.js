@@ -24,7 +24,7 @@ export default function LoginComponent({navigate, auth}) {
   };
 
   const logout = async () => {
-    await signOut(auth);
+    await signOut(auth).then(console.log(auth.currentUser));
   };
 
   const handleEmailChange = (ev) => {
