@@ -21,12 +21,15 @@
       align-items: center;
 
       .logo {
-        font-size: 2rem;
-        text-decoration: none;
-        color: inherit;
+        width: 40px;
       }
+    }
 
-      .itemContainer {
+    .middle {
+      display: flex;
+      align-items: center;
+
+      .profile-button {
         display: flex;
         align-items: center;
         margin-left: 30px;
@@ -34,6 +37,7 @@
           .icon {
             font-size: 18px;
             margin-right: 5px;
+            fill: $background-secondary;
           }
 
           span {
@@ -41,11 +45,6 @@
             font-weight: 400;
           }
       }
-    }
-
-    .middle {
-      display: flex;
-      align-items: center;
     }
 
     .right {

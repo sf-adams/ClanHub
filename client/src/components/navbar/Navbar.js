@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaRegUser } from "react-icons/fa";
+import logo from "../../assets/main_logo.svg";
 
 function Navbar({ menuOpen, setMenuOpen }) {
   return (
@@ -7,12 +9,14 @@ function Navbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
 
         <div className="left">
-          <Link to="/home" className="logo" onClick={()=>setMenuOpen(false)}>ClanHub</Link>
+          <Link to="/home" className="logo" onClick={()=>setMenuOpen(false)}>
+            <img src={logo} alt="" />
+          </Link>
         </div>
 
         <div className="middle">
           <Link to="/profile" className='profile-button' onClick={()=>setMenuOpen(false)}>
-            <button>Profile</button>
+            <FaRegUser  className="icon" size="2em"/>
           </Link>
         </div>
 
