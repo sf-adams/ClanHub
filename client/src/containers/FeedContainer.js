@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import FeedList from '../components/feed/FeedList';
+import UserService from '../services/UserService';
 
 function FeedContainer() {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() =>{
+    UserService.getUsers().then(users =>{
+      setUsers(users);
+    })
+  }, [])
+  
 
   return (
     <>
