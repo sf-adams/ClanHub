@@ -48,4 +48,14 @@ public class UserController {
         Optional<User> userData = userRepository.findById(id);
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
     }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") long id) {
+        try {
+            userRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
