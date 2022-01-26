@@ -1,7 +1,19 @@
 @use './base' as *;
 @use './pages' as *;
+@use './layouts' as *;
+
 
 
 // body {
-//     background-color: rgb(64, 64, 70);
+//     background-color: $background-primary;
 // }
+
+
+// Test marked for deletion
+.feed-container-header {
+    margin-top: 20%;
+}
+
+.profile-container {
+    margin-top: 20%;
+}

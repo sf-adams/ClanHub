@@ -1,0 +1,90 @@
+@use '../base/root' as *;
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  background-color: $background-primary;
+  color: $background-secondary;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  transition: all 1s ease;
+
+  .wrapper {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 40px;
+      }
+    }
+
+    .middle {
+      display: flex;
+      align-items: center;
+
+      .profile-button {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+
+          .icon {
+            font-size: 18px;
+            margin-right: 5px;
+            fill: $background-secondary;
+          }
+
+          span {
+            font-size: 15px;
+            font-weight: 400;
+          }
+      }
+    }
+
+    .right {
+      .hamburger {
+        width: 32px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+
+        span {
+          width: 100%;
+          height: 3px;
+          background-color: $background-secondary;
+          transform-origin: left;
+          transition: all 2s ease;
+        }
+      }
+    }
+  }
+
+  &.active {
+    background-color: $background-primary;
+    color: $background-secondary;
+
+    .hamburger {
+      span {
+        &:first-child {
+          background-color: $background-secondary;
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          background-color: $background-secondary;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

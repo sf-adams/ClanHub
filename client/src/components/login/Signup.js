@@ -3,36 +3,37 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../../auth/firebase-config";
 
-export default function Signup({navigate}) {
-  const [user, setUser] = useState({});
+
+export default function Signup({navigate, user, setUser, auth}) {
+  // const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  const register = async () => {
+  const register = async () => {user = { user };
     try {
       if (password === passwordConfirm) {
-        const user = await createUserWithEmailAndPassword(
+         user = await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
-        console.log(user);
+        console.log(auth.currentUser);
         navigate('/feed')
       } else {
         console.log("Your passwords did not match please try again");
+        console.log(auth.currentUser);
       }
     } catch (error) {
       console.log(error.message);
     }
   };
+
+   onAuthStateChanged(auth, (currentUser) => {
+     setUser(currentUser);
+   });
 
   const handleEmailChange = (ev) => {
     setEmail(ev.target.value);
