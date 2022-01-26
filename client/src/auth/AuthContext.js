@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+// test for merging
 
 const AuthContext = React.createContext()
 
