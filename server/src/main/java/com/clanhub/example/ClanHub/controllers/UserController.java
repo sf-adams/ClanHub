@@ -43,9 +43,9 @@ public class UserController {
 //    }
 
 
-//    @PutMapping("/users/{id}")
-//    public ResponseEntity<User> saveUser(@PathVariable("id") long id, @RequestBody User user){
-//        Optional<User> userData
-//
-//    }
+    @PutMapping("/users/{id}")
+    public ResponseEntity<User> saveUser(@PathVariable("id") long id, @RequestBody User user){
+        Optional<User> userData = userRepository.findById(id);
+        return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
+    }
 }
