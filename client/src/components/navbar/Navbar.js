@@ -11,7 +11,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
         </div>
 
         <div className="middle">
-          <Link to="/profile" className='profile-button'>
+          <Link to="/profile" className='profile-button' onClick={()=>setMenuOpen(false)}>
             <button>Profile</button>
           </Link>
         </div>
