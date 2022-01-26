@@ -20,7 +20,7 @@ function FeedContainer() {
         <h1>Welcome to ClanHub.</h1>
         <Link to="/profile">Click to view your profile.</Link>
       </div>
-      <FeedList/>
+      <FeedList users={users}/>
     </>
   );
 }
