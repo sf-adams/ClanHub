@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FeedList from '../components/feed/FeedList';
 import UserService from '../services/UserService';
 
-function FeedContainer() {
+function FeedContainer({auth}) {
 
   const [users, setUsers] = useState([]);
 
@@ -13,9 +13,14 @@ function FeedContainer() {
     })
   }, [])
   
-  const handleClick = ()=> {
-    console.log(users.data)
-  }
+  const handleClick = ()=> { 
+    for (const user of users) {
+      if(user.email == auth.currentUser.email) {
+        console.log("yes")
+      }
+      }  
+    }
+  
 
   return (
     <>
