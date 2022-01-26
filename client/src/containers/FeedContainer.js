@@ -9,10 +9,13 @@ function FeedContainer() {
 
   useEffect(() =>{
     UserService.getUsers().then(users =>{
-      setUsers(users);
+      setUsers(users.data);
     })
   }, [])
   
+  const handleClick = ()=> {
+    console.log(users.data)
+  }
 
   return (
     <>
@@ -20,6 +23,7 @@ function FeedContainer() {
         <h1>Welcome to ClanHub.</h1>
         <Link to="/profile">Click to view your profile.</Link>
       </div>
+      <button onClick={handleClick}>CLick me</button>
       <FeedList users={users}/>
     </>
   );
