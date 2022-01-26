@@ -6,6 +6,7 @@ import { auth } from "../../auth/firebase-config";
 function Menu({ menuOpen, setMenuOpen }) {
 
   const logout = async () => {
+    setMenuOpen(false)
     await signOut(auth).then(console.log(auth.currentUser));
   };
 
@@ -20,7 +21,7 @@ function Menu({ menuOpen, setMenuOpen }) {
         <li onClick={()=>setMenuOpen(false)}>
           <Link to="/feed">Feed</Link>
         </li>
-        <li onClick={()=>setMenuOpen(false).then({logout})}>
+        <li onClick={logout}>
           <Link to="/" >Sign Out</Link>
         </li>
 
