@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaRegUser } from "react-icons/fa";
 
 function Navbar({ menuOpen, setMenuOpen }) {
   return (
@@ -12,7 +13,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
         <div className="middle">
           <Link to="/profile" className='profile-button' onClick={()=>setMenuOpen(false)}>
-            <button>Profile</button>
+            <FaRegUser  className="icon" size="2em"/>
           </Link>
         </div>
 

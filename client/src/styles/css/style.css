@@ -90,19 +90,6 @@ h1 {
   text-decoration: none;
   color: inherit;
 }
-.navbar .wrapper .left .itemContainer {
-  display: flex;
-  align-items: center;
-  margin-left: 30px;
-}
-.navbar .wrapper .left .itemContainer .icon {
-  font-size: 18px;
-  margin-right: 5px;
-}
-.navbar .wrapper .left .itemContainer span {
-  font-size: 15px;
-  font-weight: 400;
-}
 .navbar .wrapper .middle {
   display: flex;
   align-items: center;
