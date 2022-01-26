@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("api")
 public class UserController {
@@ -29,4 +29,23 @@ public class UserController {
         Optional<User> foundUser = userRepository.findById(id);
         return new ResponseEntity(foundUser, HttpStatus.OK);
     }
+
+    @PostMapping("/users")
+    public ResponseEntity saveUser(@RequestBody User user) throws Exception{
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+//    @PutMapping("/tutorials/{id}")
+//    public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
+//        Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
+//         return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
+//    }
+
+
+//    @PutMapping("/users/{id}")
+//    public ResponseEntity<User> saveUser(@PathVariable("id") long id, @RequestBody User user){
+//        Optional<User> userData
+//
+//    }
 }

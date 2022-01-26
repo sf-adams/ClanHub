@@ -33,7 +33,7 @@ function App() {
         <Route path="/login" element={<LoginContainer />} />
         <Route path="/home" element={user?<HomeContainer/>: <Navigate to="/login" />} />
         <Route path="/feed" element={user?<FeedContainer/>: <Navigate to="/login" />} />
-        <Route path="/profile" element={<ProfileContainer />} />
+        <Route path="/profile" element={<ProfileContainer user={auth.currentUser}/>} />
       </Routes>
     </div>
   );
