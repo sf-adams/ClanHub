@@ -35,4 +35,17 @@ public class UserController {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+//    @PutMapping("/tutorials/{id}")
+//    public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
+//        Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
+//         return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
+//    }
+
+
+//    @PutMapping("/users/{id}")
+//    public ResponseEntity<User> saveUser(@PathVariable("id") long id, @RequestBody User user){
+//        Optional<User> userData
+//
+//    }
 }
