@@ -12,8 +12,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name= "category")
-    private String category;
+//    @Column(name= "category")
+//    private String category;
+
+    @Column(name="category")
+    CategoryType categoryType;
 
     @Column(name= "title")
     private String title;
@@ -26,8 +29,8 @@ public class Post {
     @JsonIgnoreProperties({"post"})
     private User user;
 
-    public Post(String category, String title, String description, User user) {
-        this.category = category;
+    public Post(CategoryType categoryType, String title, String description, User user) {
+        this.categoryType = categoryType;
         this.title = title;
         this.description = description;
         this.user = user;
