@@ -3,24 +3,17 @@ import { Link } from "react-router-dom";
 import FeedList from '../components/feed/FeedList';
 import UserService from '../services/UserService';
 
-function FeedContainer({auth}) {
-
+function FeedContainer({ auth, posts }) {
   const [users, setUsers] = useState([]);
 
-  useEffect(() =>{
-    UserService.getUsers().then(users =>{
-      setUsers(users.data);
-    })
-  }, [])
-  
-  const handleClick = ()=> { 
+
+  const handleClick = () => {
     for (const user of users) {
-      if(user.email == auth.currentUser.email) {
-        console.log("yes")
+      if (user.email == auth.currentUser.email) {
+        console.log("yes");
       }
-      }  
     }
-  
+  };
 
   return (
     <>
@@ -28,8 +21,8 @@ function FeedContainer({auth}) {
         <h1>Welcome to ClanHub.</h1>
         <Link to="/profile">Click to view your profile.</Link>
       </div>
-      <button onClick={handleClick}>CLick me</button>
-      <FeedList users={users}/>
+      {/* <button onClick={handleClick}>CLick me</button> */}
+      <FeedList posts={posts} />
     </>
   );
 }

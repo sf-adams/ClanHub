@@ -14,17 +14,23 @@ import {
 } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import UserService from './services/UserService';
+import PostService from './services/PostService';
 
 function App() {
 
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState({})
   const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(()=> {
     UserService.getUsers().then((users)=> setUsers(users.data))
     }, [])
+
+  useEffect(()=> {
+    PostService.getPosts().then((posts)=> setPosts(posts.data))
+  })
 
   useEffect(()=> {
     setLoggedIn(getLoggedIn)
@@ -40,7 +46,6 @@ function App() {
     }
   }
   
-
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
@@ -61,12 +66,16 @@ function App() {
           <Route
             path="/feed"
             element={
-              user ? <FeedContainer auth={auth} /> : <Navigate to="/login" />
+              user ? (
+                <FeedContainer auth={auth} posts={posts} />
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/profile"
-            element={<ProfileContainer user={auth.currentUser} />}
+            element={<ProfileContainer user={auth.currentUser} posts={posts}/>}
           />
         </Routes>
       </div>

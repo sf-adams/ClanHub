@@ -1,15 +1,19 @@
 import React from 'react';
 import FeedItem from './FeedItem';
 
-const FeedList =({users})=> {
-    const userNodes = users.map((user, index) =>{
-        return <FeedItem 
+const FeedList =({posts})=> {
+    const postNodes = posts.map((post, index) =>{
+        return <FeedItem
                 key={index}
-                user={user}
+                post={post}
                  />
     });
+    
+
     return (
-        <div>{userNodes}</div>
+        <>
+        <div>{postNodes}</div>
+        </>
     );
 }
 
