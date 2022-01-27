@@ -8,12 +8,15 @@ import LoginContainer from "./containers/LoginContainer";
 import HomeContainer from "./containers/HomeContainer";
 import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/navbar/Menu";
-import { auth } from "./auth/firebase-config";
-import {
-  onAuthStateChanged
-} from "firebase/auth";
-import { useAuthState } from 'react-firebase-hooks/auth';
 import UserService from './services/UserService';
+
+// Authentication Imports
+import { auth } from "./auth/firebase-config";
+import { AuthContextProvider } from "./auth/AuthContext";
+import { AuthenticatedRoute } from "./auth/AuthenticatedRoute";
+import { UnauthenticatedRoute } from "./auth/UnauthenticatedRoute";
+import { onAuthStateChanged } from "firebase/auth";
+
 
 function App() {
 
@@ -39,7 +42,7 @@ function App() {
       return sel[0];
     }
   }
-  
+
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -48,17 +51,26 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <AuthContextProvider>
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/login" element={<LoginContainer />} />
-          <Route
+          {/* <UnauthenticatedRoute exact path="/signup" component={} /> */}
+          <UnauthenticatedRoute exact path="/login" component={<LoginContainer />} />
+          <AuthenticatedRoute exact path="/home" component={<HomeContainer />} />
+          <AuthenticatedRoute exact path="/feed" component={<FeedContainer />} />
+          <AuthenticatedRoute exact path="/profile" component={<ProfileContainer />} />
+
+
+
+
+          {/* <Route path="/" element={<Navigate to="/login" />} /> */}
+          {/* <Route path="/login" element={<LoginContainer />} /> */}
+          {/* <Route
             path="/home"
             element={user ? <HomeContainer /> : <Navigate to="/login" />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="/feed"
             element={
               user ? <FeedContainer auth={auth} /> : <Navigate to="/login" />
@@ -67,9 +79,9 @@ function App() {
           <Route
             path="/profile"
             element={<ProfileContainer user={auth.currentUser} />}
-          />
+          /> */}
         </Routes>
-      </div>
+      </AuthContextProvider>
       <button onClick={getLoggedIn}>click me</button>
     </>
   );

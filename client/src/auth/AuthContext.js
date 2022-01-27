@@ -1,22 +1,20 @@
-import React, {useContext} from 'react';
-// test for merging
+import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { useState, useEffect, useContext, createContext } from 'react';
 
-const AuthContext = React.createContext()
+export const AuthContext = createContext()
 
-// This is a custom hook for exporting the auth context to the rest of the application
-export function useAuth(){
-    return useContext(AuthContext)
+export const AuthContextProvider = props => {
+  const [user, setUser] = useState()
+  const [error, setError] = useState()
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(getAuth(), setUser, setError)
+    return () => unsubscribe()
+  }, [])
+  return <AuthContext.Provider value={{ user, error }} {...props} />
 }
 
-export function AuthProvider() {
-    const [currentUser, setCurrentUser] =
-
-    const value = {
-        currentUser
-    }
-  return(
-    <AuthContext.Provider value>
-        {children}
-    </AuthContext.Provider>
-  )
-};
+export const useAuthState = () => {
+  const auth = useContext(AuthContext)
+  return { ...auth, isAuthenticated: auth.user != null }
+}
