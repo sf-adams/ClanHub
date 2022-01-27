@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
-// import {
-//   onAuthStateChanged
-// } from "firebase/auth";
 import Signup from "../components/login/Signup";
 import Login from "../components/login/LoginComponent";
 
 function App() {
 
   const [user, setUser] = useState({});
-  let navigate = useNavigate();
+  const [error, setError] = useState("");
 
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
+  let navigate = useNavigate();
 
   return (
     <div className="login-page">

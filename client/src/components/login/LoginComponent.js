@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import { auth } from "../../auth/firebase-config";
+import { auth } from "../../auth/firebase-config";
 
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
@@ -16,8 +16,7 @@ export default function LoginComponent({navigate, auth}) {
         email,
         password
       );
-      console.log(user);
-      navigate("/feed");
+      navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
