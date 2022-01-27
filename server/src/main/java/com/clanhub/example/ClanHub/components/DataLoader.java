@@ -27,8 +27,6 @@ public class DataLoader implements ApplicationRunner {
         User user1 = new User("Tony", "Jones", "a person","t@j.com", "TJ", "TJZ");
         userRepository.save(user1);
 
-
-
         User user2 = new User("Barbara", "Evans", "a person","b@e.com", "BE", "BEQ");
         userRepository.save(user2);
 
@@ -50,6 +48,12 @@ public class DataLoader implements ApplicationRunner {
         postRepository.save(post3);
         postRepository.save(post4);
         postRepository.save(post5);
+
+        user1.addPost(post1);
+        user1.addPost(post2);
+        user1.addPost(post3);
+        user2.addPost(post4);
+        user3.addPost(post5);
     }
 
 }

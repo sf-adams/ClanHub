@@ -21,7 +21,12 @@ public class PostController {
     PostRepository postRepository;
 
     @GetMapping("/posts")
-    public ResponseEntity<List<Post>> getAllPosts(){
+    public ResponseEntity<List<Post>> getAllPosts(
+            @RequestParam(name="email", required = false) String email
+    ){
+        if(email != null) {
+            return new ResponseEntity<>(postRepository.findAllByUserEmail(email), HttpStatus.OK);
+        }
         List<Post> foundPosts = postRepository.findAll();
         return new ResponseEntity<>(foundPosts, HttpStatus.OK);
     }

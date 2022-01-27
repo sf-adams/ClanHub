@@ -26,7 +26,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user")
-    @JsonIgnoreProperties({"post"})
+//    @JsonIgnoreProperties({"posts"})
     private User user;
 
     public Post(CategoryType categoryType, String title, String description, User user) {
