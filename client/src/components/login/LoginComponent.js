@@ -37,7 +37,7 @@ export default function LoginComponent({navigate, auth}) {
 
 
   return (
-    <>
+    <form>
       <div className="login-container">
 
         <h3> Login </h3>
@@ -74,6 +74,6 @@ export default function LoginComponent({navigate, auth}) {
       </div>
 
       {/* <button onClick={logout}> Sign Out </button> */}
-    </>
+    </form>
   );
 }

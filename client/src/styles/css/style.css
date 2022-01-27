@@ -62,14 +62,27 @@ h1 {
   display: flex;
 }
 
-.login-container {
+form {
   display: block;
+  position: relative;
 }
-.login-container .inner-container input {
+form .login-container .inner-container input {
   appearance: none;
   background: none;
   border: none;
   outline: none;
+}
+
+form:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: 1;
+  background-image: linear-gradient(to bottom right, #FFCE00, #FE4880);
 }
 
 .login-page {
