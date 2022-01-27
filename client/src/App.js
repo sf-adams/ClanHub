@@ -68,7 +68,7 @@ function App() {
             </PrivateRoute>
             }
             />
-          <Route path="/" element={<LoginContainer />} />
+          <Route path="/login" element={<LoginContainer />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
         {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
