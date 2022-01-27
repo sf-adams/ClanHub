@@ -84,7 +84,29 @@ function App() {
 
   return (
     <>
-      Hello world
+      <Router>
+        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<LoginContainer />} />
+          <Route
+            path="/home"
+            element={user ? <HomeContainer /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/feed"
+            element={
+              user ? <FeedContainer auth={auth} /> : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/profile"
+            element={<ProfileContainer user={auth.currentUser} />}
+          />
+        </Routes>
+      </Router>
+      {/* <button onClick={getLoggedIn}>click me</button> */}
     </>
 
 
