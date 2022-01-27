@@ -105,11 +105,19 @@ form .login-container .inner-container input {
 form .login-container .inner-container input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
-form .login-container .inner-container input[type=submit] {
+form .login-container button {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 8px;
-  background-image: linear-gradient(to right);
+  background-image: linear-gradient(to right, #4da2cd 50%, #4da2cd 50%, #1b3445 50%);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: white;
+  cursor: pointer;
+}
+form .login-container button:hover {
+  background-position: 100%;
 }
 
 .login-page {
