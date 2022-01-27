@@ -6,7 +6,6 @@ export const AuthContext = createContext();
 
 // Pass in the state
 export const AuthContextProvider = props => {
-  // Passin g
   const [user, setUser] = useState();
   const [error, setError] = useState();
 

@@ -85,8 +85,8 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginContainer />} />

@@ -17,10 +17,10 @@ function App() {
   // });
 
   return (
-    <>
-      <Signup navigate={navigate} user={user} setUser={setUser} auth={auth} />
+    <div className="login-page">
+      {/* <Signup navigate={navigate} user={user} setUser={setUser} auth={auth} /> */}
       <Login navigate={navigate} user={user} setUser={setUser} auth={auth} />
-    </>
+    </div>
   );
 }
 export default App;

@@ -62,6 +62,24 @@ h1 {
   display: flex;
 }
 
+.login-container {
+  display: block;
+}
+.login-container .inner-container input {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b3445;
+}
+
 .menu {
   width: 300px;
   height: 100vh;

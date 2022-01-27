@@ -1,0 +1,18 @@
+@use '../base/root' as *;
+
+.login-container {
+  display: block;
+
+
+
+
+  .inner-container {
+
+    input {
+      appearance: none;
+      background: none;
+      border: none;
+      outline: none;
+    }
+  }
+}

@@ -38,35 +38,42 @@ export default function LoginComponent({navigate, auth}) {
 
   return (
     <>
-      <div>
+      <div className="login-container">
+
         <h3> Login </h3>
-        <label htmlFor="login-Email"> Email:</label>
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          value={email}
-          required
-          autoComplete="off"
-          placeholder="Email"
-          onChange={handleEmailChange}
-        />
-        <label htmlFor="login-Password"> Password:</label>
-        <input
-          type="password"
-          id="login-password"
-          name="email"
-          value={password}
-          required
-          autoComplete="off"
-          placeholder="Password"
-          onChange={handlePasswordChange}
-        />
+
+        <div className="inner-container">
+          <label htmlFor="login-Email"> Email:</label>
+          <input
+            type="email"
+            id="login-email"
+            name="email"
+            value={email}
+            required
+            autoComplete="off"
+            placeholder="Email"
+            onChange={handleEmailChange}
+          />
+        </div>
+
+        <div className="inner-container">
+          <label htmlFor="login-Password"> Password:</label>
+          <input
+            type="password"
+            id="login-password"
+            name="email"
+            value={password}
+            required
+            autoComplete="off"
+            placeholder="Password"
+            onChange={handlePasswordChange}
+          />
+        </div>
 
         <button onClick={login}> Login</button>
       </div>
 
-      <button onClick={logout}> Sign Out </button>
+      {/* <button onClick={logout}> Sign Out </button> */}
     </>
   );
 }
