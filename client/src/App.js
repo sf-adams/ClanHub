@@ -5,7 +5,8 @@ import {
   Route,
   Routes,
   Link,
-  Navigate
+  Navigate,
+  Outlet
 } from 'react-router-dom';
 import UserService from './services/UserService';
 
@@ -17,12 +18,12 @@ import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Signup from "./components/login/Signup";
 import HomeContainer from "./containers/HomeContainer";
+import PrivateRoute from "./auth/PrivateRoute";
 
 // Authentication Imports
 import { auth } from "./auth/firebase-config";
 import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
-import { AuthenticatedRoute } from "./auth/AuthenticatedRoute";
-import { UnauthenticatedRoute } from "./auth/UnauthenticatedRoute";
+import { AuthenticatedRoute } from "./auth/PrivateRoute";
 import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
@@ -54,50 +55,27 @@ function App() {
   //   setUser(currentUser);
   // });
 
-  const AuthenticatedRoute = ({ component: C, ...props }) => {
-    const { isAuthenticated } = useAuthState()
-    console.log(`AuthenticatedRoute: ${isAuthenticated}`)
-    return (
-      <Route
-        {...props}
-        render={routeProps =>
-          isAuthenticated ? <C {...routeProps} /> : <Navigate to="/login" />
-        }
-      />
-    )
-  }
-
-  const UnauthenticatedRoute = ({ component: C, ...props }) => {
-    const { isAuthenticated } = useAuthState()
-    console.log(`UnauthenticatedRoute: ${isAuthenticated}`)
-    return (
-      <Route
-        {...props}
-        render={routeProps =>
-          !isAuthenticated ? <C {...routeProps} /> : <Navigate to="/" />
-        }
-      />
-    )
-  }
-
 
   return (
     <AuthContextProvider>
       <Router>
-        <Route
-          path="/login"
-          element={
-          <UnauthenticatedRoute>
-            <LoginContainer />
-          </UnauthenticatedRoute>
-          }
-        />
+        <Routes>
+          <Route
+            path="/home"
+            element={
+            <PrivateRoute>
+              <HomeContainer />
+            </PrivateRoute>
+            }
+            />
+          <Route path="/" element={<LoginContainer />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
         {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
 
 
       </Router>
-      {/* <button onClick={getLoggedIn}>click me</button> */}
     </AuthContextProvider>
 
 

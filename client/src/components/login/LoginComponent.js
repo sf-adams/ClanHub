@@ -16,7 +16,7 @@ export default function LoginComponent({navigate, auth}) {
         email,
         password
       );
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
