@@ -2,10 +2,7 @@ import "./styles/css/style.css";
 import { useState, useEffect } from "react";
 import {
   Route,
-  Routes,
-  Link,
-  Navigate,
-  Outlet
+  Routes
 } from 'react-router-dom';
 import UserService from './services/UserService';
 
@@ -23,7 +20,7 @@ import LayoutContainer from "./containers/LayoutContainer";
 
 // Authentication Imports
 import { auth } from "./auth/firebase-config";
-import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
+import { AuthContextProvider } from "./auth/AuthContext";
 // import { onAuthStateChanged } from "firebase/auth";
 import NewProfileContainer from "./containers/NewProfileContainer";
 import { onAuthStateChanged } from "firebase/auth";
@@ -59,7 +56,6 @@ function App() {
     }
   }
 
-
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
       setUsers([...users, savedUser])
@@ -69,7 +65,6 @@ function App() {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
-
 
   return (
     <AuthContextProvider>
