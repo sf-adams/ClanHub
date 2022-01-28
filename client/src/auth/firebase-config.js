@@ -18,6 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 // The auth variable creates an authentication instance of app
 export const auth = getAuth(app);
+export default app;
 
 export const AuthContext = createContext()
 

@@ -69,6 +69,7 @@ function App() {
             }
             />
           <Route path="/login" element={<LoginContainer />} />
+          <Route path="/" element={<LoginContainer />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
         {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
