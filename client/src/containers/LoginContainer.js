@@ -39,7 +39,9 @@ function LoginContainer() {
       />
 
       <div className="return-link-container">
-        Already have an account? <Link to="/login">Log In</Link>
+        <p>No account? Request one
+          <a href="mailto:info@codeclan.com">here</a>
+        </p>
       </div>
     </div>
   );
