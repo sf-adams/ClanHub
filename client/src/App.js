@@ -26,11 +26,8 @@ import { auth } from "./auth/firebase-config";
 import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
 // import { onAuthStateChanged } from "firebase/auth";
 import NewProfileContainer from "./containers/NewProfileContainer";
-import Navbar from "./components/navbar/Navbar";
-import Menu from "./components/navbar/Menu";
 import { onAuthStateChanged } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
-import UserService from "./services/UserService";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import PostService from "./services/PostService";
 
 function App() {
@@ -50,7 +47,7 @@ function App() {
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);
-  }, []);
+  }, [user]);
 
   const getLoggedIn = () => {
     if (users && user) {
@@ -61,19 +58,19 @@ function App() {
       return sel[0];
     }
   }
-  
-  
+
+
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
       setUsers([...users, savedUser])
     );
   };
 
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
-  
+
   return (
     <AuthContextProvider>
       <Routes>
@@ -101,7 +98,7 @@ function App() {
         <Route element={<LayoutContainer/>}>
           <Route path="/profile" element={
             <PrivateRoute>
-              <ProfileContainer 
+              <ProfileContainer
                  loggedIn={loggedIn} user={user} posts={posts}
               />
             </PrivateRoute>
@@ -111,7 +108,7 @@ function App() {
          <Route element={<LayoutContainer/>}>
           <Route path="/new-profile" element={
             <PrivateRoute>
-              <NewProfileContainer 
+              <NewProfileContainer
                  user={user} users={users} createUser={createUser}
                />
             </PrivateRoute>
@@ -121,8 +118,7 @@ function App() {
       </Routes>
     </AuthContextProvider>
 
-  };
   );
-}
+  };
 
 export default App;

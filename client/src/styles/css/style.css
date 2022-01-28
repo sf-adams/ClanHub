@@ -3,6 +3,10 @@ h3 {
   font-size: 2rem;
 }
 
+body {
+  color: #3b2c2c;
+}
+
 * {
   margin: 0%;
   box-sizing: border-box;
@@ -63,6 +67,15 @@ h1 {
   display: flex;
 }
 
+.profile-section-logged-in-posts {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.new-user-information-container {
+  position: absolute;
+  margin-top: 30%;
+}
 
 .form-background {
   height: 100vh;
@@ -124,18 +137,6 @@ h1 {
 }
 .form-component button:hover {
   background-position: 100%;
-
-  
-.profile-section-logged-in-posts {
-  cursor: pointer;
-  color: #001d7c;
-  width: fit-content;
-}
-
-.new-user-information-container {
-  position: absolute;
-  margin-top: 30%;
-
 }
 
 .menu {
