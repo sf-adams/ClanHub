@@ -4,7 +4,7 @@ import { auth } from "../auth/firebase-config";
 import LoginForm from "../components/forms/LoginForm";
 import { useAuthState } from "../auth/AuthContext";
 
-function LoginContainer({ user, loggedIn }) {
+function LoginContainer({ user, loggedIn, getUserObject }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -16,13 +16,8 @@ function LoginContainer({ user, loggedIn }) {
     setError("");
     try {
       await logIn(email, password).then(() => {
-        if (loggedIn) {
-          navigate("/home");
-        } else{
-          navigate("/new-profile");
-        }
+             navigate("/home");
       });
-      
     } catch (err) {
       setError(err.message);
     }

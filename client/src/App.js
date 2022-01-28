@@ -55,7 +55,7 @@ function App() {
 
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
-      setUsers([...users, savedUser])
+      setUsers([...users, savedUser].then(setLoggedIn(newUser)))
     );
   };
 
@@ -73,7 +73,13 @@ function App() {
         <Routes>
           <Route
             path="/login"
-            element={<LoginContainer user={user} loggedIn={loggedIn} />}
+            element={
+              <LoginContainer
+                user={user}
+                loggedIn={loggedIn}
+                getUserObject={onAuthStateChanged}
+              />
+            }
           />
           <Route
             path="/"
@@ -81,7 +87,7 @@ function App() {
           />
           <Route path="/signup" element={<SignUpContainer />} />
 
-          <Route element={<LayoutContainer />}>
+          <Route element={<LayoutContainer loggedIn={loggedIn} />}>
             <Route
               path="/home"
               element={
