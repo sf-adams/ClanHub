@@ -6,6 +6,7 @@ import FeedContainer from "./containers/FeedContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 import HomeContainer from "./containers/HomeContainer";
+import NewProfileContainer from "./containers/NewProfileContainer";
 import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/navbar/Menu";
 import { auth } from "./auth/firebase-config";
@@ -57,6 +58,7 @@ function App() {
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Routes>
+          <Route path ='/new-profile' element = {<NewProfileContainer/>}/>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginContainer />} />
           <Route

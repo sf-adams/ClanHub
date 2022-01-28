@@ -18,7 +18,7 @@ function FeedContainer({ auth, posts }) {
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
-    console.log("Hello")
+    console.log("Hello");
     setModal(true);
   };
 
@@ -26,11 +26,6 @@ function FeedContainer({ auth, posts }) {
     console.log("hello");
     setModal(false);
   };
-
-  // const hello = (e) => {
-  //   e.stopPropagation();
-  //   console.log("hello")
-  // };
 
   return (
     <div className="feed-container" onClick={handleReset}>
