@@ -1,5 +1,6 @@
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import { useState, useEffect, useContext, createContext } from 'react';
+import { auth } from './firebase-config';
 
 // Holding the state of the user that is currently signed in
 export const AuthContext = createContext();
@@ -11,9 +12,15 @@ export const AuthContextProvider = props => {
 
   // When a component is unmounted, we will want to make sure that we unsubscribe
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(getAuth(), setUser, setError);
-    return () => unsubscribe();
-  }, [])
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth", currentUser);
+      setUser(currentUser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   // Passing in the state as a value
   return <AuthContext.Provider value={{ user, error }} {...props} />;
