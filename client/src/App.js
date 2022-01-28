@@ -1,13 +1,7 @@
 import "./styles/css/style.css";
 import { useState, useEffect } from "react";
-import {
-  Route,
-  Routes,
-  Link,
-  Navigate,
-  Outlet
-} from 'react-router-dom';
-import UserService from './services/UserService';
+import { Route, Routes, Link, Navigate, Outlet } from "react-router-dom";
+import UserService from "./services/UserService";
 
 // Container & Component Imports
 import Navbar from "./components/navbar/Navbar";
@@ -37,28 +31,27 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   // H2 Connections
-  useEffect(()=> {
-    UserService.getUsers().then((users)=> setUsers(users.data))
-    }, [])
+  useEffect(() => {
+    UserService.getUsers().then((users) => setUsers(users.data));
+  }, []);
 
   useEffect(() => {
     PostService.getPosts().then((posts) => setPosts(posts.data));
   });
 
-  useEffect(() => {
-    setLoggedIn(getLoggedIn);
-  }, [user]);
+    useEffect(() => {
+      setLoggedIn(getLoggedIn);
+    }, [user]);
 
   const getLoggedIn = () => {
     if (users && user) {
-      const sel = users.filter((user) => {
-        console.log(user.email);
+       const sel = users.filter((user) => {
+        // console.log(user.email);
         return user.email === auth.currentUser.email;
       });
       return sel[0];
     }
-  }
-
+  };
 
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
@@ -70,17 +63,22 @@ function App() {
     setUser(currentUser);
   });
 
-  const getUserLoggedIn = ()=> {
-    console.log(loggedIn)
-  }
-
+  const getUserLoggedIn = () => {
+    // console.log(loggedIn);
+  };
 
   return (
     <>
       <AuthContextProvider>
         <Routes>
-          <Route path="/login" element={<LoginContainer />} />
-          <Route path="/" element={<LoginContainer />} />
+          <Route
+            path="/login"
+            element={<LoginContainer user={user} loggedIn={loggedIn} />}
+          />
+          <Route
+            path="/"
+            element={<LoginContainer user={user} loggedIn={loggedIn} />}
+          />
           <Route path="/signup" element={<SignUpContainer />} />
 
           <Route element={<LayoutContainer />}>
@@ -139,6 +137,6 @@ function App() {
       <button onClick={getUserLoggedIn}>Hello</button>
     </>
   );
-  };
+}
 
 export default App;

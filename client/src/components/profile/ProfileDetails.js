@@ -15,6 +15,8 @@ const ProfileDetails = ({user, loggedIn}) => {
             {loggedIn?.firstName} {loggedIn?.lastName}
           </h4>
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
+          <span className="profileInfoLinkedin">Linkedin: {loggedIn?.linkedin}</span>
+          <span className="profileInfoGithub">Github: {loggedIn?.github}</span>
         </div>
       </div>
     </div>

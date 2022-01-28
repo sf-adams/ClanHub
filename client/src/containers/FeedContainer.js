@@ -18,12 +18,12 @@ function FeedContainer({ auth, posts }) {
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
-    console.log("Hello");
+    // console.log("Hello");
     setModal(true);
   };
 
   const handleReset = () => {
-    console.log("hello");
+    // console.log("hello");
     setModal(false);
   };
 

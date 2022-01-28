@@ -52,7 +52,7 @@ useEffect(() => {
   };
 
   const checkEmail = ()=> {
-      console.log(user.email)
+      // console.log(user.email)
   }
 
   return (

@@ -4,8 +4,7 @@ import { auth } from "../auth/firebase-config";
 import LoginForm from "../components/forms/LoginForm";
 import { useAuthState } from "../auth/AuthContext";
 
-function LoginContainer() {
-
+function LoginContainer({ user, loggedIn }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +15,15 @@ function LoginContainer() {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password);
-      navigate("/home");
+      await logIn(email, password).then(() => {
+        if (loggedIn) {
+          navigate("/home");
+        } else{
+          navigate("/new-profile");
+        }
+      });
+      
+        
     } catch (err) {
       setError(err.message);
     }
@@ -37,8 +43,11 @@ function LoginContainer() {
           auth={auth}
         />
         <div className="return-link-container">
-          <p>No account? Request one
-            <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">here</a>
+          <p>
+            No account? Request one
+            <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">
+              here
+            </a>
           </p>
         </div>
       </div>
