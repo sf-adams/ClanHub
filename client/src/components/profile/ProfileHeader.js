@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({user}) => {
   return (
-  <h1>This is the profile page.</h1>
+  <h1>Profile section</h1>
   );
 };
 

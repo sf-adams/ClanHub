@@ -62,6 +62,11 @@ h1 {
   display: flex;
 }
 
+.profile-section-logged-in-posts {
+  cursor: pointer;
+  color: #001d7c;
+}
+
 .menu {
   width: 300px;
   height: 100vh;

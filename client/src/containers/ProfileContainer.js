@@ -7,7 +7,7 @@ import ProfileHistoryList from "../components/profile/ProfileHistoryList";
 function ProfileContainer({ user, posts }) {
   return (
     <div className="profile-container">
-      <ProfileHeader />
+      <ProfileHeader user={user}/>
       <ProfileDetails user={user} />
       <ProfileHistoryList user={user} posts={posts} />
       <Link to="/feed">Click to view your feed.</Link>

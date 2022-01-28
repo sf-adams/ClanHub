@@ -1,28 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import ProfileHistoryListItem from './ProfileHistoryListItem';
 
 const ProfileHistoryList =({user, posts}) => {
 
-  // if (user!=undefined) {
-  //   const getPostNodes = () => {
-  //     const postNodes = user.posts.map((post, index) => {
-  //       return <ProfileHistoryListItem key={index} post={post} />;
-  //     });
-  //     return postNodes;
-  //   };
-  // }
-
-  
-  // console.log(user.email)
-
-  // const filtered = posts.filter((post) => {
-    // console.log(user)
-  // })
-
-  // const postNodes= filtered.map((post, index) => {
-  //    return <ProfileHistoryListItem key={index} post={post}/>
-  //   })
-
+  const [toggleVisiblePosts, setToggleVisiblePosts] = useState(false);
 
   const filtered = posts.filter((post)=> {
     return post.user.email == user.email;
@@ -33,22 +14,22 @@ const ProfileHistoryList =({user, posts}) => {
         return <ProfileHistoryListItem key={index} post={post} />;
     })
   
-
-  
-  
-
   const handleClick = () => {
-    // console.log(postNodes);
-    // console.log(user.email)
-    // console.log(posts)
-    console.log(posts)
+    if (toggleVisiblePosts == false) {
+      setToggleVisiblePosts(true)
+    } else {
+      setToggleVisiblePosts(false)
+    };
   };
 
   return (
     <>
-      <h3>Hello world</h3>
-      <button onClick={handleClick}>click me </button>
-      <div>{postNodes}</div>
+    <h4 className="profile-section-logged-in-posts"
+        onClick={handleClick}>
+      View recent user activity
+    </h4>
+    
+      <div style={{display: toggleVisiblePosts ? 'block' : 'none'}}>{postNodes}</div>
     </>
   );
 }
