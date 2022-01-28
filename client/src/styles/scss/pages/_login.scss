@@ -1,10 +1,21 @@
 @use '../base' as *;
 
-form {
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-primary;
+}
+
+
+
+.form-page {
   display: block;
   position: relative;
 
-  .login-container {
+  .form-container {
     position: relative;
     display: block;
     background-color: #fff;
