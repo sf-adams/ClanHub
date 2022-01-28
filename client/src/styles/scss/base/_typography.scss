@@ -1,3 +1,10 @@
+$text-primary: rgb(27, 52, 69);
+$text-secondary: rgb(255, 255, 255);
+
+h3 {
+  color: $text-primary;
+  font-size: 2rem;
+}
 
 body {
     color: rgb(59, 44, 44);
@@ -5,5 +12,6 @@ body {
 
 //  Base colour styles 
 
-$text-primary: black;
-$text-secondary: rgb(0, 29, 124);
+// $text-primary: black;
+// $text-secondary: rgb(0, 29, 124);
+

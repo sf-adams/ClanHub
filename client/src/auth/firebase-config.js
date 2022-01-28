@@ -1,11 +1,9 @@
-// import { initializeApp } from "firebase/app";
-// import firebase from 'firebase/app';
-import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
-// import { getFirestore } from '@firebase/firestore';
+import {initializeApp} from "firebase/app";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useState, useEffect, useContext, createContext } from 'react'
 
-
-const firebaseConfig = {
+// Firebase details being read from .env file
+const firebaseConfig =  {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_PROJECT_ID,
@@ -15,9 +13,9 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-export const app = initializeApp(firebaseConfig);
+// This variable initialises the connection between FBase and Project
+const app = initializeApp(firebaseConfig);
 
-// export const db = getFirestore(app);
+// The auth variable creates an authentication instance of app
 export const auth = getAuth(app);
-
-// export default app;
+export default app;
