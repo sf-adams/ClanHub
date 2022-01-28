@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
 import Signup from "../components/login/Signup";
-import Login from "../components/login/LoginComponent";
+import Login from "../components/login/Login";
 
-function App() {
+function LoginContainer() {
 
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -18,4 +18,4 @@ function App() {
     </div>
   );
 }
-export default App;
+export default LoginContainer;

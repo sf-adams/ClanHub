@@ -17,6 +17,7 @@ import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Signup from "./components/login/Signup";
 import HomeContainer from "./containers/HomeContainer";
+import SignUpContainer from "./containers/SignUpContainer";
 import PrivateRoute from "./auth/PrivateRoute";
 
 // Authentication Imports
@@ -68,21 +69,12 @@ function App() {
             />
           <Route path="/login" element={<LoginContainer />} />
           <Route path="/" element={<LoginContainer />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignUpContainer />} />
         </Routes>
         {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
 
     </AuthContextProvider>
-
-
-
-
-
-
-
-
-
 
   );
 }
