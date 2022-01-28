@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAuth, signOut } from 'firebase/auth';
-import { useAuthState } from '../auth/firebase-config.js';
+import { useAuthState } from '../auth/AuthContext';
 
 function HomeContainer() {
   const { user } = useAuthState()

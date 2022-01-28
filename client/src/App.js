@@ -32,61 +32,63 @@ function App() {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState({})
   const [users, setUsers] = useState([]);
-  const [menuOpen, setMenuOpen] = useState(false);
 
-//   // useEffect(()=> {
-//   //   UserService.getUsers().then((users)=> setUsers(users.data))
-//   //   }, [])
+  useEffect(()=> {
+    UserService.getUsers().then((users)=> setUsers(users.data))
+    }, [])
 
-//   // useEffect(()=> {
-//   //   setLoggedIn(getLoggedIn)
-//   // }, [user])
+  useEffect(()=> {
+    setLoggedIn(getLoggedIn)
+  }, [user])
 
-//   // const getLoggedIn = ()=> {
-//   //   if (users && user){
-//   //     const sel = users.filter((user) => {
-//   //       console.log(user.email);
-//   //       return user.email === auth.currentUser.email;
-//   //     });
-//   //     return sel[0];
-//   //   }
-//   // }
+  const getLoggedIn = ()=> {
+    if (users && user){
+      const sel = users.filter((user) => {
+        console.log(user.email);
+        return user.email === auth.currentUser.email;
+      });
+      return sel[0];
+    }
+  }
 
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
 
   return (
     <AuthContextProvider>
-
       <Routes>
 
         <Route path="/login" element={<LoginContainer />} />
         <Route path="/" element={<LoginContainer />} />
         <Route path="/signup" element={<SignUpContainer />} />
 
-        <LayoutContainer>
-          <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Route element={<LayoutContainer/>}>
           <Route path="/home" element={
             <PrivateRoute>
               <HomeContainer />
             </PrivateRoute>
-            }/>
+            } />
+        </Route>
 
-          <Route
-            path="/home"
-            element={
+        <Route element={<LayoutContainer/>}>
+          <Route path="/feed" element={
+            <PrivateRoute>
+              <FeedContainer />
+            </PrivateRoute>
+            } />
+        </Route>
+
+        <Route element={<LayoutContainer/>}>
+          <Route path="/profile" element={
             <PrivateRoute>
               <ProfileContainer />
             </PrivateRoute>
-            }
-            />
-          </LayoutContainer>
-        </Routes>
+            } />
+        </Route>
 
-
+      </Routes>
     </AuthContextProvider>
 
   );
