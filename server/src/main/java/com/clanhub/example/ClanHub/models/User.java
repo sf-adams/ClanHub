@@ -47,6 +47,15 @@ public class User {
     }
 
     public User() {
+//        this.posts = new ArrayList<>();
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public Long getId() {
@@ -103,5 +112,9 @@ public class User {
 
     public void setGithub(String github) {
         this.github = github;
+    }
+
+    public void addPost(Post post){
+        this.posts.add(post);
     }
 }

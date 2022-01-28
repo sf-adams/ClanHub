@@ -1,7 +1,19 @@
+
 import React, {useRef} from 'react';
 import { Link } from "react-router-dom";
-import blankProfile from "../assets/new_profile_photo.svg";
+import ProfileHeader from "../components/profile/ProfileHeader";
+import ProfileDetails from "../components/profile/ProfileDetails";
+import ProfileHistoryList from "../components/profile/ProfileHistoryList";
 
+
+function ProfileContainer({ user, posts }) {
+  return (
+    <div className="profile-container">
+      <ProfileHeader user={user}/>
+      <ProfileDetails user={user} />
+      <ProfileHistoryList user={user} posts={posts} />
+
+        
 function ProfileContainer({user, loggedIn,}) {
   // const [loginRef, setLoginRef] = useRef(loggedIn);
 
