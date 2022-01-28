@@ -68,6 +68,11 @@ h1 {
   width: fit-content;
 }
 
+.new-user-information-container {
+  position: absolute;
+  margin-top: 30%;
+}
+
 .menu {
   width: 300px;
   height: 100vh;
