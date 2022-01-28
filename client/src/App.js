@@ -6,50 +6,55 @@ import FeedContainer from "./containers/FeedContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 import HomeContainer from "./containers/HomeContainer";
+import NewProfileContainer from "./containers/NewProfileContainer";
 import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/navbar/Menu";
 import { auth } from "./auth/firebase-config";
-import {
-  onAuthStateChanged
-} from "firebase/auth";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import UserService from './services/UserService';
-import PostService from './services/PostService';
+import { onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import UserService from "./services/UserService";
+import PostService from "./services/PostService";
 
 function App() {
-
   const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState({})
+  const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(()=> {
-    UserService.getUsers().then((users)=> setUsers(users.data))
-    }, [])
+  useEffect(() => {
+    UserService.getUsers().then((users) => setUsers(users.data));
+  }, []);
 
-  useEffect(()=> {
-    PostService.getPosts().then((posts)=> setPosts(posts.data))
-  })
+  useEffect(() => {
+    PostService.getPosts().then((posts) => setPosts(posts.data));
+  });
 
-  useEffect(()=> {
-    setLoggedIn(getLoggedIn)
-  }, [user])
+  useEffect(() => {
+    setLoggedIn(getLoggedIn);
+  }, []);
 
-  const getLoggedIn = ()=> {
-    if (users && user){
+  const getLoggedIn = () => {
+    if (users && user) {
       const sel = users.filter((user) => {
         console.log(user.email);
         return user.email === auth.currentUser.email;
       });
       return sel[0];
     }
-  }
-  
+  };
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
 
+  // Function for creating new user
+
+  const createUser = (newUser) => {
+    UserService.newUser(newUser).then((savedUser) =>
+      setUsers([...users, savedUser])
+    );
+  };
 
   return (
     <>
@@ -57,6 +62,12 @@ function App() {
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Routes>
+          <Route
+            path="/new-profile"
+            element={
+              <NewProfileContainer user={user} users={users} createUser={createUser} />
+            }
+          />
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginContainer />} />
           <Route
@@ -75,7 +86,9 @@ function App() {
           />
           <Route
             path="/profile"
-            element={<ProfileContainer user={user} posts={posts}/>}
+            element={
+              <ProfileContainer loggedIn={loggedIn} user={user} posts={posts} />
+            }
           />
         </Routes>
       </div>
