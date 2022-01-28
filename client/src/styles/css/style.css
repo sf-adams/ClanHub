@@ -63,6 +63,7 @@ h1 {
   display: flex;
 }
 
+
 .form-background {
   height: 100vh;
   display: flex;
@@ -123,6 +124,18 @@ h1 {
 }
 .form-component button:hover {
   background-position: 100%;
+
+  
+.profile-section-logged-in-posts {
+  cursor: pointer;
+  color: #001d7c;
+  width: fit-content;
+}
+
+.new-user-information-container {
+  position: absolute;
+  margin-top: 30%;
+
 }
 
 .menu {
@@ -252,11 +265,7 @@ h1 {
 }
 
 .feed-container-header {
-  margin-top: 20%;
-}
-
-.profile-container {
-  margin-top: 20%;
+  padding-top: 20%;
 }
 
 /*# sourceMappingURL=style.css.map */

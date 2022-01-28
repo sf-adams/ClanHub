@@ -1,4 +1,4 @@
-@use '../base/root' as *;
+@use '../base' as *;
 
 .profile{
   display: flex;
@@ -50,4 +50,18 @@
 
 .profileRightBottom{
   display: flex;
+}
+
+// Toggle on user posts details displaying
+.profile-section-logged-in-posts {
+  cursor: pointer;
+  color: $text-secondary;
+  width: fit-content;
+}
+
+// New profile section
+
+.new-user-information-container {
+  position: absolute;
+  margin-top: 30%;
 }

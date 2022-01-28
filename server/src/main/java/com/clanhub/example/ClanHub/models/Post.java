@@ -12,8 +12,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name= "category")
-    private String category;
+//    @Column(name= "category")
+//    private String category;
+
+    @Column(name="category")
+    CategoryType categoryType;
 
     @Column(name= "title")
     private String title;
@@ -23,11 +26,11 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user")
-    @JsonIgnoreProperties({"post"})
+//    @JsonIgnoreProperties({"posts"})
     private User user;
 
-    public Post(String category, String title, String description, User user) {
-        this.category = category;
+    public Post(CategoryType categoryType, String title, String description, User user) {
+        this.categoryType = categoryType;
         this.title = title;
         this.description = description;
         this.user = user;
@@ -45,12 +48,12 @@ public class Post {
     }
 
 
-    public String getCategory() {
-        return category;
+    public CategoryType getCategoryType() {
+        return categoryType;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryType(CategoryType categoryType) {
+        this.categoryType = categoryType;
     }
 
     public String getTitle() {

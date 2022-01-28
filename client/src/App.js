@@ -25,24 +25,35 @@ import LayoutContainer from "./containers/LayoutContainer";
 import { auth } from "./auth/firebase-config";
 import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
 // import { onAuthStateChanged } from "firebase/auth";
+import NewProfileContainer from "./containers/NewProfileContainer";
+import Navbar from "./components/navbar/Navbar";
+import Menu from "./components/navbar/Menu";
+import { onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import UserService from "./services/UserService";
+import PostService from "./services/PostService";
 
 function App() {
-
   const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState({})
+  const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   // H2 Connections
   useEffect(()=> {
     UserService.getUsers().then((users)=> setUsers(users.data))
     }, [])
 
-  useEffect(()=> {
-    setLoggedIn(getLoggedIn)
-  }, [user])
+  useEffect(() => {
+    PostService.getPosts().then((posts) => setPosts(posts.data));
+  });
 
-  const getLoggedIn = ()=> {
-    if (users && user){
+  useEffect(() => {
+    setLoggedIn(getLoggedIn);
+  }, []);
+
+  const getLoggedIn = () => {
+    if (users && user) {
       const sel = users.filter((user) => {
         console.log(user.email);
         return user.email === auth.currentUser.email;
@@ -50,11 +61,19 @@ function App() {
       return sel[0];
     }
   }
+  
+  
+  const createUser = (newUser) => {
+    UserService.newUser(newUser).then((savedUser) =>
+      setUsers([...users, savedUser])
+    );
+  };
 
   // onAuthStateChanged(auth, (currentUser) => {
   //   setUser(currentUser);
   // });
 
+  
   return (
     <AuthContextProvider>
       <Routes>
@@ -74,7 +93,7 @@ function App() {
         <Route element={<LayoutContainer/>}>
           <Route path="/feed" element={
             <PrivateRoute>
-              <FeedContainer />
+              <FeedContainer auth={auth} posts={posts}/>
             </PrivateRoute>
             } />
         </Route>
@@ -82,7 +101,19 @@ function App() {
         <Route element={<LayoutContainer/>}>
           <Route path="/profile" element={
             <PrivateRoute>
-              <ProfileContainer />
+              <ProfileContainer 
+                 loggedIn={loggedIn} user={user} posts={posts}
+              />
+            </PrivateRoute>
+            } />
+        </Route>
+
+         <Route element={<LayoutContainer/>}>
+          <Route path="/new-profile" element={
+            <PrivateRoute>
+              <NewProfileContainer 
+                 user={user} users={users} createUser={createUser}
+               />
             </PrivateRoute>
             } />
         </Route>
@@ -90,6 +121,7 @@ function App() {
       </Routes>
     </AuthContextProvider>
 
+  };
   );
 }
 
