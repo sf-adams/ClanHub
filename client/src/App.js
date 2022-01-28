@@ -19,6 +19,7 @@ import Signup from "./components/forms/SignUpForm";
 import HomeContainer from "./containers/HomeContainer";
 import SignUpContainer from "./containers/SignUpContainer";
 import PrivateRoute from "./auth/PrivateRoute";
+import LayoutContainer from "./containers/LayoutContainer";
 
 // Authentication Imports
 import { auth } from "./auth/firebase-config";
@@ -58,10 +59,16 @@ function App() {
 
   return (
     <AuthContextProvider>
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Routes>
 
+      <Routes>
+
+        <Route path="/login" element={<LoginContainer />} />
+        <Route path="/" element={<LoginContainer />} />
+        <Route path="/signup" element={<SignUpContainer />} />
+
+        <LayoutContainer>
+          <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <Route path="/home" element={
             <PrivateRoute>
               <HomeContainer />
@@ -76,9 +83,7 @@ function App() {
             </PrivateRoute>
             }
             />
-          <Route path="/login" element={<LoginContainer />} />
-          <Route path="/" element={<LoginContainer />} />
-          <Route path="/signup" element={<SignUpContainer />} />
+          </LayoutContainer>
         </Routes>
 
 
