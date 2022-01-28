@@ -28,7 +28,7 @@ function SignUpContainer() {
   return (
     <div className="signup-page">
       <h3> Sign Up </h3>
-      {/* {error && <Alert variant="danger">{error}</Alert>} */}
+      {error && <p>{error}</p>}
 
       <form onSubmit={handleSubmit}>
 
