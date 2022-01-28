@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
-import LoginForm from "../components/forms/SignUpForm";
+import LoginForm from "../components/forms/LoginForm";
 import { useAuthState } from "../auth/AuthContext";
 
 function LoginContainer() {
@@ -40,7 +40,7 @@ function LoginContainer() {
 
       <div className="return-link-container">
         <p>No account? Request one
-          <a href="mailto:info@codeclan.com">here</a>
+          <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">here</a>
         </p>
       </div>
     </div>

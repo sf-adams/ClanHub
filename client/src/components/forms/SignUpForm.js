@@ -1,7 +1,4 @@
-
-
-
-export default function Signup({email, setEmail, password, setPassword, passwordConfirm, setPasswordConfirm, handleSubmit}) {
+export default function SignupForm({email, setEmail, password, setPassword, passwordConfirm, setPasswordConfirm, handleSubmit}) {
 
   return (
     <>

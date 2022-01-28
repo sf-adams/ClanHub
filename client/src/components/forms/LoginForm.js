@@ -1,45 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import { auth } from "../../auth/firebase-config";
-
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-
-export default function LoginComponent({navigate, auth }) {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      navigate("/profile");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const logout = async () => {
-    await signOut(auth).then(console.log(auth.currentUser));
-  };
-
-  const handleEmailChange = (ev) => {
-    setEmail(ev.target.value);
-  };
-
-  const handlePasswordChange = (ev) => {
-    setPassword(ev.target.value);
-  };
-
+export default function LoginForm({email, setEmail, password, setPassword, handleSubmit }) {
 
   return (
-    <form>
-      <div className="login-container">
-
-        <h3> Login </h3>
+    <>
+      <form onSubmit={handleSubmit}>
 
         <div className="inner-container">
           <label htmlFor="login-Email"> Email:</label>
@@ -51,28 +14,31 @@ export default function LoginComponent({navigate, auth }) {
             required
             autoComplete="off"
             placeholder="Email"
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
         <div className="inner-container">
-          <label htmlFor="login-Password"> Password:</label>
+          <label htmlFor="login-password"> Password:</label>
           <input
             type="password"
             id="login-password"
-            name="email"
+            name="[password]"
             value={password}
             required
             autoComplete="off"
             placeholder="Password"
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <button onClick={login}> Login</button>
-      </div>
+        <div className="button">
+          <button variant="primary" type="Submit">
+            Log In
+          </button>
+        </div>
+      </form>
 
-      {/* <button onClick={logout}> Sign Out </button> */}
-    </form>
+    </>
   );
 }
