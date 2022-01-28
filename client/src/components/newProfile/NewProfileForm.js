@@ -8,6 +8,7 @@ const NewProfileForm = ({ user, createUser }) => {
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
 
+  // this use effect gets the user
 useEffect(() => {
     setEmail(user.email);
 })
