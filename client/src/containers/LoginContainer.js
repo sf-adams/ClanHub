@@ -23,7 +23,6 @@ function LoginContainer({ user, loggedIn }) {
         }
       });
       
-        
     } catch (err) {
       setError(err.message);
     }

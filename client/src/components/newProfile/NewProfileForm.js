@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 const NewProfileForm = ({ user, createUser }) => {
   const [firstName, setFirstName] = useState("");
@@ -7,6 +8,7 @@ const NewProfileForm = ({ user, createUser }) => {
   const [email, setEmail] = useState(user.email);
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
+  const navigate = useNavigate();
 
   // this use effect gets the user
 useEffect(() => {
@@ -33,9 +35,9 @@ useEffect(() => {
     setGithub(ev.target.value);
   };
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
       ev.preventDefault();
-      createUser({
+      await createUser({
         firstName: firstName,
         lastName: lastName,
         bio: bio,
@@ -49,6 +51,7 @@ useEffect(() => {
       setEmail("");
       setLinkedin("");
       setGithub("");
+      navigate("/home");
   };
 
   const checkEmail = ()=> {
