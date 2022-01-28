@@ -1,7 +1,6 @@
 import "./styles/css/style.css";
 import { useState, useEffect } from "react";
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
   Link,
@@ -58,7 +57,6 @@ function App() {
 
   return (
     <AuthContextProvider>
-      <Router>
         <Routes>
           <Route
             path="/home"
@@ -75,8 +73,6 @@ function App() {
         {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
 
-
-      </Router>
     </AuthContextProvider>
 
 

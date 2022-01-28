@@ -3,7 +3,7 @@ import { auth } from "../../auth/firebase-config";
 
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
-export default function LoginComponent({navigate, auth}) {
+export default function LoginComponent({navigate, auth }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
