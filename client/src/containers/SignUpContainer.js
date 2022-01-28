@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
 import Signup from "../components/login/Signup";
 import Login from "../components/login/Login";
-import { useAuthContext } from "../auth/AuthContext"
+import { useAuthState } from "../auth/AuthContext"
 
 function SignUpContainer() {
 
@@ -11,7 +11,7 @@ function SignUpContainer() {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const { signUp } = useAuthContext();
+  const { signUp } = useAuthState();
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,7 +19,7 @@ function SignUpContainer() {
     setError("");
     try {
       await signUp(email, password);
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       setError(err.message);
     }
@@ -27,16 +27,13 @@ function SignUpContainer() {
 
   return (
     <div className="signup-page">
-
       <h3> Sign Up </h3>
-
       {/* {error && <Alert variant="danger">{error}</Alert>} */}
 
-        <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
 
         <div className="inner-container">
           <label htmlFor="signup-Email"> Email:</label>
-
           <input
             type="email"
             id="signup-email"
@@ -50,8 +47,7 @@ function SignUpContainer() {
         </div>
 
         <div className="inner-container">
-          <label htmlFor="signup-password"> Email:</label>
-
+          <label htmlFor="signup-password"> Password:</label>
           <input
             type="password"
             id="signup-password"
@@ -65,34 +61,30 @@ function SignUpContainer() {
         </div>
 
         <div className="inner-container">
-          <label htmlFor="signup-password"> Email:</label>
-
+          <label htmlFor="signup-confirm-password"> Confirmation:</label>
           <input
             type="password"
-            id="signup-password"
-            name="[password]"
-            value={password}
+            id="signup-confirm-password"
+            name="passwordConfirm"
+            value={passwordConfirm}
             required
             autoComplete="off"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password Confirmation..."
+            onChange={(e) => setPasswordConfirm(e.target.value)}
           />
         </div>
 
+        <div className="button">
+          <button variant="primary" type="Submit">
+            Sign up
+          </button>
+        </div>
+      </form>
 
-
-
-
-          <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
-              Sign up
-            </Button>
-          </div>
-        </Form>
+      <div className="return-link-container">
+        Already have an account? <Link to="/login">Log In</Link>
       </div>
-      <div className="p-4 box mt-3 text-center">
-        Already have an account? <Link to="/">Log In</Link>
-      </div>
+    </div>
   );
 }
 export default SignUpContainer;
