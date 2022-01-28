@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const NewProfileForm = ({ user, createUser }) => {
   const [firstName, setFirstName] = useState("");
@@ -7,6 +7,11 @@ const NewProfileForm = ({ user, createUser }) => {
   const [email, setEmail] = useState(user.email);
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
+
+useEffect(() => {
+    setEmail(user.email);
+})
+
 
   const handleFirstNameChange = (ev) => {
     setFirstName(ev.target.value);
@@ -45,9 +50,14 @@ const NewProfileForm = ({ user, createUser }) => {
       setGithub("");
   };
 
+  const checkEmail = ()=> {
+      console.log(user.email)
+  }
+
   return (
     <>
       <h3>New User Information</h3>
+      <button onClick={checkEmail}>email</button>
       <p>
         You have not entered your user information, please do so before entering
         the site
