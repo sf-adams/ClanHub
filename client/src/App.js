@@ -70,54 +70,74 @@ function App() {
     setUser(currentUser);
   });
 
+  const getUserLoggedIn = ()=> {
+    console.log(loggedIn)
+  }
+
 
   return (
-    <AuthContextProvider>
-      <Routes>
+    <>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/login" element={<LoginContainer />} />
+          <Route path="/" element={<LoginContainer />} />
+          <Route path="/signup" element={<SignUpContainer />} />
 
-        <Route path="/login" element={<LoginContainer />} />
-        <Route path="/" element={<LoginContainer />} />
-        <Route path="/signup" element={<SignUpContainer />} />
+          <Route element={<LayoutContainer />}>
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomeContainer />
+                </PrivateRoute>
+              }
+            />
+          </Route>
 
-        <Route element={<LayoutContainer/>}>
-          <Route path="/home" element={
-            <PrivateRoute>
-              <HomeContainer />
-            </PrivateRoute>
-            } />
-        </Route>
+          <Route element={<LayoutContainer />}>
+            <Route
+              path="/feed"
+              element={
+                <PrivateRoute>
+                  <FeedContainer auth={auth} posts={posts} />
+                </PrivateRoute>
+              }
+            />
+          </Route>
 
-        <Route element={<LayoutContainer/>}>
-          <Route path="/feed" element={
-            <PrivateRoute>
-              <FeedContainer auth={auth} posts={posts}/>
-            </PrivateRoute>
-            } />
-        </Route>
+          <Route element={<LayoutContainer />}>
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <ProfileContainer
+                    loggedIn={loggedIn}
+                    user={user}
+                    posts={posts}
+                  />
+                </PrivateRoute>
+              }
+            />
+          </Route>
 
-        <Route element={<LayoutContainer/>}>
-          <Route path="/profile" element={
-            <PrivateRoute>
-              <ProfileContainer
-                 loggedIn={loggedIn} user={user} posts={posts}
-              />
-            </PrivateRoute>
-            } />
-        </Route>
-
-         <Route element={<LayoutContainer/>}>
-          <Route path="/new-profile" element={
-            <PrivateRoute>
-              <NewProfileContainer
-                 user={user} users={users} createUser={createUser}
-               />
-            </PrivateRoute>
-            } />
-        </Route>
-
-      </Routes>
-    </AuthContextProvider>
-
+          <Route element={<LayoutContainer />}>
+            <Route
+              path="/new-profile"
+              element={
+                <PrivateRoute>
+                  <NewProfileContainer
+                    user={user}
+                    users={users}
+                    createUser={createUser}
+                  />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+        </Routes>
+      </AuthContextProvider>
+      <button onClick={getUserLoggedIn}>Hello</button>
+    </>
   );
   };
 
