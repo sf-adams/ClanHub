@@ -1,7 +1,7 @@
 export default function LoginForm({email, setEmail, password, setPassword, handleSubmit }) {
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="form-component" onSubmit={handleSubmit}>
 
       <div className="inner-container">
         <label htmlFor="login-Email"> Email:</label>

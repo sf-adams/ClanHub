@@ -1,19 +1,24 @@
 @use '../base' as *;
 
-.form-page {
+.form-background {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $background-primary;
+  flex-direction: column;
 }
 
 .form-container {
   position: relative;
   display: block;
-  background-color: #fff;
+  background-color: $background-secondary;
   padding:30px;
   z-index: 2;
+
+}
+
+.form-component {
 
   h3 {
     margin-bottom: 30px;
@@ -66,19 +71,8 @@
   button:hover {
     background-position: 100%;
   }
-
-
 }
 
+// .return-link-container {
 
-// form:after {
-//   content: '';
-//   display: block;
-//   position: absolute;
-//   top: -5px;
-//   left: -5px;
-//   right: -5px;
-//   bottom: -5px;
-//   z-index:1;
-//   background-image: linear-gradient(to bottom right, #FFCE00, #FE4880);
 // }

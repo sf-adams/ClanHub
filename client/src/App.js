@@ -58,12 +58,21 @@ function App() {
 
   return (
     <AuthContextProvider>
+        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Routes>
+
+          <Route path="/home" element={
+            <PrivateRoute>
+              <HomeContainer />
+            </PrivateRoute>
+            }/>
+
           <Route
             path="/home"
             element={
             <PrivateRoute>
-              <HomeContainer />
+              <ProfileContainer />
             </PrivateRoute>
             }
             />
@@ -71,8 +80,7 @@ function App() {
           <Route path="/" element={<LoginContainer />} />
           <Route path="/signup" element={<SignUpContainer />} />
         </Routes>
-        {/* <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+
 
     </AuthContextProvider>
 
