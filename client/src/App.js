@@ -75,7 +75,7 @@ function App() {
           />
           <Route
             path="/profile"
-            element={<ProfileContainer user={user} posts={posts}/>}
+            element={<ProfileContainer loggedIn={loggedIn} user={user} posts={posts}/>}
           />
         </Routes>
       </div>

@@ -65,6 +65,7 @@ h1 {
 .profile-section-logged-in-posts {
   cursor: pointer;
   color: #001d7c;
+  width: fit-content;
 }
 
 .menu {
