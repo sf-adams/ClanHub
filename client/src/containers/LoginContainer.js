@@ -24,9 +24,23 @@ function LoginContainer() {
   };
 
   return (
-    <div className="login-page">
-      {/* <Signup navigate={navigate} user={user} setUser={setUser} auth={auth} /> */}
-      <Login navigate={navigate} user={user} setUser={setUser} auth={auth} />
+    <div className="form-page">
+      <h3> Login </h3>
+      {error && <p>{error}</p>}
+
+      <LoginForm
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        handleSubmit={handleSubmit}
+        auth={auth}
+        className="form-container"
+      />
+
+      <div className="return-link-container">
+        Already have an account? <Link to="/login">Log In</Link>
+      </div>
     </div>
   );
 }
