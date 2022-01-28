@@ -24,8 +24,7 @@ import LayoutContainer from "./containers/LayoutContainer";
 // Authentication Imports
 import { auth } from "./auth/firebase-config";
 import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
-import { AuthenticatedRoute } from "./auth/PrivateRoute";
-import { onAuthStateChanged } from "firebase/auth";
+// import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
 
@@ -33,6 +32,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState({})
   const [users, setUsers] = useState([]);
 
+  // H2 Connections
   useEffect(()=> {
     UserService.getUsers().then((users)=> setUsers(users.data))
     }, [])
@@ -51,10 +51,9 @@ function App() {
     }
   }
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
 
   return (
     <AuthContextProvider>
