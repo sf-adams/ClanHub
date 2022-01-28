@@ -35,7 +35,6 @@ function LoginContainer() {
         setPassword={setPassword}
         handleSubmit={handleSubmit}
         auth={auth}
-        className="form-container"
       />
 
       <div className="return-link-container">
