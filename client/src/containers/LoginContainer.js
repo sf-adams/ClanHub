@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
-import Signup from "../components/login/Signup";
-import Login from "../components/login/Login";
+import Signup from "../components/forms/SignUpForm";
+import Login from "../components/forms/LoginForm";
 
 function LoginContainer() {
 

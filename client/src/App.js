@@ -15,7 +15,7 @@ import Menu from "./components/navbar/Menu";
 import FeedContainer from "./containers/FeedContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
-import Signup from "./components/login/Signup";
+import Signup from "./components/forms/SignUpForm";
 import HomeContainer from "./containers/HomeContainer";
 import SignUpContainer from "./containers/SignUpContainer";
 import PrivateRoute from "./auth/PrivateRoute";
