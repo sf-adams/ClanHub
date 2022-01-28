@@ -1,6 +1,7 @@
+$text-primary: rgb(27, 52, 69);
+$text-secondary: rgb(255, 255, 255);
 
-
-
-body {
-    color: rgb(59, 44, 44);
+h3 {
+  color: $text-primary;
+  font-size: 2rem;
 }

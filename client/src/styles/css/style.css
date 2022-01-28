@@ -1,5 +1,6 @@
-body {
-  color: #3b2c2c;
+h3 {
+  color: #1b3445;
+  font-size: 2rem;
 }
 
 * {
@@ -74,8 +75,6 @@ form .login-container {
   z-index: 2;
 }
 form .login-container h3 {
-  color: #1b3445;
-  font-size: 2rem;
   margin-bottom: 30px;
 }
 form .login-container .inner-container {

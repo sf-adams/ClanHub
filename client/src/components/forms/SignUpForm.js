@@ -1,55 +1,60 @@
-import React, { useState, useEffect } from "react";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
 
 
-export default function Signup({navigate, user, setUser, auth}) {
-  // const [user, setUser] = useState({});
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
 
-
-  const register = async () => {user = { user };
-    try {
-      if (password === passwordConfirm) {
-         user = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(auth.currentUser);
-        navigate('/feed')
-      } else {
-        console.log("Your passwords did not match please try again");
-        console.log(auth.currentUser);
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-   onAuthStateChanged(auth, (currentUser) => {
-     setUser(currentUser);
-   });
-
-  const handleEmailChange = (ev) => {
-    setEmail(ev.target.value);
-  };
-
-  const handlePasswordChange = (ev) => {
-    setPassword(ev.target.value);
-  };
-
-  const handlePasswordConfirmChange = (ev) => {
-    setPasswordConfirm(ev.target.value);
-  };
+export default function Signup({email, setEmail, password, setPassword, passwordConfirm, setPasswordConfirm, handleSubmit}) {
 
   return (
     <>
+      <form onSubmit={handleSubmit}>
 
+        <div className="inner-container">
+          <label htmlFor="signup-Email"> Email:</label>
+          <input
+            type="email"
+            id="signup-email"
+            name="email"
+            value={email}
+            required
+            autoComplete="off"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div className="inner-container">
+          <label htmlFor="signup-password"> Password:</label>
+          <input
+            type="password"
+            id="signup-password"
+            name="[password]"
+            value={password}
+            required
+            autoComplete="off"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <div className="inner-container">
+          <label htmlFor="signup-confirm-password"> Confirmation:</label>
+          <input
+            type="password"
+            id="signup-confirm-password"
+            name="passwordConfirm"
+            value={passwordConfirm}
+            required
+            autoComplete="off"
+            placeholder="Password Confirmation..."
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+          />
+        </div>
+
+        <div className="button">
+          <button variant="primary" type="Submit">
+            Sign up
+          </button>
+        </div>
+      </form>
 
     </>
   );

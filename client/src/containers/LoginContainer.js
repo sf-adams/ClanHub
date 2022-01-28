@@ -1,15 +1,27 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../auth/firebase-config";
-import Signup from "../components/forms/SignUpForm";
-import Login from "../components/forms/LoginForm";
+import LoginForm from "../components/forms/SignUpForm";
+import { useAuthState } from "../auth/AuthContext";
 
 function LoginContainer() {
 
-  const [user, setUser] = useState({});
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const { logIn } = useAuthState();
+  const navigate = useNavigate();
 
-  let navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await logIn(email, password);
+      navigate("/home");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
     <div className="login-page">

@@ -1,4 +1,4 @@
-@use '../base/root' as *;
+@use '../base' as *;
 
 form {
   display: block;
@@ -12,8 +12,6 @@ form {
     z-index: 2;
 
     h3 {
-      color: $background-primary;
-      font-size: 2rem;
       margin-bottom: 30px;
     }
 
