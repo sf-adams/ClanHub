@@ -117,7 +117,6 @@ function App() {
 
       </Routes>
     </AuthContextProvider>
-
   );
   };
 
