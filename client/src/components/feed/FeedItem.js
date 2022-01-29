@@ -47,7 +47,7 @@ const FeedItem = ({ post, posts, user, deletePost }) => {
             >
               Edit
             </button>
-            <button onClick={()=> {deletePost(3)}}>Delete</button>
+            <button onClick={()=> {deletePost(post?.id)}}>Delete</button>
           </>
         ) : null}
         {toggleEdit ? (

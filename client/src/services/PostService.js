@@ -14,6 +14,10 @@ class PostService {
   removePost(post){
     return axios.delete(baseURL + post) 
   }
+
+  updatePost(post){
+    return axios.put(baseURL + post)
+  }
 }
 
 export default new PostService();

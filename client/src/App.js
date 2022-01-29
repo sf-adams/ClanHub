@@ -70,8 +70,8 @@ function App() {
     PostService.editPost(postToEdit)
   }
 
-  const deletePost = (id) => {
-    PostService.removePost(id)
+  const deletePost = async (id) => {
+    await PostService.removePost(id)
   };
   
 

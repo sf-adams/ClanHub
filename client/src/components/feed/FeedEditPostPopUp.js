@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import PostService from "../../services/PostService";
+
 
 const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   const [categoryType, setCategoryType] = useState("");
@@ -46,16 +47,17 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
     );
   });
 
-  const updatePostData = () => {
-    //  ev.preventDefault();
-    axios
-      .put(`http://localhost:8080/api/posts/${id}`, {
+  const updatePostData = async (ev) => {
+    await ev.preventDefault();
+    PostService.updatePost(
+        id,
         categoryType,
         title,
         description,
-        user,
-      })
-      .then(handleToggleEdit());
+        user)
+      .then( 
+	(response) => { console.log(response) },
+	(error) => { console.log(error) });
   };
 
   const getDeets = () => {
