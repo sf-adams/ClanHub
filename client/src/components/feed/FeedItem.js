@@ -1,6 +1,7 @@
 import React from "react";
+import FeedEditPostPopUp from "./FeedEditPostPopUp";
 
-const FeedItem = ({ post, user }) => {
+const FeedItem = ({ post, posts, user, toggleEdit, handleToggleEdit }) => {
   const handleCLick = () => {
     console.log(post.user.email);
     console.log(user.email);
@@ -14,7 +15,15 @@ const FeedItem = ({ post, user }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
-        {user.email==post.user?.email?<button onClick={handleCLick}>Edit</button>:null}
+        {user.email == post.user?.email ? (
+          <button onClick={handleCLick}>Edit</button>
+        ) : null}
+        {toggleEdit?<FeedEditPostPopUp
+          post={post}
+          posts={posts}
+          toggleEdit={toggleEdit}
+          handleToggleEdit={handleToggleEdit}
+        />:null}
       </div>
     </>
   );

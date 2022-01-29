@@ -1,9 +1,18 @@
-import React from 'react';
-import FeedItem from './FeedItem';
+import React from "react";
+import FeedItem from "./FeedItem";
 
-const FeedList = ({ posts, user }) => {
+const FeedList = ({ posts, user, toggleEdit, handleToggleEdit }) => {
   const postNodes = posts.map((post, index) => {
-    return <FeedItem key={index} post={post} user={user} />;
+    return (
+      <FeedItem
+        key={index}
+        post={post}
+        posts={posts}
+        user={user}
+        toggleEdit={toggleEdit}
+        handleToggleEdit={handleToggleEdit}
+      />
+    );
   });
 
   return (

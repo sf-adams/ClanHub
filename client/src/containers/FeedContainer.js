@@ -9,22 +9,21 @@ import PostService from "../services/PostService";
 function FeedContainer({ user, loggedIn, posts, createPost }) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
-
-  // useEffect(() => {
-  //   PostService.getPosts().then((posts) => setPosts(posts.data));
-  // });
+  const [toggleEdit, setToggleEdit] = useState(false);
 
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
-    // console.log("Hello");
     setModal(true);
   };
 
   const handleReset = () => {
-    // console.log("hello");
     setModal(false);
   };
+
+  const handleToggleEdit = () => {
+    setToggleEdit(true);
+  }
 
   return (
     <div className="feed-container" onClick={handleReset}>
@@ -35,6 +34,7 @@ function FeedContainer({ user, loggedIn, posts, createPost }) {
             createPost={createPost}
             loggedIn={loggedIn}
             handleReset={handleReset}
+            handleToggleEdit={handleToggleEdit}
           />
         ) : null}
         <h1>Welcome to ClanHub.</h1>
@@ -42,7 +42,12 @@ function FeedContainer({ user, loggedIn, posts, createPost }) {
         <br></br>
         <Link to="/profile">Click to view your profile.</Link>
       </div>
-      <FeedList posts={posts} user={user} />
+      <FeedList
+        posts={posts}
+        user={user}
+        toggleEdit={toggleEdit}
+        handleToggleEdit={handleToggleEdit}
+      />
     </div>
   );
 }
