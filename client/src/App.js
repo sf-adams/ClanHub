@@ -110,7 +110,7 @@ function App() {
               element={
                 <PrivateRoute>
                   <FeedContainer
-                    auth={auth}
+                    user={user}
                     loggedIn={loggedIn}
                     posts={posts}
                     createPost={createPost}
@@ -125,7 +125,11 @@ function App() {
               path="/profile"
               element={
                 <PrivateRoute>
-                  <ProfileContainer loggedIn={loggedIn} user={user} posts={posts}/>
+                  <ProfileContainer
+                    loggedIn={loggedIn}
+                    user={user}
+                    posts={posts}
+                  />
                 </PrivateRoute>
               }
             />

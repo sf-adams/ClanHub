@@ -1,6 +1,11 @@
 import React from "react";
 
-const FeedItem = ({ post }) => {
+const FeedItem = ({ post, user }) => {
+  const handleCLick = () => {
+    console.log(post.user.email);
+    console.log(user.email);
+  };
+
   return (
     <>
       <div className="feed-item-object">
@@ -9,6 +14,7 @@ const FeedItem = ({ post }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+        {user.email==post.user.email?<button onClick={handleCLick}>Edit</button>:null}
       </div>
     </>
   );

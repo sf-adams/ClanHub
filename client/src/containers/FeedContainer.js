@@ -6,7 +6,7 @@ import FeedNewPostPopUp from "../components/feed/FeedNewPostPopUp";
 import UserService from "../services/UserService";
 import PostService from "../services/PostService";
 
-function FeedContainer({ auth, loggedIn, posts, createPost }) {
+function FeedContainer({ user, loggedIn, posts, createPost }) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
 
@@ -14,12 +14,6 @@ function FeedContainer({ auth, loggedIn, posts, createPost }) {
   //   PostService.getPosts().then((posts) => setPosts(posts.data));
   // });
 
-  const handleClick = () => {
-    for (const user of users) {
-      if (user.email == auth.currentUser.email) {
-      }
-    }
-  };
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
@@ -48,9 +42,7 @@ function FeedContainer({ auth, loggedIn, posts, createPost }) {
         <br></br>
         <Link to="/profile">Click to view your profile.</Link>
       </div>
-      <button onClick={handleClick}>CLick me</button>
-      <button>CLick me</button>
-      <FeedList posts={posts} />
+      <FeedList posts={posts} user={user} />
     </div>
   );
 }
