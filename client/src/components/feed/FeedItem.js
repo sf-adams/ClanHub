@@ -14,7 +14,7 @@ const FeedItem = ({ post, user }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
-        {user.email==post.user.email?<button onClick={handleCLick}>Edit</button>:null}
+        {user.email==post.user?.email?<button onClick={handleCLick}>Edit</button>:null}
       </div>
     </>
   );
