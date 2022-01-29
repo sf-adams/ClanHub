@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-const FeedEditPostPopUp = ({post, posts, toggleEdit, handleToggleEdit }) => {
+const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -35,6 +35,10 @@ const FeedEditPostPopUp = ({post, posts, toggleEdit, handleToggleEdit }) => {
     );
   });
 
+  const handleSubmit = () => {
+    console.log("hello");
+  };
+
   return (
     <div
       className="feed-container-new-post-modal"
@@ -42,14 +46,14 @@ const FeedEditPostPopUp = ({post, posts, toggleEdit, handleToggleEdit }) => {
     >
       <h3>New Post title</h3>
 
-      <form action="POST" className="new-post-form" >
-        <div className="new-form-post-item">
+      <div className="edit-post-form">
+        <div className="edit-form-post-item">
           <select defaultValue="" onChange={handleCategoryChange}>
             <option value="">Select an option</option>
             {uniqueAndFiltered}
           </select>
         </div>
-        <div className="new-form-post-item">
+        <div className="edit-form-post-item">
           <label htmlFor="title">Post title</label>
           <input
             type="text"
@@ -57,7 +61,7 @@ const FeedEditPostPopUp = ({post, posts, toggleEdit, handleToggleEdit }) => {
             name="title"
             value={title}
             required
-            placeholder="New post title"
+            placeholder={post.title}
             onChange={handleTitleChange}
           />
         </div>
@@ -68,13 +72,14 @@ const FeedEditPostPopUp = ({post, posts, toggleEdit, handleToggleEdit }) => {
             name="description"
             value={description}
             required
+            placeholder={post.description}
             onChange={handleDescriptionChange}
           />
         </div>
         <div className="new-form-post-item">
-          <input type="submit" />
+          <button onClick={handleSubmit}>Submit</button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
