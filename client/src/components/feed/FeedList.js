@@ -7,7 +7,6 @@ const FeedList = ({
   toggleEdit,
   handleToggleEdit,
   deletePost,
-  putPost,
 }) => {
   const postNodes = posts.map((post, index) => {
     return (
@@ -18,7 +17,6 @@ const FeedList = ({
         user={user}
         handleToggleEdit={handleToggleEdit}
         deletePost={deletePost}
-        putPost={putPost}
       />
     );
   });

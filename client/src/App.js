@@ -38,7 +38,7 @@ function App() {
 
   useEffect(() => {
     PostService.getPosts().then((posts) => setPosts(posts.data));
-  });
+  }, []);
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);
@@ -66,16 +66,9 @@ function App() {
     );
   };
 
-  const putPost = (updatedPost) => {
-    PostService.updatePost(updatedPost);
-
-    const updatedPostIndex = posts.findIndex(
-      (post) => post.id === updatedPost.id
-    );
-    const updatedPosts = [...posts];
-    updatedPosts[updatedPostIndex] = updatedPost;
-    setPosts(updatedPosts);
-  };
+  const putPost = (postToEdit)=> {
+    PostService.editPost(postToEdit)
+  }
 
   const deletePost = async (id) => {
     await PostService.removePost(id)
@@ -152,7 +145,6 @@ function App() {
                     posts={posts}
                     createPost={createPost}
                     deletePost={deletePost}
-                    putPost={putPost}
                   />
                 </PrivateRoute>
               }

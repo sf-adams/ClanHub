@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PostService from "../../services/PostService";
 
-const FeedEditPostPopUp = ({
-  post,
-  posts,
-  toggleEdit,
-  handleToggleEdit,
-  putPost,
-}) => {
-  const [categoryType, setCategoryType] = useState(post.categoryType);
-  const [title, setTitle] = useState(post.title);
-  const [description, setDescription] = useState(post.description);
+
+const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
+  const [categoryType, setCategoryType] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [id, setID] = useState(null);
   const filteredArray = [];
   const user = post.user;
+
+  useEffect(() => {
+    setID(localStorage.getItem("ID"));
+    setCategoryType(localStorage.getItem("Category Type"));
+    setTitle(localStorage.getItem("Title"));
+    setDescription(localStorage.getItem("Description"));
+    // setUser(localStorage.getItem("User"));
+  }, []);
 
   const handleCategoryChange = (ev) => {
     setCategoryType(ev.target.value);
@@ -25,13 +29,6 @@ const FeedEditPostPopUp = ({
   const handleDescriptionChange = (ev) => {
     setDescription(ev.target.value);
   };
-
-  const handleYes=()=> {
-      console.log(categoryType)
-      console.log(title)
-      console.log(description)
-      console.log(user)
-  }
 
   // This gets all the category types that there are
   const filteredPosts = posts.map((post) => {
@@ -51,13 +48,23 @@ const FeedEditPostPopUp = ({
   });
 
   const updatePostData = () => {
-    putPost({
-      id: post.id,
-      categoryType: categoryType,
-      title: title,
-      description: description,
-      user: user,
-    });
+    PostService.updatePost({
+        id: post.id,
+        categoryType: categoryType,
+        title: title,
+        description: description,
+        })
+      .then( 
+	(response) => { console.log(response) },
+	(error) => { console.log(error) });
+  };
+
+  const getDeets = () => {
+    console.log(categoryType);
+    console.log(title);
+    console.log(description);
+    console.log(user);
+    console.log(id);
   };
 
   return (

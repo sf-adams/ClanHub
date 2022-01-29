@@ -3,7 +3,7 @@ import FeedEditPostPopUp from "./FeedEditPostPopUp";
 import axios from "axios";
 import PostService from "../../services/PostService";
 
-const FeedItem = ({ post, posts, user, deletePost, putPost }) => {
+const FeedItem = ({ post, posts, user, deletePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   const handleToggleEdit = () => {
@@ -16,11 +16,11 @@ const FeedItem = ({ post, posts, user, deletePost, putPost }) => {
 
   const setData = (id, categoryType, title, description, user) => {
     setToggleEdit(!toggleEdit);
-    // localStorage.setItem("ID", id);
-    // localStorage.setItem("Category Type", categoryType);
-    // localStorage.setItem("Title", title);
-    // localStorage.setItem("Description", description);
-    // localStorage.setItem("User", user);
+    localStorage.setItem("ID", id);
+    localStorage.setItem("Category Type", categoryType);
+    localStorage.setItem("Title", title);
+    localStorage.setItem("Description", description);
+    localStorage.setItem("User", user);
     console.log(post);
   };
 
@@ -47,13 +47,7 @@ const FeedItem = ({ post, posts, user, deletePost, putPost }) => {
             >
               Edit
             </button>
-            <button
-              onClick={() => {
-                deletePost(post?.id);
-              }}
-            >
-              Delete
-            </button>
+            <button onClick={()=> {deletePost(post?.id)}}>Delete</button>
           </>
         ) : null}
         {toggleEdit ? (
@@ -61,7 +55,6 @@ const FeedItem = ({ post, posts, user, deletePost, putPost }) => {
             post={post}
             posts={posts}
             handleToggleEdit={handleToggleEdit}
-            putPost={putPost}
           />
         ) : null}
       </div>
