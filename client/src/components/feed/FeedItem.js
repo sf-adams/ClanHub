@@ -4,9 +4,13 @@ import FeedEditPostPopUp from "./FeedEditPostPopUp";
 const FeedItem = ({ post, posts, user }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
 
-  const printPosts = ()=> {
-    console.log(posts)
+  const handleToggleEdit = ()=> {
+    setToggleEdit(!toggleEdit);
   }
+
+  const printPosts = () => {
+    console.log(posts);
+  };
 
   const setData = (id, categoryType, title, description, user) => {
     setToggleEdit(!toggleEdit);
@@ -21,7 +25,6 @@ const FeedItem = ({ post, posts, user }) => {
   return (
     <>
       <div className="feed-item-object">
-        <button onClick={printPosts}>click here to pront posts</button>
         <h4 className="feed-item-object-title">{post.title}</h4>
         <p className="feed-item-object-description">{post.description}</p>
         <p className="feed-item-object-author">
@@ -30,7 +33,13 @@ const FeedItem = ({ post, posts, user }) => {
         {user.email == post.user?.email ? (
           <button
             onClick={() => {
-              setData(post.id, post.categoryType, post.title, post.description, post.user);
+              setData(
+                post.id,
+                post.categoryType,
+                post.title,
+                post.description,
+                post.user
+              );
             }}
           >
             Edit
@@ -40,7 +49,7 @@ const FeedItem = ({ post, posts, user }) => {
           <FeedEditPostPopUp
             post={post}
             posts={posts}
-            toggleEdit={toggleEdit}
+            handleToggleEdit={handleToggleEdit}
           />
         ) : null}
       </div>

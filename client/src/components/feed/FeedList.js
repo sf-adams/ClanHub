@@ -9,7 +9,7 @@ const FeedList = ({ posts, user, toggleEdit, handleToggleEdit }) => {
         post={post}
         posts={posts}
         user={user}
-        toggleEdit={toggleEdit}
+
         handleToggleEdit={handleToggleEdit}
       />
     );

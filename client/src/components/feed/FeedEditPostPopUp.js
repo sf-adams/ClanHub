@@ -5,16 +5,16 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [user, setUser] = useState({});
   const [id, setID] = useState(null);
   const filteredArray = [];
+  const user = post.user;
 
   useEffect(() => {
     setID(localStorage.getItem("ID"));
     setCategoryType(localStorage.getItem("Category Type"));
     setTitle(localStorage.getItem("Title"));
     setDescription(localStorage.getItem("Description"));
-    setUser(localStorage.getItem("User"));
+    // setUser(localStorage.getItem("User"));
   }, []);
 
   const handleCategoryChange = (ev) => {
@@ -47,15 +47,23 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   });
 
   const updatePostData = () => {
-    return (
-      axios.put(`http://localhost:8080/api/posts/${id}`),
-      {
+    //  ev.preventDefault();
+    axios
+      .put(`http://localhost:8080/api/posts/${id}`, {
         categoryType,
         title,
         description,
         user,
-      }
-    );
+      })
+      .then(handleToggleEdit());
+  };
+
+  const getDeets = () => {
+    console.log(categoryType);
+    console.log(title);
+    console.log(description);
+    console.log(user);
+    console.log(id);
   };
 
   return (
