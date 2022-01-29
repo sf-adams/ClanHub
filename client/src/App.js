@@ -147,7 +147,6 @@ function App() {
           </Route>
         </Routes>
       </AuthContextProvider>
-      <button onClick={getUserLoggedIn}>Hello</button>
     </>
   );
 }
