@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import logo from "../../assets/main_logo.svg";
@@ -8,9 +8,9 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn }) {
 
   const handleClick = () => {
     if (!loggedIn) {
-      navigate('/new-profile')
+      navigate("/new-profile");
     } else {
-      navigate('/profile')
+      navigate("/profile");
     }
   };
 
@@ -24,13 +24,11 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn }) {
         </div>
 
         <div className="middle">
-          {/* <Link
-            to="/profile"
-            className="profile-button"
-            onClick={() => setMenuOpen(false)}
-          > */}
-          <FaRegUser onClick={handleClick} className={"icon", "profile-button"} size="2em" />
-          {/* </Link> */}
+          <FaRegUser
+            onClick={handleClick}
+            className={("icon", "profile-button")}
+            size="2em"
+          />
         </div>
 
         <div className="right">

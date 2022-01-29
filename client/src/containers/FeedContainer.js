@@ -4,10 +4,15 @@ import FeedList from "../components/feed/FeedList";
 import NewFeedItemButton from "../components/feed/NewFeedItemButton";
 import FeedNewPostPopUp from "../components/feed/FeedNewPostPopUp";
 import UserService from "../services/UserService";
+import PostService from "../services/PostService";
 
-function FeedContainer({ auth, posts }) {
+function FeedContainer({ auth, loggedIn, posts, createPost }) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
+
+  // useEffect(() => {
+  //   PostService.getPosts().then((posts) => setPosts(posts.data));
+  // });
 
   const handleClick = () => {
     for (const user of users) {
@@ -30,7 +35,14 @@ function FeedContainer({ auth, posts }) {
   return (
     <div className="feed-container" onClick={handleReset}>
       <div className="feed-container-header">
-        {modal ? <FeedNewPostPopUp /> : null}
+        {modal ? (
+          <FeedNewPostPopUp
+            posts={posts}
+            createPost={createPost}
+            loggedIn={loggedIn}
+            handleReset={handleReset}
+          />
+        ) : null}
         <h1>Welcome to ClanHub.</h1>
         <NewFeedItemButton handleNewPostRequest={handleNewPostRequest} />
         <br></br>

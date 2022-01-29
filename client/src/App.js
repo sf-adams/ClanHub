@@ -39,13 +39,13 @@ function App() {
     PostService.getPosts().then((posts) => setPosts(posts.data));
   });
 
-    useEffect(() => {
-      setLoggedIn(getLoggedIn);
-    }, [user]);
+  useEffect(() => {
+    setLoggedIn(getLoggedIn);
+  }, [user]);
 
   const getLoggedIn = () => {
     if (users && user) {
-       const sel = users.filter((user) => {
+      const sel = users.filter((user) => {
         // console.log(user.email);
         return user.email === auth.currentUser.email;
       });
@@ -56,6 +56,12 @@ function App() {
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
       setUsers([...users, savedUser].then(setLoggedIn(newUser)))
+    );
+  };
+
+  const createPost = (newPost) => {
+    PostService.newPost(newPost).then((savedPost) =>
+      setPosts([...posts, savedPost])
     );
   };
 
@@ -103,7 +109,12 @@ function App() {
               path="/feed"
               element={
                 <PrivateRoute>
-                  <FeedContainer auth={auth} posts={posts} />
+                  <FeedContainer
+                    auth={auth}
+                    loggedIn={loggedIn}
+                    posts={posts}
+                    createPost={createPost}
+                  />
                 </PrivateRoute>
               }
             />
@@ -114,11 +125,7 @@ function App() {
               path="/profile"
               element={
                 <PrivateRoute>
-                  <ProfileContainer
-                    loggedIn={loggedIn}
-                    user={user}
-                    posts={posts}
-                  />
+                  <ProfileContainer loggedIn={loggedIn} user={user} />
                 </PrivateRoute>
               }
             />
