@@ -1,6 +1,6 @@
 import "./styles/css/style.css";
 import { useState, useEffect } from "react";
-import { Route, Routes, Link, Navigate, Outlet } from "react-router-dom";
+import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import UserService from "./services/UserService";
 
 // Container & Component Imports
@@ -29,6 +29,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   // H2 Connections
   useEffect(() => {
@@ -69,9 +70,18 @@ function App() {
     setUser(currentUser);
   });
 
-  const getUserLoggedIn = () => {
-    // console.log(loggedIn);
+  const trytosayhello = () => {
+    console.log(loggedIn);
   };
+
+  const checkUserCredentials= ()=>{
+    console.log("checking state")
+    if (!loggedIn) {
+      navigate("/new-profile");
+    } else {
+      navigate("/profile");
+    }
+  }
 
   return (
     <>
@@ -93,7 +103,14 @@ function App() {
           />
           <Route path="/signup" element={<SignUpContainer />} />
 
-          <Route element={<LayoutContainer loggedIn={loggedIn} />}>
+          <Route
+            element={
+              <LayoutContainer
+                checkUserCredentials={checkUserCredentials}
+                loggedIn={loggedIn}
+              />
+            }
+          >
             <Route
               path="/home"
               element={
@@ -104,7 +121,11 @@ function App() {
             />
           </Route>
 
-          <Route element={<LayoutContainer />}>
+          <Route
+            element={
+              <LayoutContainer checkUserCredentials={checkUserCredentials} />
+            }
+          >
             <Route
               path="/feed"
               element={
@@ -120,7 +141,11 @@ function App() {
             />
           </Route>
 
-          <Route element={<LayoutContainer />}>
+          <Route
+            element={
+              <LayoutContainer checkUserCredentials={checkUserCredentials} />
+            }
+          >
             <Route
               path="/profile"
               element={
@@ -135,7 +160,11 @@ function App() {
             />
           </Route>
 
-          <Route element={<LayoutContainer />}>
+          <Route
+            element={
+              <LayoutContainer checkUserCredentials={checkUserCredentials} />
+            }
+          >
             <Route
               path="/new-profile"
               element={

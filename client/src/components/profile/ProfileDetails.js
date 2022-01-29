@@ -1,6 +1,6 @@
 import React from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
-;
+
 
 const ProfileDetails = ({user, loggedIn}) => {
   return (

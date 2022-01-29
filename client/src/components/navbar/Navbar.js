@@ -3,16 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import logo from "../../assets/main_logo.svg";
 
-function Navbar({ menuOpen, setMenuOpen, loggedIn }) {
+function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCredentials}) {
   const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (!loggedIn) {
-      navigate("/new-profile");
-    } else {
-      navigate("/profile");
-    }
-  };
 
   return (
     <div className={"navbar " + (menuOpen && "active")}>
@@ -25,11 +17,12 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn }) {
 
         <div className="middle">
           <FaRegUser
-            onClick={handleClick}
+            onClick={checkUserCredentials}
             className={("icon", "profile-button")}
             size="2em"
           />
         </div>
+        <button onClick={trytosayhello}>Click me</button>
 
         <div className="right">
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
