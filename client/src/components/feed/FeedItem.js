@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import FeedEditPostPopUp from "./FeedEditPostPopUp";
 
-const FeedItem = ({ post, posts, user, toggleEdit, handleToggleEdit }) => {
-  const handleCLick = () => {
-    console.log(post.user.email);
-    console.log(user.email);
-  };
+const FeedItem = ({ post, posts, user }) => {
+  
+  const [toggleEdit, setToggleEdit] = useState(false);
+
+  const handleToggleEdit = ()=> {
+    setToggleEdit(!toggleEdit);
+  }
 
   return (
     <>
@@ -16,14 +18,16 @@ const FeedItem = ({ post, posts, user, toggleEdit, handleToggleEdit }) => {
           {post.user?.firstName} {post.user?.lastName}
         </p>
         {user.email == post.user?.email ? (
-          <button onClick={handleCLick}>Edit</button>
+          <button onClick={handleToggleEdit}>Edit</button>
         ) : null}
-        {toggleEdit?<FeedEditPostPopUp
-          post={post}
-          posts={posts}
-          toggleEdit={toggleEdit}
-          handleToggleEdit={handleToggleEdit}
-        />:null}
+        {toggleEdit ? (
+          <FeedEditPostPopUp
+            post={post}
+            posts={posts}
+            toggleEdit={toggleEdit}
+            handleToggleEdit={handleToggleEdit}
+          />
+        ) : null}
       </div>
     </>
   );
