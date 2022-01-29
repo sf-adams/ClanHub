@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [user, setUser] = useState({});
+  const [id, setID] = useState(null);
   const filteredArray = [];
+
+  useEffect(() => {
+    setID(localStorage.getItem("ID"));
+    setCategoryType(localStorage.getItem("Category Type"));
+    setTitle(localStorage.getItem("Title"));
+    setDescription(localStorage.getItem("Description"));
+    setUser(localStorage.getItem("User"));
+  }, []);
 
   const handleCategoryChange = (ev) => {
     setCategoryType(ev.target.value);
@@ -35,21 +46,26 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
     );
   });
 
-  const handleSubmit = () => {
-    console.log("hello");
+  const updatePostData = () => {
+    return (
+      axios.put(`http://localhost:8080/api/posts/${id}`),
+      {
+        categoryType,
+        title,
+        description,
+        user,
+      }
+    );
   };
 
   return (
-    <div
-      className="feed-container-new-post-modal"
-      onClick={(e) => e.stopPropagation()}
-    >
+    <div className="feed-container-new-post-modal">
       <h3>New Post title</h3>
 
       <div className="edit-post-form">
         <div className="edit-form-post-item">
-          <select defaultValue="" onChange={handleCategoryChange}>
-            <option value="">Select an option</option>
+          <select value={categoryType} onChange={handleCategoryChange}>
+            <option>Select an option</option>
             {uniqueAndFiltered}
           </select>
         </div>
@@ -77,7 +93,7 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
           />
         </div>
         <div className="new-form-post-item">
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={updatePostData}>Submit</button>
         </div>
       </div>
     </div>

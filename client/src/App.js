@@ -66,6 +66,12 @@ function App() {
     );
   };
 
+  const putPost = (postToEdit)=> {
+    PostService.editPost(postToEdit)
+
+    
+  }
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });

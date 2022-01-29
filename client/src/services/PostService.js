@@ -10,6 +10,12 @@ class PostService {
   newPost(post) {
     return axios.post(baseURL, post);
   }
+
+  editPost(post){
+    return axios.put(baseURL, post), {
+      
+    }
+  }
 }
 
 export default new PostService();

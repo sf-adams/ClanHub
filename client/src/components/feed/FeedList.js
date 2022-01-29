@@ -5,7 +5,7 @@ const FeedList = ({ posts, user, toggleEdit, handleToggleEdit }) => {
   const postNodes = posts.map((post, index) => {
     return (
       <FeedItem
-        key={index}
+        key={post.id}
         post={post}
         posts={posts}
         user={user}
