@@ -125,7 +125,7 @@ function App() {
               path="/profile"
               element={
                 <PrivateRoute>
-                  <ProfileContainer loggedIn={loggedIn} user={user} />
+                  <ProfileContainer loggedIn={loggedIn} user={user} posts={posts}/>
                 </PrivateRoute>
               }
             />
