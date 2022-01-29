@@ -3,7 +3,7 @@ import axios from "axios";
 const baseURL = "http://localhost:8080/api/posts/";
 
 class PostService {
-  getPosts() {
+  getPosts(){
     return axios.get(baseURL);
   }
 
@@ -16,7 +16,7 @@ class PostService {
   }
 
   updatePost(post){
-    return axios.put(baseURL + post)
+    return axios.put(baseURL + post);
   }
 }
 

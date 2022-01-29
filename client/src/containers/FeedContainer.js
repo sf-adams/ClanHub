@@ -6,7 +6,14 @@ import FeedNewPostPopUp from "../components/feed/FeedNewPostPopUp";
 import UserService from "../services/UserService";
 import PostService from "../services/PostService";
 
-function FeedContainer({ user, loggedIn, posts, createPost, deletePost }) {
+function FeedContainer({
+  user,
+  loggedIn,
+  posts,
+  createPost,
+  deletePost,
+  putPost,
+}) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -47,6 +54,7 @@ function FeedContainer({ user, loggedIn, posts, createPost, deletePost }) {
         toggleEdit={toggleEdit}
         deletePost={deletePost}
         handleToggleEdit={handleToggleEdit}
+        putPost={putPost}
       />
     </div>
   );
