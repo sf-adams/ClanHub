@@ -11,10 +11,8 @@ class PostService {
     return axios.post(baseURL, post);
   }
 
-  editPost(post){
-    return axios.put(baseURL, post), {
-      
-    }
+  removePost(post){
+    return axios.delete(baseURL + post) 
   }
 }
 

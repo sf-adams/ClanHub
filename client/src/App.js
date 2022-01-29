@@ -68,9 +68,12 @@ function App() {
 
   const putPost = (postToEdit)=> {
     PostService.editPost(postToEdit)
-
-    
   }
+
+  const deletePost = (id) => {
+    PostService.removePost(id)
+  };
+  
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -141,6 +144,7 @@ function App() {
                     loggedIn={loggedIn}
                     posts={posts}
                     createPost={createPost}
+                    deletePost={deletePost}
                   />
                 </PrivateRoute>
               }

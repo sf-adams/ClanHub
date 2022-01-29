@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import FeedEditPostPopUp from "./FeedEditPostPopUp";
+import axios from "axios";
+import PostService from "../../services/PostService";
 
-const FeedItem = ({ post, posts, user }) => {
+const FeedItem = ({ post, posts, user, deletePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
 
-  const handleToggleEdit = ()=> {
+  const handleToggleEdit = () => {
     setToggleEdit(!toggleEdit);
-  }
+  };
 
   const printPosts = () => {
-    console.log(posts);
+    console.log(post.id);
   };
 
   const setData = (id, categoryType, title, description, user) => {
@@ -31,19 +33,22 @@ const FeedItem = ({ post, posts, user }) => {
           {post.user?.firstName} {post.user?.lastName}
         </p>
         {user.email == post.user?.email ? (
-          <button
-            onClick={() => {
-              setData(
-                post.id,
-                post.categoryType,
-                post.title,
-                post.description,
-                post.user
-              );
-            }}
-          >
-            Edit
-          </button>
+          <>
+            <button
+              onClick={() => {
+                setData(
+                  post.id,
+                  post.categoryType,
+                  post.title,
+                  post.description,
+                  post.user
+                );
+              }}
+            >
+              Edit
+            </button>
+            <button onClick={()=> {deletePost(3)}}>Delete</button>
+          </>
         ) : null}
         {toggleEdit ? (
           <FeedEditPostPopUp

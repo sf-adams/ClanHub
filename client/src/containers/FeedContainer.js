@@ -6,11 +6,10 @@ import FeedNewPostPopUp from "../components/feed/FeedNewPostPopUp";
 import UserService from "../services/UserService";
 import PostService from "../services/PostService";
 
-function FeedContainer({ user, loggedIn, posts, createPost }) {
+function FeedContainer({ user, loggedIn, posts, createPost, deletePost }) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
-
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
@@ -23,7 +22,7 @@ function FeedContainer({ user, loggedIn, posts, createPost }) {
 
   const handleToggleEdit = () => {
     setToggleEdit(true);
-  }
+  };
 
   return (
     <div className="feed-container" onClick={handleReset}>
@@ -46,6 +45,7 @@ function FeedContainer({ user, loggedIn, posts, createPost }) {
         posts={posts}
         user={user}
         toggleEdit={toggleEdit}
+        deletePost={deletePost}
         handleToggleEdit={handleToggleEdit}
       />
     </div>
