@@ -42,7 +42,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       categoryType: categoryType,
       title: title,
       description: description,
-      user: loggedIn,
+      user: loggedIn
     });
     setCategoryType("");
     setTitle("");
