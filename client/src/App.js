@@ -66,8 +66,8 @@ function App() {
     );
   };
 
-  const updatePost = (updatedPost) => {
-    PostService.editPost(updatedPost);
+  const updatePost = async (updatedPost) => {
+    await PostService.editPost(updatedPost);
 
     const updatedPostIndex = posts.findIndex(
       (post) => post.id === updatedPost._id

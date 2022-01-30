@@ -12,7 +12,7 @@ const FeedList = ({
   const postNodes = posts.map((post, index) => {
     return (
       <FeedItem
-        key={post.id}
+        key={index}
         post={post}
         posts={posts}
         user={user}
