@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import UserService from "../../services/UserService";
 
+import {Button, Modal, Form} from 'react-bootstrap'
+
 const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
@@ -67,10 +69,11 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       className="feed-container-new-post-modal"
       onClick={(e) => e.stopPropagation()}
     >
-      <h3>New Post title</h3>
+      <h3 className="feed-container-new-post-modal-title">New Post title</h3>
 
       <form action="POST" className="new-post-form" onSubmit={handleSubmit}>
         <div className="new-form-post-item">
+          <label htmlFor="new-post-category">Select a Category</label>
           <select
             id="new-post-category"
             defaultValue=""

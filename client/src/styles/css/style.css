@@ -12,8 +12,47 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 1em;
+.feed-container-new-post-modal {
+  border-radius: 10px;
+  background-color: #1b3445;
+  box-shadow: 0 0 10px #1b3445;
+  color: white;
+  width: clamp(300px, 40vw, 600px);
+  margin: 0 auto;
+  position: absolute;
+  left: 20%;
+}
+.feed-container-new-post-modal * {
+  width: fit-content;
+  padding: 1em;
+}
+.feed-container-new-post-modal .feed-container-new-post-modal-title {
+  position: relative;
+  margin-top: 2.5em;
+  width: 100%;
+  color: white;
+  text-transform: capitalize;
+  text-align: center;
+}
+.feed-container-new-post-modal .new-post-form {
+  position: relative;
+  width: 100%;
+}
+.feed-container-new-post-modal .new-form-post-item {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+.feed-container-new-post-modal .new-form-post-item label {
+  padding: 0.85em 0 0.5em 0;
+  font-variant: small-caps;
+}
+.feed-container-new-post-modal .new-form-post-item input:last-child {
+  border-radius: 10px;
 }
 
 .profile {
@@ -284,6 +323,10 @@ h1 {
 .navbar.active .hamburger span:last-child {
   background-color: white;
   transform: rotate(-45deg);
+}
+
+form {
+  background-color: #1b3445;
 }
 
 .feed-container-header {

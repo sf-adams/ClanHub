@@ -1,3 +1,53 @@
-h1 {
-  font-size: 1em;
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+
+// Styles for modal pop up creating new feed posts
+
+.feed-container-new-post-modal {
+  @include modal-pop-up-form;
+  width: clamp(300px, 40vw, 600px);
+  margin: 0 auto;
+  position: absolute;
+  left: 20%;
+
+
+  & * {
+    width: fit-content;
+    padding: 1em;
+  }
+
+  & .feed-container-new-post-modal-title {
+    position: relative;
+    margin-top: 2.5em;
+    width: 100%;
+    color: $text-secondary;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  & .new-post-form {
+    position: relative;
+    width: 100%;
+  }
+
+  & .new-form-post-item {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  
+  & label {
+    padding: .85em 0 .5em 0;
+    font-variant: small-caps;
+  }
+
+  & input:last-child {
+    border-radius: 10px;
+  }
+  
+  }
 }
