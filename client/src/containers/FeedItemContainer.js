@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import FeedItemDetails from '../components/feedItem/FeedItemDetails'
 
-const FeedItemContainer=() => {
-  return (
-      <p>Hello world</p>
-  )
-}
+const FeedItemContainer = ({ posts }) => {
+  const feedNodes = posts.map((post, index) => {
+    if (post.id == window.location.href.at(-1)) {
+      return <FeedItemDetails 
+      post={post}
+      key={index}
+      />;
+    }
+  });
+
+  return <div className="below">{feedNodes}</div>;
+};
 
 export default FeedItemContainer;

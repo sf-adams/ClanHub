@@ -67,7 +67,9 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
             updatePost={updatePost}
           />
         ) : null}
-        <Link to={`/feed/${post.id}`}>Hello</Link>
+        <Link to={`/feed/${post.id}`} post={post}>
+          Hello
+        </Link>
       </div>
     </>
   );

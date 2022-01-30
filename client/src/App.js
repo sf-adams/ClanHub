@@ -182,7 +182,7 @@ function App() {
               path="/feed/:id"
               element={
                 <PrivateRoute>
-                  <FeedItemContainer />
+                  <FeedItemContainer posts={posts}/>
                 </PrivateRoute>
               }
             ></Route>
