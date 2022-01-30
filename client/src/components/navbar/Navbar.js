@@ -14,7 +14,7 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
             <img src={logo} alt="" />
           </Link>
         </div>
-
+        
         <div className="middle">
           <FaRegUser
             onClick={checkUserCredentials}
@@ -23,7 +23,6 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
           />
         </div>
         <button onClick={trytosayhello}>Click me</button>
-
         <div className="right">
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>

@@ -3,6 +3,8 @@ package com.clanhub.example.ClanHub.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -12,10 +14,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name= "category")
-//    private String category;
-
-    @Column(name="category")
+    @Column(name="categoryType")
     CategoryType categoryType;
 
     @Column(name= "title")
@@ -29,11 +28,16 @@ public class Post {
 //    @JsonIgnoreProperties({"posts"})
     private User user;
 
+//    @JsonIgnoreProperties({"post"})
+//    @OneToMany(mappedBy = "post")
+//    private List<Comment> comments;
+
     public Post(CategoryType categoryType, String title, String description, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
         this.user = user;
+//        this.comments = new ArrayList<>();
     }
 
     public Post() {
@@ -79,4 +83,12 @@ public class Post {
     public void setUser(User user) {
         this.user = user;
     }
+
+//    public List<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<Comment> comments) {
+//        this.comments = comments;
+//    }
 }

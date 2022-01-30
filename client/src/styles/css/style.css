@@ -192,6 +192,14 @@ h1 {
 .menu .social-links .icon:hover {
   opacity: 1;
 }
+.menu .menu-arrow-icon {
+  display: inline-block;
+  position: absolute;
+  transform: translateX(-40px);
+}
+.menu .menu-arrow-icon-active {
+  transform: translateX(-40px) rotate(90deg);
+}
 
 .navbar {
   width: 100%;

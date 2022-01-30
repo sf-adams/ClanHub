@@ -1,9 +1,10 @@
 @use '../base/root' as *;
+@use '../vendors/' as *;
 
 .menu {
   width: 300px;
   height: 100vh;
-  background-color: $background-primary;
+  background-color: $primary;
   position: fixed;
   top: 0;
   right: -300px;
@@ -60,5 +61,19 @@
     .icon:hover {
       opacity: 1;
     }
+  }
+
+  // Icons for sidebar
+
+  .menu-arrow-icon {
+    display: inline-block;
+    position: absolute;
+    transform: translateX(-40px);
+  }
+
+  // transition for active
+  
+  .menu-arrow-icon-active {
+    transform: translateX(-40px) rotate(90deg);
   }
 }
