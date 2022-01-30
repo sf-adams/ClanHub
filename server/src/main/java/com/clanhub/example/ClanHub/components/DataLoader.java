@@ -36,12 +36,12 @@ public class DataLoader implements ApplicationRunner {
         User user4 = new User("Sam", "Adams", "a person","sam@gmail.com", "IG", "IGA");
         userRepository.save(user4);
 
-        Post post1 = new Post(CategoryType.FEATURE, "how to use Git", "jdksfvbkjasdbfkjsd", user4);
+        Post post1 = new Post(CategoryType.FEATURE, "how to use Git", "jdksfvbkjasdbfkjsd", 0, user4);
 
-        Post post2 = new Post(CategoryType.FEATURE, "vs code shortcuts", "kdafjkdskdbfk", user4);
-        Post post3 = new Post(CategoryType.TIPSANDTRICKS, "terminal wizardry", "dajsbkjfjkbfdgkj", user4);
-        Post post4 = new Post(CategoryType.NETWORKING, "how to not be fired", "jkVSVUIVr", user2);
-        Post post5 = new Post(CategoryType.NETWORKING, "need friends", "fdklsngldfnlngiore", user3);
+        Post post2 = new Post(CategoryType.FEATURE, "vs code shortcuts", "kdafjkdskdbfk", 0, user4);
+        Post post3 = new Post(CategoryType.TIPSANDTRICKS, "terminal wizardry", "dajsbkjfjkbfdgkj", 0, user4);
+        Post post4 = new Post(CategoryType.NETWORKING, "how to not be fired", "jkVSVUIVr", 0, user2);
+        Post post5 = new Post(CategoryType.NETWORKING, "need friends", "fdklsngldfnlngiore", 0, user3);
 
         postRepository.save(post1);
         postRepository.save(post2);

@@ -3,6 +3,8 @@ package com.clanhub.example.ClanHub.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -24,16 +26,25 @@ public class Post {
     @Column(name= "description")
     private String description;
 
+    @Column(name= "description")
+    private int upvotes;
+
     @ManyToOne
     @JoinColumn(name = "user")
 //    @JsonIgnoreProperties({"posts"})
     private User user;
 
-    public Post(CategoryType categoryType, String title, String description, User user) {
+    @JsonIgnoreProperties({"post"})
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
+
+    public Post(CategoryType categoryType, String title, String description, int upvotes, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
+        this.upvotes = upvotes;
         this.user = user;
+        this.comments = new ArrayList<>();
     }
 
     public Post() {
@@ -72,11 +83,27 @@ public class Post {
         this.description = description;
     }
 
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

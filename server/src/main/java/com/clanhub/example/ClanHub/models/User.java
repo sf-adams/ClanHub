@@ -36,6 +36,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
+    @JsonIgnoreProperties({"user"})
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
     public User(String firstName, String lastName, String bio, String email, String linkedin, String github) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,6 +48,7 @@ public class User {
         this.linkedin = linkedin;
         this.github = github;
         this.posts = new ArrayList<>();
+        this.comments = new ArrayList<>();
     }
 
     public User() {
@@ -56,6 +61,14 @@ public class User {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public Long getId() {
@@ -117,4 +130,6 @@ public class User {
     public void addPost(Post post){
         this.posts.add(post);
     }
+
+
 }
