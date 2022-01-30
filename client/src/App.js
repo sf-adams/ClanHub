@@ -7,6 +7,7 @@ import UserService from "./services/UserService";
 import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/navbar/Menu";
 import FeedContainer from "./containers/FeedContainer";
+import FeedItemContainer from "./containers/FeedItemContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Signup from "./components/forms/SignUpForm";
@@ -38,9 +39,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    PostService.getPosts(search).then((posts) => setPosts(posts.data.filter((post) => {
-      return post.description.includes(search)
-    })));
+    PostService.getPosts(search).then((posts) =>
+      setPosts(
+        posts.data.filter((post) => {
+          return post.description.includes(search);
+        })
+      )
+    );
   });
 
   useEffect(() => {
@@ -48,7 +53,7 @@ function App() {
   }, [user]);
 
   const handleSearch = (searchKey) => {
-    setSearch(searchKey)
+    setSearch(searchKey);
   };
 
   const getLoggedIn = () => {
@@ -137,7 +142,7 @@ function App() {
               path="/home"
               element={
                 <PrivateRoute>
-                  <HomeContainer />
+                  <HomeContainer></HomeContainer>
                 </PrivateRoute>
               }
             />
@@ -165,6 +170,22 @@ function App() {
                 </PrivateRoute>
               }
             />
+          </Route>
+
+          <Route
+            element={
+              <LayoutContainer checkUserCredentials={checkUserCredentials} />
+            }
+          >
+            <Route
+              exact
+              path="/feed/:id"
+              element={
+                <PrivateRoute>
+                  <FeedItemContainer />
+                </PrivateRoute>
+              }
+            ></Route>
           </Route>
 
           <Route

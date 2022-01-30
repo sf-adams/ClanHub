@@ -21,14 +21,15 @@ function FeedContainer({
   const [modal, setModal] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const numOfPosts = posts.length;
-  const numPages = 1;
+  let numPages = 1;
 
   useEffect(() => {
     for (let i = 0; i < posts.length; i++) {
-      if (20 % i == 1) {
+      if (19 % i == 1) {
         numPages++;
       }
     }
+
   });
 
   const handleNewPostRequest = (e) => {

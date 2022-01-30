@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FeedEditPostPopUp from "./FeedEditPostPopUp";
 import axios from "axios";
 import PostService from "../../services/PostService";
@@ -32,6 +33,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+
         {user.email == post.user?.email ? (
           <>
             <button
@@ -65,6 +67,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
             updatePost={updatePost}
           />
         ) : null}
+        <Link to={`/feed/${post.id}`}>Hello</Link>
       </div>
     </>
   );
