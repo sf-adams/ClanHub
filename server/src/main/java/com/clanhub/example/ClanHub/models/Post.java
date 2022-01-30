@@ -1,6 +1,7 @@
 package com.clanhub.example.ClanHub.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,6 +24,10 @@ public class Post {
     @Column(name= "description")
     private String description;
 
+    @Lob
+    @Column(name="body")
+    private String body;
+
     @ManyToOne
     @JoinColumn(name = "user")
 //    @JsonIgnoreProperties({"posts"})
@@ -32,10 +37,11 @@ public class Post {
 //    @OneToMany(mappedBy = "post")
 //    private List<Comment> comments;
 
-    public Post(CategoryType categoryType, String title, String description, User user) {
+    public Post(CategoryType categoryType, String title, String description, String body, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
+        this.body = body;
         this.user = user;
 //        this.comments = new ArrayList<>();
     }
@@ -74,6 +80,14 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public User getUser() {

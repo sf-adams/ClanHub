@@ -5,6 +5,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [body, setBody] = useState("");
   const filteredArray = [];
 
   // This gets all the category types that there are
@@ -36,6 +37,10 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     setDescription(ev.target.value);
   };
 
+   const handleBodyChange = (ev) => {
+     setBody(ev.target.value);
+   };
+
   const resetValues =()=> {
     document.getElementById("new-post-category").value='';
   }
@@ -47,6 +52,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       categoryType: categoryType,
       title: title,
       description: description,
+      body: body,
       user: loggedIn
     });
     resetValues()
@@ -63,13 +69,13 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     >
       <h3>New Post title</h3>
 
-      <form
-        action="POST"
-        className="new-post-form"
-        onSubmit={handleSubmit}
-      >
+      <form action="POST" className="new-post-form" onSubmit={handleSubmit}>
         <div className="new-form-post-item">
-          <select id="new-post-category" defaultValue="" onChange={handleCategoryChange}>
+          <select
+            id="new-post-category"
+            defaultValue=""
+            onChange={handleCategoryChange}
+          >
             <option value="">Select an option</option>
             {uniqueAndFiltered}
           </select>
@@ -87,13 +93,23 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
           />
         </div>
         <div className="new-form-post-item">
-          <label htmlFor="description"></label>
+          <label htmlFor="description">Description</label>
           <textarea
             id="description"
             name="description"
             value={description}
             required
             onChange={handleDescriptionChange}
+          />
+        </div>
+        <div className="new-form-post-item">
+          <label htmlFor="body">Body</label>
+          <textarea
+            id="body"
+            name="body"
+            value={body}
+            required
+            onChange={handleBodyChange}
           />
         </div>
         <div className="new-form-post-item">
