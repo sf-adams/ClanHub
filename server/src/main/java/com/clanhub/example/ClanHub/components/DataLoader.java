@@ -1,8 +1,10 @@
 package com.clanhub.example.ClanHub.components;
 
 import com.clanhub.example.ClanHub.models.CategoryType;
+import com.clanhub.example.ClanHub.models.Comment;
 import com.clanhub.example.ClanHub.models.Post;
 import com.clanhub.example.ClanHub.models.User;
+import com.clanhub.example.ClanHub.repositories.CommentRepositoy;
 import com.clanhub.example.ClanHub.repositories.PostRepository;
 import com.clanhub.example.ClanHub.repositories.UserRepository;
 
@@ -20,6 +22,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     PostRepository postRepository;
+
+    @Autowired
+    CommentRepositoy commentRepositoy;
 
 
     @Override
@@ -54,6 +59,11 @@ public class DataLoader implements ApplicationRunner {
         user4.addPost(post3);
         user2.addPost(post4);
         user3.addPost(post5);
+
+        Comment comment1 = new Comment("test comment", "this is the body of a test comment", 0, user4, post1);
+        Comment comment2 = new Comment("test comment another", "another description for you", 0, user4, post1);
+        Comment comment3 = new Comment("test comment yet another", "how about this one as well", 0, user1, post2);
+        Comment comment4 = new Comment("test comment final", "finally we are going to inspect this one as well", 0, user1, post2);
     }
 
 }

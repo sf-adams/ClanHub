@@ -19,7 +19,7 @@ public class Comment {
     @Column(name="body")
     private String body;
 
-    @Column(name="title")
+    @Column(name="upvotes")
     private int upvotes;
 
 //    @JsonIgnoreProperties({"comment"})
@@ -44,6 +44,8 @@ public class Comment {
 
     public Comment() {
     }
+
+
 
     public Long getId() {
         return id;

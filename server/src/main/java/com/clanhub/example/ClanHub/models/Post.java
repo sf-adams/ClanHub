@@ -26,7 +26,7 @@ public class Post {
     @Column(name= "description")
     private String description;
 
-    @Column(name= "description")
+    @Column(name= "upvotes")
     private int upvotes;
 
     @ManyToOne
