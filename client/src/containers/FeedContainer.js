@@ -10,6 +10,7 @@ import PostService from "../services/PostService";
 function FeedContainer({
   user,
   loggedIn,
+  search,
   posts,
   createPost,
   deletePost,
@@ -19,6 +20,7 @@ function FeedContainer({
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
+  const numOfPosts = posts.length;
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
@@ -33,10 +35,14 @@ function FeedContainer({
     setToggleEdit(true);
   };
 
+  const count=()=> {
+    console.log(numOfPosts)
+  }
+
   return (
     <div className="feed-container" onClick={handleReset}>
       <div className="feed-container-header">
-        <FeedSearchBar handleSearch ={handleSearch}/>
+        <FeedSearchBar search={search} handleSearch={handleSearch} />
         {modal ? (
           <FeedNewPostPopUp
             posts={posts}
@@ -59,6 +65,7 @@ function FeedContainer({
         updatePost={updatePost}
         handleToggleEdit={handleToggleEdit}
       />
+      <button onClick={count}>Click me</button>
     </div>
   );
 }

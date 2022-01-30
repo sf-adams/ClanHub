@@ -155,7 +155,12 @@ function App() {
                   <FeedContainer
                     user={user}
                     loggedIn={loggedIn}
-                    posts={posts.filter((post)=> {return post.description.includes(search)})}
+                    search={search}
+                    posts={posts
+                      .filter((post) => {
+                        return post.description.includes(search);
+                      })
+                      .slice(0, 20)}
                     createPost={createPost}
                     deletePost={deletePost}
                     updatePost={updatePost}

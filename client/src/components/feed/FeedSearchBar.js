@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const FeedSearchBar = ({ handleSearch }) => {
+const FeedSearchBar = ({search, handleSearch }) => {
   const [searchCriteria, setSearchCriteria] = useState("");
+
+    useEffect(() =>{
+        document.getElementById("search").value='';
+        setSearchCriteria('')
+    }, [search])
+
 
   const handleSearchChange = (ev) => {
     setSearchCriteria(ev.target.value);
