@@ -9,14 +9,14 @@ function Navbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
 
         <div className="left">
-          <Link to="/home" className="logo" onClick={()=>setMenuOpen(false)}>
-            <img src={logo} alt="" />
+          <Link to="/profile" className='profile-button' onClick={()=>setMenuOpen(false)}>
+            <FaRegUser  className="icon" size="2em"/>
           </Link>
         </div>
 
         <div className="middle">
-          <Link to="/profile" className='profile-button' onClick={()=>setMenuOpen(false)}>
-            <FaRegUser  className="icon" size="2em"/>
+          <Link to="/home" className="logo" onClick={()=>setMenuOpen(false)}>
+              <img src={logo} alt="" />
           </Link>
         </div>
 
