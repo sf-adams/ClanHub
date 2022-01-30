@@ -29,7 +29,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [search, setSearch] = useState(''); 
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   // H2 Connections
@@ -37,18 +37,19 @@ function App() {
     UserService.getUsers().then((users) => setUsers(users.data));
   }, []);
 
-  
   useEffect(() => {
-    PostService.getPosts().then((posts) => setPosts(posts.data));
-  }, []);
+    PostService.getPosts(search).then((posts) => setPosts(posts.data.filter((post) => {
+      return post.description.includes(search)
+    })));
+  });
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);
   }, [user]);
 
-  const handleSearch = (searchKey)=> {
+  const handleSearch = (searchKey) => {
     setSearch(searchKey)
-  }
+  };
 
   const getLoggedIn = () => {
     if (users && user) {
@@ -66,8 +67,8 @@ function App() {
     );
   };
 
-  const createPost = (newPost) => {
-    PostService.newPost(newPost).then((savedPost) =>
+  const createPost = async (newPost) => {
+    await PostService.newPost(newPost).then((savedPost) =>
       setPosts([...posts, savedPost])
     );
   };
@@ -84,9 +85,8 @@ function App() {
   };
 
   const deletePost = async (id) => {
-    await PostService.removePost(id)
+    await PostService.removePost(id);
   };
-  
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -96,14 +96,14 @@ function App() {
     console.log(loggedIn);
   };
 
-  const checkUserCredentials= ()=>{
-    console.log("checking state")
+  const checkUserCredentials = () => {
+    console.log("checking state");
     if (!loggedIn) {
       navigate("/new-profile");
     } else {
       navigate("/profile");
     }
-  }
+  };
 
   return (
     <>
@@ -156,11 +156,7 @@ function App() {
                     user={user}
                     loggedIn={loggedIn}
                     search={search}
-                    posts={posts
-                      .filter((post) => {
-                        return post.description.includes(search);
-                      })
-                      .slice(0, 20)}
+                    posts={posts.slice(0, 20)}
                     createPost={createPost}
                     deletePost={deletePost}
                     updatePost={updatePost}

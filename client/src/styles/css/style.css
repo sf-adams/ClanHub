@@ -140,43 +140,56 @@ h1 {
 }
 
 .menu {
-  width: 300px;
+  width: 30vw;
   height: 100vh;
   background-color: #1b3445;
   position: fixed;
-  top: 0;
+  top: 0%;
   right: -300px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   transition: all 1s ease;
 }
 .menu.active {
   right: 0;
 }
-.menu ul {
-  margin: 0;
+.menu .menu-container {
+  position: absolute;
+  top: 30%;
+  height: 60%;
+}
+.menu .menu-container ul {
+  margin-left: 20%;
   padding: 0;
   list-style: none;
-  font-size: 30px;
   font-weight: 300;
   color: white;
   width: 60%;
 }
-.menu ul li {
+.menu .menu-container ul li {
   margin-bottom: 25px;
 }
-.menu ul li a {
+.menu .menu-container ul li ul li:first-child {
+  padding-top: 0.2em;
+}
+.menu .menu-container ul li ul li {
+  margin: 0.5em 0 0.5em -0.6em;
+}
+.menu .menu-container ul li a {
   font-size: inherit;
   color: inherit;
   text-decoration: none;
 }
-.menu ul li:hover {
+.menu .menu-container ul li:hover {
   font-weight: 500;
 }
-.menu .social-links {
+.menu .menu-container ul,
+.menu .menu-container ul li {
+  font-size: 1.25rem;
+}
+.menu .menu-container .social-links {
   width: 100%;
   display: flex;
   position: absolute;
@@ -184,20 +197,20 @@ h1 {
   align-items: center;
   justify-content: space-evenly;
 }
-.menu .social-links .icon {
+.menu .menu-container .social-links .icon {
   color: white;
   opacity: 0.7;
   transition: all 0.5s ease;
 }
-.menu .social-links .icon:hover {
+.menu .menu-container .social-links .icon:hover {
   opacity: 1;
 }
-.menu .menu-arrow-icon {
+.menu .menu-container .menu-arrow-icon {
   display: inline-block;
   position: absolute;
   transform: translateX(-40px);
 }
-.menu .menu-arrow-icon-active {
+.menu .menu-container .menu-arrow-icon-active {
   transform: translateX(-40px) rotate(90deg);
 }
 

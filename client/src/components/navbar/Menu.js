@@ -33,35 +33,37 @@ function Menu({ menuOpen, setMenuOpen }) {
 
   return (
     <div className={"menu " + (menuOpen && "active")}>
-      <ul>
-        <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
-        <li onClick={() => setMenuOpen(false)}>
-          <Link to="/home">Home</Link>
-          {toggleListShow1 ? (
-            <ul className="nested-menu-list" id="nested-menu-list-1">
-              <li className="nested-menu-item">Feature Requests</li>
-              <li className="nested-menu-item">Roadmap</li>
-            </ul>
-          ) : null}
-        </li>
-        <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown2} />
-        <li onClick={() => setMenuOpen(false)}>
-          <Link to="/feed">Feed</Link>
-          {toggleListShow2 ? (
-            <ul className="nested-menu-list" id="nested-menu-list-2">
-              <li className="nested-menu-item">Categories</li>
-              <li className="nested-menu-item">Trending</li>
-              <li className="nested-menu-item">Blog</li>
-            </ul>
-          ) : null}
-        </li>
-        <li>
-          <Link to="/terms">Terms and conditions</Link>
-        </li>
-        <li onClick={logout}>
-          <Link to="/">Sign Out</Link>
-        </li>
-      </ul>
+      <div className="menu-container">
+        <ul>
+          <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
+          <li onClick={() => setMenuOpen(false)}>
+            <Link to="/home">Home</Link>
+            {toggleListShow1 ? (
+              <ul className="nested-menu-list" id="nested-menu-list-1">
+                <li className="nested-menu-item">Feature Requests</li>
+                <li className="nested-menu-item">Roadmap</li>
+              </ul>
+            ) : null}
+          </li>
+          <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown2} />
+          <li onClick={() => setMenuOpen(false)}>
+            <Link to="/feed">Feed</Link>
+            {toggleListShow2 ? (
+              <ul className="nested-menu-list" id="nested-menu-list-2">
+                <li className="nested-menu-item">Categories</li>
+                <li className="nested-menu-item">Trending</li>
+                <li className="nested-menu-item">Blog</li>
+              </ul>
+            ) : null}
+          </li>
+          <li>
+            <Link to="/terms">Terms and conditions</Link>
+          </li>
+          <li onClick={logout}>
+            <Link to="/">Sign Out</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
