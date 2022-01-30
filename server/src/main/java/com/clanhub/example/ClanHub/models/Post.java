@@ -1,12 +1,8 @@
 package com.clanhub.example.ClanHub.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -28,26 +24,16 @@ public class Post {
     @Column(name= "description")
     private String description;
 
-    @Column(name= "upvotes")
-    private int upvotes;
-
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "user")
 //    @JsonIgnoreProperties({"posts"})
     private User user;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "post")
-    private List<Comment> comments;
-
-    public Post(CategoryType categoryType, String title, String description, int upvotes, User user) {
+    public Post(CategoryType categoryType, String title, String description, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
-        this.upvotes = upvotes;
         this.user = user;
-        this.comments = new ArrayList<>();
     }
 
     public Post() {
@@ -86,27 +72,11 @@ public class Post {
         this.description = description;
     }
 
-    public int getUpvotes() {
-        return upvotes;
-    }
-
-    public void setUpvotes(int upvotes) {
-        this.upvotes = upvotes;
-    }
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 }

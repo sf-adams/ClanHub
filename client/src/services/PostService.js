@@ -16,7 +16,7 @@ class PostService {
   }
 
   updatePost(post) {
-    return axios.put(baseURL + post.id);
+    return axios.put(baseURL + post.id, post);
   }
 }
 

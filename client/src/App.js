@@ -66,9 +66,9 @@ function App() {
     );
   };
 
-  const putPost = (postToEdit)=> {
-    PostService.editPost(postToEdit)
-  }
+  const updatePost = (postToEdit) => {
+    PostService.editPost(postToEdit);
+  };
 
   const deletePost = async (id) => {
     await PostService.removePost(id)

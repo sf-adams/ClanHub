@@ -53,6 +53,7 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
         categoryType: categoryType,
         title: title,
         description: description,
+        user: user
         })
       .then( 
 	(response) => { console.log(response) },
