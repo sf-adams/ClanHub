@@ -1,5 +1,6 @@
 package com.clanhub.example.ClanHub.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,14 +23,12 @@ public class Comment {
     @Column(name="upvotes")
     private int upvotes;
 
-//    @JsonIgnoreProperties({"comment"})
-//    @OneToMany(mappedBy = "comment")
-//    private List<Response>;
-
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user")
     private User user;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="post")
     private Post post;
@@ -44,8 +43,6 @@ public class Comment {
 
     public Comment() {
     }
-
-
 
     public Long getId() {
         return id;

@@ -1,6 +1,7 @@
 package com.clanhub.example.ClanHub.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,12 +33,12 @@ public class User {
     @Column(name="github")
     private String github;
 
-    @JsonIgnoreProperties({"user"})
-    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Post> posts;
 
-    @JsonIgnoreProperties({"user"})
-    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Comment> comments;
 
     public User(String firstName, String lastName, String bio, String email, String linkedin, String github) {

@@ -1,6 +1,8 @@
 package com.clanhub.example.ClanHub.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,13 +31,14 @@ public class Post {
     @Column(name= "upvotes")
     private int upvotes;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "user")
 //    @JsonIgnoreProperties({"posts"})
     private User user;
 
-    @JsonIgnoreProperties({"post"})
-    @OneToMany(mappedBy = "post")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "post")
     private List<Comment> comments;
 
     public Post(CategoryType categoryType, String title, String description, int upvotes, User user) {
