@@ -36,6 +36,11 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     setDescription(ev.target.value);
   };
 
+  const resetValues =()=> {
+    document.getElementById("new-post-category").value='';
+  }
+
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     await createPost({
@@ -44,9 +49,11 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       description: description,
       user: loggedIn
     });
+    resetValues()
     setCategoryType("");
     setTitle("");
     setDescription("");
+    handleReset();
   };
 
   return (
@@ -62,7 +69,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
         onSubmit={handleSubmit}
       >
         <div className="new-form-post-item">
-          <select defaultValue="" onChange={handleCategoryChange}>
+          <select id="new-post-category" defaultValue="" onChange={handleCategoryChange}>
             <option value="">Select an option</option>
             {uniqueAndFiltered}
           </select>
