@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import FeedList from "../components/feed/FeedList";
 import NewFeedItemButton from "../components/feed/NewFeedItemButton";
 import FeedNewPostPopUp from "../components/feed/FeedNewPostPopUp";
+import FeedSearchBar from "../components/feed/FeedSearchBar";
 import UserService from "../services/UserService";
 import PostService from "../services/PostService";
 
-function FeedContainer({ user, loggedIn, posts, createPost, deletePost, updatePost}) {
+function FeedContainer({
+  user,
+  loggedIn,
+  posts,
+  createPost,
+  deletePost,
+  updatePost,
+  handleSearch,
+}) {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -27,6 +36,7 @@ function FeedContainer({ user, loggedIn, posts, createPost, deletePost, updatePo
   return (
     <div className="feed-container" onClick={handleReset}>
       <div className="feed-container-header">
+        <FeedSearchBar handleSearch ={handleSearch}/>
         {modal ? (
           <FeedNewPostPopUp
             posts={posts}

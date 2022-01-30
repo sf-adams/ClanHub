@@ -1,8 +1,7 @@
 import React from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
 
-
-const ProfileDetails = ({user, loggedIn}) => {
+const ProfileDetails = ({ user, loggedIn }) => {
   return (
     <div className="profileRight">
       <div className="profileRightTop">
@@ -15,7 +14,9 @@ const ProfileDetails = ({user, loggedIn}) => {
             {loggedIn?.firstName} {loggedIn?.lastName}
           </h4>
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
-          <span className="profileInfoLinkedin">Linkedin: {loggedIn?.linkedin}</span>
+          <span className="profileInfoLinkedin">
+            Linkedin: {loggedIn?.linkedin}
+          </span>
           <span className="profileInfoGithub">Github: {loggedIn?.github}</span>
         </div>
       </div>

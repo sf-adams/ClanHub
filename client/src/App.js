@@ -29,6 +29,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [search, setSearch] = useState(''); 
   const navigate = useNavigate();
 
   // H2 Connections
@@ -36,6 +37,7 @@ function App() {
     UserService.getUsers().then((users) => setUsers(users.data));
   }, []);
 
+  
   useEffect(() => {
     PostService.getPosts().then((posts) => setPosts(posts.data));
   }, []);
@@ -43,6 +45,10 @@ function App() {
   useEffect(() => {
     setLoggedIn(getLoggedIn);
   }, [user]);
+
+  const handleSearch = (searchKey)=> {
+    setSearch(searchKey)
+  }
 
   const getLoggedIn = () => {
     if (users && user) {
@@ -149,10 +155,11 @@ function App() {
                   <FeedContainer
                     user={user}
                     loggedIn={loggedIn}
-                    posts={posts}
+                    posts={posts.filter((post)=> {return post.description.includes(search)})}
                     createPost={createPost}
                     deletePost={deletePost}
                     updatePost={updatePost}
+                    handleSearch={handleSearch}
                   />
                 </PrivateRoute>
               }
