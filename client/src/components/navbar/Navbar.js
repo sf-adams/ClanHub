@@ -22,7 +22,6 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
             size="2em"
           />
         </div>
-        <button onClick={trytosayhello}>Click me</button>
         <div className="right">
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>

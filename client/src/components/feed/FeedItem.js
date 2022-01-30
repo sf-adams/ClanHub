@@ -4,6 +4,9 @@ import FeedEditPostPopUp from "./FeedEditPostPopUp";
 import axios from "axios";
 import PostService from "../../services/PostService";
 
+import { FiEdit3 } from "react-icons/fi";
+import { MdDeleteOutline } from "react-icons/md";
+
 const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
 
@@ -29,35 +32,11 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
     <>
       <div className="feed-item-object">
         <h4 className="feed-item-object-title">{post.title}</h4>
-        <p className="feed-item-object-description">{post.description}</p>
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+        <p className="feed-item-object-description">{post.description}</p>
 
-        {user.email == post.user?.email ? (
-          <>
-            <button
-              onClick={() => {
-                setData(
-                  post.id,
-                  post.categoryType,
-                  post.title,
-                  post.description,
-                  post.user
-                );
-              }}
-            >
-              Edit
-            </button>
-            <button
-              onClick={() => {
-                deletePost(post?.id);
-              }}
-            >
-              Delete
-            </button>
-          </>
-        ) : null}
         {toggleEdit ? (
           <FeedEditPostPopUp
             post={post}
@@ -67,9 +46,29 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
             updatePost={updatePost}
           />
         ) : null}
-        <Link to={`/feed/${post.id}`} post={post}>
-          Hello
+        <Link className="feed-item-link" to={`/feed/${post.id}`} post={post}>
+          See post
         </Link>
+        {user.email == post.user?.email ? (
+          <div className="feed-item-buttons">
+            <FiEdit3
+              onClick={() => {
+                setData(
+                  post.id,
+                  post.categoryType,
+                  post.title,
+                  post.description,
+                  post.user
+                );
+              }}
+            />
+            <MdDeleteOutline
+              onClick={() => {
+                deletePost(post?.id);
+              }}
+            />
+          </div>
+        ) : null}
       </div>
     </>
   );

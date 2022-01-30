@@ -29,7 +29,6 @@ function FeedContainer({
         numPages++;
       }
     }
-
   });
 
   const handleNewPostRequest = (e) => {
@@ -48,6 +47,10 @@ function FeedContainer({
   return (
     <div className="feed-container" onClick={handleReset}>
       <div className="feed-container-header">
+        <h1 className="feed-section-title">ClanHub Feed</h1>
+        <div className="new-post-vutton-wrapper">
+          <NewFeedItemButton handleNewPostRequest={handleNewPostRequest} />
+        </div>
         <FeedSearchBar search={search} handleSearch={handleSearch} />
         {modal ? (
           <FeedNewPostPopUp
@@ -58,10 +61,6 @@ function FeedContainer({
             handleToggleEdit={handleToggleEdit}
           />
         ) : null}
-        <h1>Welcome to ClanHub.</h1>
-        <NewFeedItemButton handleNewPostRequest={handleNewPostRequest} />
-        <br></br>
-        <Link to="/profile">Click to view your profile.</Link>
       </div>
       <FeedList
         posts={posts}

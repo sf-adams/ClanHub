@@ -15,9 +15,19 @@ const FeedSearchBar = ({search, handleSearch }) => {
 
   return (
     <div className="search-wrapper">
-      <label htmlFor="search">Search Posts:</label>
-      <input type="search" id="search" onChange={handleSearchChange} />
-      <button onClick={()=> {handleSearch(searchCriteria)}}>Search</button>
+      <div className="search-wrapper-1st">
+        <label htmlFor="search">Search Posts:</label>
+      </div>
+      <div className="search-wrapper-2nd">
+        <input type="search" id="search" onChange={handleSearchChange} />
+        <button
+          onClick={() => {
+            handleSearch(searchCriteria);
+          }}
+        >
+          Search
+        </button>
+      </div>
     </div>
   );
 };

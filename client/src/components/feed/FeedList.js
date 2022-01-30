@@ -25,7 +25,7 @@ const FeedList = ({
 
   return (
     <>
-      <div>{postNodes}</div>
+      <div className="feed-list">{postNodes}</div>
     </>
   );
 };

@@ -12,7 +12,34 @@ body {
   box-sizing: border-box;
 }
 
-.feed-container-new-post-modal {
+.feed-container {
+  margin-top: 7.5em;
+}
+.feed-container .feed-container-header {
+  padding: 0;
+}
+.feed-container .feed-container-header .feed-section-title {
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+.feed-container .feed-container-header .new-post-vutton-wrapper {
+  position: absolute;
+  top: 17.5%;
+  left: 15%;
+}
+.feed-container .search-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  margin: auto;
+}
+.feed-container .search-wrapper .search-wrapper-1st {
+  margin-left: 0em;
+}
+.feed-container .search-wrapper .search-wrapper-2nd input {
+  width: 50%;
+}
+.feed-container .feed-container-new-post-modal {
   border-radius: 10px;
   background-color: #1b3445;
   box-shadow: 0 0 10px #1b3445;
@@ -22,11 +49,11 @@ body {
   position: absolute;
   left: 20%;
 }
-.feed-container-new-post-modal * {
+.feed-container .feed-container-new-post-modal * {
   width: fit-content;
   padding: 1em;
 }
-.feed-container-new-post-modal .feed-container-new-post-modal-title {
+.feed-container .feed-container-new-post-modal .feed-container-new-post-modal-title {
   position: relative;
   margin-top: 2.5em;
   width: 100%;
@@ -34,11 +61,11 @@ body {
   text-transform: capitalize;
   text-align: center;
 }
-.feed-container-new-post-modal .new-post-form {
+.feed-container .feed-container-new-post-modal .new-post-form {
   position: relative;
   width: 100%;
 }
-.feed-container-new-post-modal .new-form-post-item {
+.feed-container .feed-container-new-post-modal .new-form-post-item {
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -47,12 +74,41 @@ body {
   width: 100%;
   padding: 0;
 }
-.feed-container-new-post-modal .new-form-post-item label {
+.feed-container .feed-container-new-post-modal .new-form-post-item label {
   padding: 0.85em 0 0.5em 0;
   font-variant: small-caps;
 }
-.feed-container-new-post-modal .new-form-post-item input:last-child {
+.feed-container .feed-container-new-post-modal .new-form-post-item input:last-child {
   border-radius: 10px;
+}
+
+.feed-item-object {
+  padding: 2em;
+  background-color: #1b3445;
+  border-radius: 10px;
+  color: white;
+  width: max(200px, 60vw);
+  margin: 2.5em auto 0 auto;
+}
+.feed-item-object .feed-item-object-title {
+  text-transform: capitalize;
+  padding-bottom: 1.5em;
+}
+.feed-item-object .feed-item-object-author {
+  font-style: italic;
+  padding-bottom: 0.5em;
+}
+.feed-item-object .feed-item-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.feed-item-object .feed-item-buttons {
+  position: absolute;
+  right: 25%;
+}
+.feed-item-object p {
+  line-height: 1.5em;
 }
 
 .profile {
@@ -323,10 +379,6 @@ body {
 .navbar.active .hamburger span:last-child {
   background-color: white;
   transform: rotate(-45deg);
-}
-
-form {
-  background-color: #1b3445;
 }
 
 .feed-container-header {
