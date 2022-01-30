@@ -3,7 +3,7 @@ import FeedEditPostPopUp from "./FeedEditPostPopUp";
 import axios from "axios";
 import PostService from "../../services/PostService";
 
-const FeedItem = ({ post, posts, user, deletePost }) => {
+const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   const handleToggleEdit = () => {
@@ -47,7 +47,13 @@ const FeedItem = ({ post, posts, user, deletePost }) => {
             >
               Edit
             </button>
-            <button onClick={()=> {deletePost(post?.id)}}>Delete</button>
+            <button
+              onClick={() => {
+                deletePost(post?.id);
+              }}
+            >
+              Delete
+            </button>
           </>
         ) : null}
         {toggleEdit ? (
@@ -55,6 +61,8 @@ const FeedItem = ({ post, posts, user, deletePost }) => {
             post={post}
             posts={posts}
             handleToggleEdit={handleToggleEdit}
+            setData={setData}
+            updatePost={updatePost}
           />
         ) : null}
       </div>

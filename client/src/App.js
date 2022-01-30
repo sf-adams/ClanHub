@@ -66,8 +66,15 @@ function App() {
     );
   };
 
-  const updatePost = (postToEdit) => {
-    PostService.editPost(postToEdit);
+  const updatePost = (updatedPost) => {
+    PostService.editPost(updatedPost);
+
+    const updatedPostIndex = posts.findIndex(
+      (post) => post.id === updatedPost._id
+    );
+    const updatedPosts = [...posts];
+    updatedPosts[updatedPostIndex] = updatedPost;
+    setPosts(updatedPosts);
   };
 
   const deletePost = async (id) => {
@@ -145,6 +152,7 @@ function App() {
                     posts={posts}
                     createPost={createPost}
                     deletePost={deletePost}
+                    updatePost={updatePost}
                   />
                 </PrivateRoute>
               }

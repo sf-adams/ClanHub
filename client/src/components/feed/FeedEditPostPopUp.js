@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import PostService from "../../services/PostService";
 
 
-const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
+const FeedEditPostPopUp = ({
+  post,
+  posts,
+  toggleEdit,
+  handleToggleEdit,
+  updatePost
+}) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -48,16 +54,13 @@ const FeedEditPostPopUp = ({ post, posts, toggleEdit, handleToggleEdit }) => {
   });
 
   const updatePostData = () => {
-    PostService.updatePost({
-        id: post.id,
-        categoryType: categoryType,
-        title: title,
-        description: description,
-        user: user
-        })
-      .then( 
-	(response) => { console.log(response) },
-	(error) => { console.log(error) });
+    updatePost({
+      id: post.id,
+      categoryType: categoryType,
+      title: title,
+      description: description,
+      user: user,
+    })
   };
 
   const getDeets = () => {
