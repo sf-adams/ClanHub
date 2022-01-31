@@ -16,8 +16,8 @@ function ProfileContainer({ user, posts, loggedIn }) {
 
   return (
     <div className="profile-container">
-      <ProfileHeader user={user}/>
-      <ProfileDetails user={user} />
+      <ProfileHeader user={user} />
+      <ProfileDetails user={user} loggedIn ={loggedIn}/>
       <ProfileHistoryList user={user} posts={posts} />
 
       <p>{user?.email}</p>
@@ -42,7 +42,6 @@ function ProfileContainer({ user, posts, loggedIn }) {
         <li>{loggedIn?.linkedin}</li>
         <li>{loggedIn?.github}</li>
       </ul>
-
 
       <Link to="/feed">Click to view your feed.</Link>
     </div>

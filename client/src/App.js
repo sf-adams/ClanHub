@@ -1,5 +1,5 @@
 import "./styles/css/style.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 
@@ -36,6 +36,8 @@ function App() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
+  const isMounted = useRef(true);
+
   // H2 Connections
   useEffect(() => {
     UserService.getUsers().then((users) => setUsers(users.data));
@@ -53,9 +55,12 @@ function App() {
 
   useEffect(() => {
     CommentService.getComments().then((comments) => {
-      setComments(comments.data);
+      if (isMounted.current) {
+        setComments(comments.data);
+      }
     });
-  }, []);
+    return (()=> {isMounted.current = false}) 
+  });
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);
