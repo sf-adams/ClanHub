@@ -15,6 +15,11 @@ const Comment = ({ comment, post, deleteComment, updateComment }) => {
     setEditModal(!editModal);
   };
 
+  const handleDelete = async ()=> {
+    await CommentService.removeComment(comment.id);
+    window.location.reload();
+  }
+
   return (
     <div className="comment-wrapper">
       <h3 className="comment-title">{comment.title}</h3>
@@ -28,9 +33,7 @@ const Comment = ({ comment, post, deleteComment, updateComment }) => {
           />
           <MdDeleteOutline
             className="comment-edit-button"
-            onClick={() => {
-              CommentService.removeComment(comment.id);
-            }}
+            onClick={handleDelete}
           />
         </div>
       }

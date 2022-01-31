@@ -55,12 +55,9 @@ function App() {
 
   useEffect(() => {
     CommentService.getComments().then((comments) => {
-      if (isMounted.current) {
-        setComments(comments.data);
-      }
+      setComments(comments.data);
     });
-    return (()=> {isMounted.current = false}) 
-  });
+  }, []);
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);
