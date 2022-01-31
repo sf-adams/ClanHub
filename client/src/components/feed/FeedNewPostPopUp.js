@@ -8,6 +8,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [body, setBody] = useState("");
+  const [upvotes, setUpvotes] = useState(0);
   const filteredArray = [];
 
   // This gets all the category types that there are
@@ -55,6 +56,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       title: title,
       description: description,
       body: body,
+      upvotes: upvotes,
       user: loggedIn
     });
     resetValues()

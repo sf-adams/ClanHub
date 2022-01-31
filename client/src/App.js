@@ -125,6 +125,27 @@ function App() {
 
   // Crud actions on comments
 
+  const createComment = async (newComment) => {
+    await CommentService.newComment(newComment).then((savedComment) =>
+      setUsers([...comments, savedComment])
+    );
+  };
+
+  const deleteComment = async (id) => {
+    await CommentService.removeComment(id);
+  };
+
+  const updateComment = async (updatedComment) => {
+    await CommentService.editComment(updatedComment);
+
+    const updatedCommentIndex = comments.findIndex(
+      (comment) => comment.id === updatedComment._id
+    );
+    const updatedComments = [...posts];
+    updatedComments[updatedCommentIndex] = updatedComment;
+    setPosts(updatedComments);
+  };
+
   return (
     <>
       <AuthContextProvider>
@@ -197,7 +218,13 @@ function App() {
               path="/feed/:id"
               element={
                 <PrivateRoute>
-                  <FeedItemContainer posts={posts} comments={comments} />
+                  <FeedItemContainer
+                    posts={posts}
+                    comments={comments}
+                    createComment={createComment}
+                    deleteComment={deleteComment}
+                    updateComment={updateComment}
+                  />
                 </PrivateRoute>
               }
             ></Route>

@@ -14,16 +14,21 @@ public class Comment {
     @Column(name="title")
     private String title;
 
+    @Lob
     @Column(name="body")
     private String body;
+
+    @Column(name="upvotes")
+    private int upvotes;
 
     @ManyToOne
     @JoinColumn(name="post_id")
     private Post post;
 
-    public Comment(String title, String body, Post post) {
+    public Comment(String title, String body, int upvotes, Post post) {
         this.title = title;
         this.body = body;
+        this.upvotes = upvotes;
         this.post = post;
     }
 
@@ -52,6 +57,14 @@ public class Comment {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
     }
 
     public Post getPost() {
