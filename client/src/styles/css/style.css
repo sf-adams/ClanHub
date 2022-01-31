@@ -218,16 +218,15 @@ img {
 
 /* Top Container */
 .top-container {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas: "showcase showcase top-box-a" "showcase showcase top-box-b";
+  padding-top: 10vh;
 }
 
 /* Showcase */
 .showcase {
   grid-area: showcase;
   min-height: 400px;
-  background: url(https://image.ibb.co/kYJK8x/showcase.jpg);
+  opacity: 0.9;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
   background-size: cover;
   background-position: center;
   padding: 3rem;
