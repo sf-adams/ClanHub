@@ -58,18 +58,12 @@ function HomeContainer() {
 
         {/* <!-- Portfolio --> */}
         <section className="portfolio">
-          <img src="https://source.unsplash.com/mk7D-4UCfmg/200x200" alt="" />
-          <img src="https://source.unsplash.com/random/201x200" alt="" />
-          <img src="https://source.unsplash.com/random/202x200" alt="" />
-          <img src="https://source.unsplash.com/random/203x200" alt="" />
-          <img src="https://source.unsplash.com/random/204x200" alt="" />
-          <img src="https://source.unsplash.com/random/205x200" alt="" />
-          <img src="https://source.unsplash.com/random/206x200" alt="" />
-          <img src="https://source.unsplash.com/random/207x200" alt="" />
-          <img src="https://source.unsplash.com/random/208x200" alt="" />
+          <img src="https://source.unsplash.com/mk7D-4UCfmg/400x400" alt="" />
+          <img src="https://source.unsplash.com/m_HRfLhgABo/400x400" alt="" />
+          <img src="https://source.unsplash.com/QckxruozjRg/400x400" alt="" />
+          <img src="https://source.unsplash.com/2q_frVRXWfQ/400x400" alt="" />
+          <img src="https://source.unsplash.com/5Q07sS54D0Q/400x400" alt="" />
         </section>
-
-
       </div>
   );
 }
