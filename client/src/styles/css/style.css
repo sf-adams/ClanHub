@@ -101,9 +101,28 @@ h1 {
   justify-content: center;
 }
 
-.form-component h3 {
+.form-text {
+  font-size: 50px;
+  color: white;
   margin-bottom: 30px;
 }
+
+.form-desc {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.form-box {
+  width: 100%;
+  height: 40%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .form-component .inner-container {
   display: block;
   color: #1b3445;
