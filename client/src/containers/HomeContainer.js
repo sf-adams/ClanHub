@@ -13,11 +13,9 @@ function HomeContainer() {
           <header className="showcase">
             <h1>Welcome to ClanHub</h1>
             <p>A community built by the community, ClanHub is a space for students and staff alike to share their ideas. Access your feed to see the latest posts.</p>
-            <Link to="/home" className='main-button'>
+            <Link to="/home" >
+              <button className='main-button'>Feed</button>
             </Link>
-            {/* <Link to="/home">
-              <a href="" className="main-button" alt="">Read More</a>
-            </Link> */}
 
           </header>
         </section>

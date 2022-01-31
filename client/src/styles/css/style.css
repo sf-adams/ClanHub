@@ -205,6 +205,7 @@ h1 {
   padding: 0.6rem 1.3rem;
   text-decoration: none;
   border: 0;
+  cursor: pointer;
 }
 .main-button img {
   max-width: 100%;
