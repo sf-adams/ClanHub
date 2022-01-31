@@ -27,7 +27,7 @@ export function AuthContextProvider({ children }) {
   // When a component is unmounted, we will want to make sure that we unsubscribe
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("Auth", currentUser);
+      // console.log("Auth", currentUser);
       setUser(currentUser);
     });
 

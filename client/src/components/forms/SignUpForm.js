@@ -1,9 +1,15 @@
-export default function SignupForm({email, setEmail, password, setPassword, passwordConfirm, setPasswordConfirm, handleSubmit}) {
-
+export default function SignupForm({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  passwordConfirm,
+  setPasswordConfirm,
+  handleSubmit,
+}) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-
         <div className="inner-container">
           <label htmlFor="signup-Email"> Email:</label>
           <input
@@ -52,7 +58,6 @@ export default function SignupForm({email, setEmail, password, setPassword, pass
           </button>
         </div>
       </form>
-
     </>
   );
 }

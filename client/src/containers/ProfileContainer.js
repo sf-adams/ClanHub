@@ -43,6 +43,7 @@ function ProfileContainer({ user, posts, loggedIn }) {
         <li>{loggedIn?.github}</li>
       </ul>
 
+
       <Link to="/feed">Click to view your feed.</Link>
     </div>
   );
