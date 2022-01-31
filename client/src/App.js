@@ -144,7 +144,6 @@ function App() {
     const updatedComments = [...posts];
     updatedComments[updatedCommentIndex] = updatedComment;
     setPosts(updatedComments);
-    
   };
 
   return (

@@ -1,25 +1,19 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import EditCommentForm from "./EditCommentForm";
 import { FiEdit3 } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
-import CommentService from '../../../services/CommentService'
+import CommentService from "../../../services/CommentService";
 
-const Comment = ({
-  comment,
-  post,
-  deleteComment,
-  updateComment
-}) => {
-
+const Comment = ({ comment, post, deleteComment, updateComment }) => {
   const [editModal, setEditModal] = useState(false);
 
   const handleClick = () => {
     console.log(comment);
   };
 
-  const handleEditModalChange = ()=> {
+  const handleEditModalChange = () => {
     setEditModal(!editModal);
-  }
+  };
 
   return (
     <div className="comment-wrapper">
