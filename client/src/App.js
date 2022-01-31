@@ -2,9 +2,6 @@ import "./styles/css/style.css";
 import { useState, useEffect } from "react";
 
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
-import UserService from "./services/UserService";
-
-
 
 // Container & Component Imports
 import Navbar from "./components/navbar/Navbar";
@@ -26,13 +23,16 @@ import { AuthContextProvider } from "./auth/AuthContext";
 import NewProfileContainer from "./containers/NewProfileContainer";
 import { onAuthStateChanged } from "firebase/auth";
 // import { useAuthState } from "react-firebase-hooks/auth";
+import UserService from "./services/UserService";
 import PostService from "./services/PostService";
+import CommentService from "./services/CommentService";
 
 function App() {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState({});
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -52,12 +52,22 @@ function App() {
   });
 
   useEffect(() => {
+    CommentService.getComments().then((comments) => {
+      setComments(comments.data);
+    });
+  }, []);
+
+  useEffect(() => {
     setLoggedIn(getLoggedIn);
   }, [user]);
+
+  // Function for managing search
 
   const handleSearch = (searchKey) => {
     setSearch(searchKey);
   };
+
+  // Auth authentication callback functions
 
   const getLoggedIn = () => {
     if (users && user) {
@@ -67,15 +77,30 @@ function App() {
       });
       return sel[0];
     }
-
   };
 
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const checkUserCredentials = () => {
+    console.log("checking state");
+    if (!loggedIn) {
+      navigate("/new-profile");
+    } else {
+      navigate("/profile");
+    }
+  };
+
+  // Crud actions on User
 
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
       setUsers([...users, savedUser].then(setLoggedIn(newUser)))
     );
   };
+
+  // Crud actions on post
 
   const createPost = async (newPost) => {
     await PostService.newPost(newPost).then((savedPost) =>
@@ -98,21 +123,7 @@ function App() {
     await PostService.removePost(id);
   };
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-
-
-  const checkUserCredentials = () => {
-    console.log("checking state");
-    if (!loggedIn) {
-      navigate("/new-profile");
-    } else {
-      navigate("/profile");
-    }
-  };
-
+  // Crud actions on comments
 
   return (
     <>
@@ -186,7 +197,7 @@ function App() {
               path="/feed/:id"
               element={
                 <PrivateRoute>
-                  <FeedItemContainer posts={posts}/>
+                  <FeedItemContainer posts={posts} comments={comments} />
                 </PrivateRoute>
               }
             ></Route>
