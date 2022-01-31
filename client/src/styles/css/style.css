@@ -1,33 +1,9 @@
 /* outfit-300 - latin */
 @font-face {
-  font-family: "Outfit";
+  font-family: "Outfit-300";
   font-style: normal;
   font-weight: 300;
-  src: url("../../../assets/fonts/outfit-v2-latin-300.woff2") format("woff2"), url("../../../assets/fonts/outfit-v2-latin-300.woff") format("woff"), url("../../../assets/fonts/outfit-v2-latin-300.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../../../assets/fonts/outfit-v2-latin-regular.woff2") format("woff2"), url("../../../assets/fonts/outfit-v2-latin-regular.woff") format("woff"), url("../../../assets/fonts/outfit-v2-latin-regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../../../assets/fonts/outfit-v2-latin-500.woff2") format("woff2"), url("../../../assets/fonts/outfit-v2-latin-500.woff") format("woff"), url("../../../assets/fonts/outfit-v2-latin-500.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../../../assets/fonts/outfit-v2-latin-600.woff2") format("woff2"), url("../../../assets/fonts/outfit-v2-latin-600.woff") format("woff"), url("../../../assets/fonts/outfit-v2-latin-600.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../../../assets/fonts/outfit-v2-latin-700.woff2") format("woff2"), url("../../../assets/fonts/outfit-v2-latin-700.woff") format("woff"), url("../../../assets/fonts/outfit-v2-latin-700.ttf") format("truetype");
+  src: url("../../assets/fonts/outfit-v2-latin-300.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-300.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-300.ttf") format("truetype");
 }
 h3 {
   color: #1b3445;
@@ -134,6 +110,7 @@ h1 {
 
 .form-text {
   font-size: 50px;
+  font-family: "Outfit-300";
   color: white;
   margin-bottom: 30px;
 }
