@@ -11,7 +11,7 @@
 
     .feed-section-title {
       text-align: center;
-      padding-bottom: .5em;
+      padding-bottom: 0.5em;
     }
 
     .new-post-vutton-wrapper {
@@ -30,11 +30,10 @@
     .search-wrapper-1st {
       margin-left: 0em;
     }
-  
-  .search-wrapper-2nd input {
-    width: 50%;
-  }
-  
+
+    .search-wrapper-2nd input {
+      width: 50%;
+    }
   }
 
   // Styles for modal pop up creating new feed posts
@@ -88,7 +87,6 @@
 
 // The feed itself
 
-
 .feed-item-object {
   padding: 2em;
   background-color: $background-primary;
@@ -104,7 +102,7 @@
 
   & .feed-item-object-author {
     font-style: italic;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
   }
 
   & .feed-item-link {
@@ -121,5 +119,27 @@
   p {
     line-height: 1.5em;
   }
+}
 
+// The feed item show page styles
+
+.post-page {
+  margin: 0 auto;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .post-details-header {
+    text-transform: capitalize;
+    padding-bottom: .6em;
+  }
+
+
+  .post-body-paragraph {
+    padding-bottom: 1em;
+    text-indent: 2em;
+    line-height: 1.65rem;
+    text-align: justify;
+  }
 }
