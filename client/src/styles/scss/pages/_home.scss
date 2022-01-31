@@ -1,0 +1,178 @@
+@use '../base' as *;
+
+.main-button {
+  background: $background-light;
+  color: $background-secondary;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background: $background-primary;
+  color: $background-secondary;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  // display: block;
+  text-align: center;
+  margin: auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.top-container {
+  padding-top: 10vh;
+}
+
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://source.unsplash.com/Y96OcAtUWw0');
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  margin-bottom: 20px;
+}
+
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: $background-secondary;
+  font-family: 'Outfit-600';
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: $background-secondary;
+}
+
+.topics {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 0 20px;
+}
+
+.each-topic {
+  background: $background-primary;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  color: $background-secondary;
+}
+
+.topic-title {
+  color: $background-secondary;
+  font-family: 'Outfit-500';
+}
+
+/* Info */
+.covid-info {
+  background: $background-light;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+  margin: 20px 0;
+}
+
+.blog-posts {
+  display: grid;
+  margin: 0 20px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.blog-post-container {
+  position: relative;
+}
+
+.blog-post-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.blog-post-container:hover .blog-post-image {
+  opacity: 0.3;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+}
+
+.blog-post-text {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.blog-post-container:hover .blog-post-text {
+  opacity: 1;
+}
+
+.title-text {
+  background-color: $background-primary;
+  color: $background-secondary;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.portfolio img {
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+.home-footer {
+  margin-top: 2rem;
+  background: $background-primary;
+  color: $background-secondary;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-text {
+  font-family: 'Outfit-400';
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+}
+
+.social-icon {
+  color: $background-secondary;
+  opacity: 0.7;
+  transition: all 0.5s ease;
+  padding: 0px 5px;
+}
+
+.social-icon:hover {
+  opacity: 1;
+}

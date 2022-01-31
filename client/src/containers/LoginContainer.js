@@ -4,8 +4,7 @@ import { auth } from "../auth/firebase-config";
 import LoginForm from "../components/forms/LoginForm";
 import { useAuthState } from "../auth/AuthContext";
 
-function LoginContainer() {
-
+function LoginContainer({ user, loggedIn, getUserObject }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +15,9 @@ function LoginContainer() {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password);
-      navigate("/home");
+      await logIn(email, password).then(() => {
+             navigate("/home");
+      });
     } catch (err) {
       setError(err.message);
     }
@@ -26,6 +26,7 @@ function LoginContainer() {
   return (
     <div className="form-background">
       <div className="form-container">
+
         <div className="form-left">
         <h3 className="form-text">ClanHub</h3>
           <span className="form-desc">
@@ -43,6 +44,7 @@ function LoginContainer() {
               auth={auth}
               error={error}
             />
+
         </div>
       </div>
     </div>

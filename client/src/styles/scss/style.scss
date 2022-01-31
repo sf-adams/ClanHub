@@ -1,6 +1,8 @@
 @use './base' as *;
 @use './pages' as *;
 @use './layouts' as *;
+@use './components' as *;
+@use './vendors' as *;
 
 
 
@@ -18,7 +20,10 @@
     // background-color: red;
 }
 
+
 // .profile-container {
 //     margin-top: 20%;
 // }
+
+.below{ margin-top: 50%;}
 

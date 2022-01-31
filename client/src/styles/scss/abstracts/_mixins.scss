@@ -1,0 +1,8 @@
+@use '../base/' as *;
+
+@mixin modal-pop-up-form {
+    border-radius: 10px;
+    background-color: $background-primary;
+    box-shadow: 0 0 10px $background-primary;
+    color: $text-secondary;
+}

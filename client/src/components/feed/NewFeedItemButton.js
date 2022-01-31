@@ -1,11 +1,9 @@
 import React from "react";
+import { BsPencilSquare } from "react-icons/bs";
 
 const NewFeedItemButton = ({ handleNewPostRequest }) => {
   return (
-    <button onClick={handleNewPostRequest}>
-      {/* This will be changed to an icon once we have agreed on one */}
-      Create new Post
-    </button>
+    <BsPencilSquare onClick={handleNewPostRequest}/>
   );
 };
 

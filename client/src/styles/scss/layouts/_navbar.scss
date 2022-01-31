@@ -32,6 +32,12 @@
   }
 }
 
+.logo-text {
+  padding-left: 20px;
+  font-family: 'Outfit-600';
+  font-size: 1.5rem;
+}
+
   .wrapper {
     padding: 10px 30px;
     display: flex;
@@ -54,7 +60,6 @@
       .profile-button {
         display: flex;
         align-items: center;
-        margin-left: 30px;
 
           .icon {
             font-size: 18px;
