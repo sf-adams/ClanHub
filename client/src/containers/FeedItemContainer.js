@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
-import FeedItemDetails from '../components/feedItem/FeedItemDetails'
+import FeedItemDetails from "../components/feedItem/FeedItemDetails";
 
-const FeedItemContainer = ({ posts, comments, createComment }) => {
+const FeedItemContainer = ({
+  posts,
+  comments,
+  createComment,
+  deleteComment,
+  updateComment,
+}) => {
   const feedNodes = posts.map((post, index) => {
     if (post.id == window.location.href.at(-1)) {
       return (
@@ -10,12 +16,19 @@ const FeedItemContainer = ({ posts, comments, createComment }) => {
           key={index}
           comments={comments}
           createComment={createComment}
+          deleteComment={deleteComment}
+          updateComment={updateComment}
         />
       );
     }
   });
 
-  return <div className="below">{feedNodes}</div>;
+  return (
+    <>
+      <div className="below">{feedNodes}</div>
+     
+    </>
+  );
 };
 
 export default FeedItemContainer;

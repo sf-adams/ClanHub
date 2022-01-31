@@ -96,7 +96,7 @@ public class DataLoader implements ApplicationRunner {
                 "Cras ornare arcu dui vivamus arcu. Urna nunc id cursus metus aliquam eleifend mi. Velit scelerisque in dictum non consectetur a erat nam. Augue mauris augue neque gravida in fermentum. Facilisis mauris sit amet massa vitae tortor condimentum. Orci sagittis eu volutpat odio facilisis mauris. Semper auctor neque vitae tempus. Morbi tristique senectus et netus. Est ullamcorper eget nulla facilisi etiam dignissim diam. Id nibh tortor id aliquet lectus proin nibh nisl condimentum. Et sollicitudin ac orci phasellus.", 0,  user3);
         postRepository.save(post5);
 
-        Comment comment1 = new Comment("test", "hello world", post1);
+        Comment comment1 = new Comment("test", "hello world", 0, post1);
         commentRepository.save(comment1);
 
 

@@ -1,63 +1,66 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const NewCommentForm=()=> {
-  return 
-    // <div
-    //   className="feed-container-new-post-modal"
-    //   onClick={(e) => e.stopPropagation()}
-    // >
-    //   <h3 className="feed-container-new-post-modal-title">New Post title</h3>
+const NewCommentForm = ({post, createComment }) => {
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [upvotes, setUpvotes] = useState(0);
 
-    //   <form action="POST" className="new-post-form" onSubmit={handleSubmit}>
-    //     <div className="new-form-post-item">
-    //       <label htmlFor="new-post-category">Select a Category</label>
-    //       <select
-    //         id="new-post-category"
-    //         defaultValue=""
-    //         onChange={handleCategoryChange}
-    //       >
-    //         <option value="">Select an option</option>
-    //         {uniqueAndFiltered}
-    //       </select>
-    //     </div>
-    //     <div className="new-form-post-item">
-    //       <label htmlFor="title">Post title</label>
-    //       <input
-    //         type="text"
-    //         id="title"
-    //         name="title"
-    //         value={title}
-    //         required
-    //         placeholder="New post title"
-    //         onChange={handleTitleChange}
-    //       />
-    //     </div>
-    //     <div className="new-form-post-item">
-    //       <label htmlFor="description">Description</label>
-    //       <textarea
-    //         id="description"
-    //         name="description"
-    //         value={description}
-    //         required
-    //         onChange={handleDescriptionChange}
-    //       />
-    //     </div>
-    //     <div className="new-form-post-item">
-    //       <label htmlFor="body">Body</label>
-    //       <textarea
-    //         id="body"
-    //         name="body"
-    //         value={body}
-    //         required
-    //         onChange={handleBodyChange}
-    //       />
-    //     </div>
-    //     <div className="new-form-post-item">
-    //       <input type="submit" />
-    //     </div>
-    //   </form>
-    // </div>
-  
-}
+  const handleTitleChange = (ev) => {
+    setTitle(ev.target.value);
+  };
+
+  const handleBodyChange = (ev) => {
+    setBody(ev.target.value);
+  };
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    await createComment
+    ({
+      title: title,
+      body: body,
+      upvotes: upvotes,
+      post: post,
+    });
+  };
+
+  return (
+    <div className="new-comemnt-modal">
+      <h3 className="new-comment-modal-title">New Comment</h3>
+
+      <form
+        action="comment"
+        className="new-comment-form"
+        onSubmit={handleSubmit}
+      >
+        <div className="new-form-comment-item">
+          <label htmlFor="title">Comment title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={title}
+            required
+            placeholder="New comment title"
+            onChange={handleTitleChange}
+          />
+        </div>
+        <div className="new-form-comment-item">
+          <label htmlFor="body">Comment body:</label>
+          <textarea
+            id="body"
+            name="body"
+            value={body}
+            required
+            onChange={handleBodyChange}
+          />
+        </div>
+        <div className="new-form-comment-item">
+          <input type="submit" />
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default NewCommentForm;

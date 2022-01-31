@@ -1,7 +1,13 @@
 import React from 'react';
 import CommentList from './comments/CommentList'
 
-const FeedItemDetails = ({ post, comments, createComment }) => {
+const FeedItemDetails = ({
+  post,
+  comments,
+  createComment,
+  deleteComment,
+  updateComment
+}) => {
   const filteredComments = comments.filter((filtered) => {
     return filtered.post.id == post.id;
   });
@@ -15,7 +21,7 @@ const FeedItemDetails = ({ post, comments, createComment }) => {
       <div className="post-details-container">
         <h3 className="post-details-header">{post.title}</h3>
         <p>
-          {post.user.firstName} {post.user.lastName}
+          {post.user?.firstName} {post.user?.lastName}
         </p>
         <p>{post.description}</p>
         <p>{post.body}</p>
@@ -23,7 +29,11 @@ const FeedItemDetails = ({ post, comments, createComment }) => {
       <CommentList
         filteredComments={filteredComments}
         createComment={createComment}
+        deleteComment={deleteComment}
+        updateComment={updateComment}
+        post={post}
       />
+      
     </div>
   );
 };

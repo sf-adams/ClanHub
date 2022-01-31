@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PostService from "../../services/PostService";
 
-
 const FeedEditPostPopUp = ({
   post,
   posts,
   toggleEdit,
   handleToggleEdit,
-  updatePost
+  updatePost,
 }) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
@@ -60,15 +59,7 @@ const FeedEditPostPopUp = ({
       title: title,
       description: description,
       user: user,
-    })
-  };
-
-  const getDeets = () => {
-    console.log(categoryType);
-    console.log(title);
-    console.log(description);
-    console.log(user);
-    console.log(id);
+    });
   };
 
   return (

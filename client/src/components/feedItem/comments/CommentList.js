@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import NewCommentForm from "./NewCommentForm";
 
-const CommentList = ({ filteredComments, createComment }) => {
+const CommentList = ({
+  post,
+  filteredComments,
+  createComment,
+  deleteComment,
+  updateComment
+}) => {
   const [toggleNoComments, setToggleNoComments] = useState(false);
   const [modal, setModal] = useState(false);
 
@@ -13,31 +19,20 @@ const CommentList = ({ filteredComments, createComment }) => {
   });
 
   const commentNodes = filteredComments.map((comment, index) => {
-    return <Comment comment={comment} key={index} />;
+    return (
+      <Comment
+        post={post}
+        comment={comment}
+        key={index}
+        updateComment={updateComment}
+      />
+    );
   });
-
-  // const handleSubmit = async (ev) => {
-  //   ev.preventDefault();
-  //   await createUser({
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     bio: bio,
-  //     email: email,
-  //     linkedin: linkedin,
-  //     github: github,
-  //   });
-  //   setFirstName("");
-  //   setLastName("");
-  //   setBio("");
-  //   setEmail("");
-  //   setLinkedin("");
-  //   setGithub("");
-  //   navigate("/home");
-  // };
 
   return (
     <>
       <div className="comment-list">{commentNodes}</div>
+      
       {toggleNoComments ? (
         <div className="new-comment-wrapper">
           <p>
@@ -52,7 +47,14 @@ const CommentList = ({ filteredComments, createComment }) => {
       >
         New Comment
       </button>
-      {modal ? <NewCommentForm /> : null}
+      {modal ? (
+        <NewCommentForm
+          post={post}
+          createComment={createComment}
+          deleteComment={deleteComment}
+          updateComment={updateComment}
+        />
+      ) : null}
     </>
   );
 };
