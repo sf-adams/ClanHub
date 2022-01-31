@@ -6,10 +6,10 @@
   padding: 0.6rem 1.3rem;
   text-decoration: none;
   border: 0;
-}
 
-img {
-  max-width: 100%;
+  img {
+    max-width: 100%;
+  }
 }
 
 .wrapper {
@@ -17,14 +17,8 @@ img {
   grid-gap: 20px;
 }
 
-/* Top Container */
 .top-container {
   padding-top: 10vh;
-  // display: grid;
-  // grid-gap: 20px;
-  // grid-template-areas:
-  //   'showcase showcase top-box-a'
-  //   'showcase showcase top-box-b';
 }
 
 /* Showcase */
@@ -57,10 +51,9 @@ img {
   color: $background-secondary;
 }
 
-
-/* Boxes */
 .boxes {
   display: grid;
+
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }

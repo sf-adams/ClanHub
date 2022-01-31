@@ -206,8 +206,7 @@ h1 {
   text-decoration: none;
   border: 0;
 }
-
-img {
+.main-button img {
   max-width: 100%;
 }
 
@@ -216,7 +215,6 @@ img {
   grid-gap: 20px;
 }
 
-/* Top Container */
 .top-container {
   padding-top: 10vh;
 }
@@ -251,7 +249,6 @@ img {
   color: white;
 }
 
-/* Boxes */
 .boxes {
   display: grid;
   grid-gap: 20px;

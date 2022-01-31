@@ -35,7 +35,7 @@ function HomeContainer() {
           </div>
           <div className="box">
             <h3 className="box-title">News</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
+            <p>Find out about what's going on at CodeClan and any comms from the Student Services Team.</p>
             <a href="" className="main-button">News</a>
           </div>
           <div className="box">
