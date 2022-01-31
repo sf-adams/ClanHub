@@ -43,8 +43,103 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 1em;
+.feed-container {
+  margin-top: 7.5em;
+}
+.feed-container .feed-container-header {
+  padding: 0;
+}
+.feed-container .feed-container-header .feed-section-title {
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+.feed-container .feed-container-header .new-post-vutton-wrapper {
+  position: absolute;
+  top: 17.5%;
+  left: 15%;
+}
+.feed-container .search-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  margin: auto;
+}
+.feed-container .search-wrapper .search-wrapper-1st {
+  margin-left: 0em;
+}
+.feed-container .search-wrapper .search-wrapper-2nd input {
+  width: 50%;
+}
+.feed-container .feed-container-new-post-modal {
+  border-radius: 10px;
+  background-color: #1b3445;
+  box-shadow: 0 0 10px #1b3445;
+  color: white;
+  width: clamp(300px, 40vw, 600px);
+  margin: 0 auto;
+  position: absolute;
+  left: 20%;
+}
+.feed-container .feed-container-new-post-modal * {
+  width: fit-content;
+  padding: 1em;
+}
+.feed-container .feed-container-new-post-modal .feed-container-new-post-modal-title {
+  position: relative;
+  margin-top: 2.5em;
+  width: 100%;
+  color: white;
+  text-transform: capitalize;
+  text-align: center;
+}
+.feed-container .feed-container-new-post-modal .new-post-form {
+  position: relative;
+  width: 100%;
+}
+.feed-container .feed-container-new-post-modal .new-form-post-item {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+.feed-container .feed-container-new-post-modal .new-form-post-item label {
+  padding: 0.85em 0 0.5em 0;
+  font-variant: small-caps;
+}
+.feed-container .feed-container-new-post-modal .new-form-post-item input:last-child {
+  border-radius: 10px;
+}
+
+.feed-item-object {
+  padding: 2em;
+  background-color: #1b3445;
+  border-radius: 10px;
+  color: white;
+  width: max(200px, 60vw);
+  margin: 2.5em auto 0 auto;
+}
+.feed-item-object .feed-item-object-title {
+  text-transform: capitalize;
+  padding-bottom: 1.5em;
+}
+.feed-item-object .feed-item-object-author {
+  font-style: italic;
+  padding-bottom: 0.5em;
+}
+.feed-item-object .feed-item-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.feed-item-object .feed-item-buttons {
+  position: absolute;
+  right: 25%;
+}
+.feed-item-object p {
+  line-height: 1.5em;
 }
 
 .profile {
@@ -200,43 +295,56 @@ h1 {
 }
 
 .menu {
-  width: 300px;
+  width: 30vw;
   height: 100vh;
   background-color: #1b3445;
   position: fixed;
-  top: 0;
+  top: 0%;
   right: -300px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   transition: all 1s ease;
 }
 .menu.active {
   right: 0;
 }
-.menu ul {
-  margin: 0;
+.menu .menu-container {
+  position: absolute;
+  top: 30%;
+  height: 60%;
+}
+.menu .menu-container ul {
+  margin-left: 20%;
   padding: 0;
   list-style: none;
-  font-size: 30px;
   font-weight: 300;
   color: white;
   width: 60%;
 }
-.menu ul li {
+.menu .menu-container ul li {
   margin-bottom: 25px;
 }
-.menu ul li a {
+.menu .menu-container ul li ul li:first-child {
+  padding-top: 0.2em;
+}
+.menu .menu-container ul li ul li {
+  margin: 0.5em 0 0.5em -0.6em;
+}
+.menu .menu-container ul li a {
   font-size: inherit;
   color: inherit;
   text-decoration: none;
 }
-.menu ul li:hover {
+.menu .menu-container ul li:hover {
   font-weight: 500;
 }
-.menu .social-links {
+.menu .menu-container ul,
+.menu .menu-container ul li {
+  font-size: 1.25rem;
+}
+.menu .menu-container .social-links {
   width: 100%;
   display: flex;
   position: absolute;
@@ -244,13 +352,21 @@ h1 {
   align-items: center;
   justify-content: space-evenly;
 }
-.menu .social-links .icon {
+.menu .menu-container .social-links .icon {
   color: white;
   opacity: 0.7;
   transition: all 0.5s ease;
 }
-.menu .social-links .icon:hover {
+.menu .menu-container .social-links .icon:hover {
   opacity: 1;
+}
+.menu .menu-container .menu-arrow-icon {
+  display: inline-block;
+  position: absolute;
+  transform: translateX(-40px);
+}
+.menu .menu-container .menu-arrow-icon-active {
+  transform: translateX(-40px) rotate(90deg);
 }
 
 .navbar-container {
@@ -328,6 +444,10 @@ h1 {
 
 .feed-container-header {
   padding-top: 20%;
+}
+
+.below {
+  margin-top: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

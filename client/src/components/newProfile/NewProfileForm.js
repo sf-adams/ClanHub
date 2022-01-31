@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewProfileForm = ({ user, createUser }) => {
   const [firstName, setFirstName] = useState("");
@@ -7,12 +8,12 @@ const NewProfileForm = ({ user, createUser }) => {
   const [email, setEmail] = useState(user.email);
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
+  const navigate = useNavigate();
 
   // this use effect gets the user
-useEffect(() => {
+  useEffect(() => {
     setEmail(user.email);
-})
-
+  });
 
   const handleFirstNameChange = (ev) => {
     setFirstName(ev.target.value);
@@ -20,9 +21,9 @@ useEffect(() => {
   const handleLastNameChange = (ev) => {
     setLastName(ev.target.value);
   };
-//   const handleEmailChange = (ev) => {
-//     setEmail(ev.target.value);
-//   };
+  //   const handleEmailChange = (ev) => {
+  //     setEmail(ev.target.value);
+  //   };
   const handleBioChange = (ev) => {
     setBio(ev.target.value);
   };
@@ -33,27 +34,28 @@ useEffect(() => {
     setGithub(ev.target.value);
   };
 
-  const handleSubmit = (ev) => {
-      ev.preventDefault();
-      createUser({
-        firstName: firstName,
-        lastName: lastName,
-        bio: bio,
-        email: email,
-        linkedin: linkedin,
-        github: github
-      });
-      setFirstName("");
-      setLastName("");
-      setBio("");
-      setEmail("");
-      setLinkedin("");
-      setGithub("");
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    await createUser({
+      firstName: firstName,
+      lastName: lastName,
+      bio: bio,
+      email: email,
+      linkedin: linkedin,
+      github: github,
+    });
+    setFirstName("");
+    setLastName("");
+    setBio("");
+    setEmail("");
+    setLinkedin("");
+    setGithub("");
+    navigate("/home");
   };
 
-  const checkEmail = ()=> {
-      console.log(user.email)
-  }
+  const checkEmail = () => {
+    // console.log(user.email)
+  };
 
   return (
     <>

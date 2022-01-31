@@ -1,8 +1,13 @@
 package com.clanhub.example.ClanHub.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Nationalized;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -10,12 +15,10 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Long id;
 
-//    @Column(name= "category")
-//    private String category;
-
-    @Column(name="category")
+    @Column(name="categoryType")
     CategoryType categoryType;
 
     @Column(name= "title")
@@ -24,16 +27,28 @@ public class Post {
     @Column(name= "description")
     private String description;
 
+    @Lob
+    @Column(name="body")
+    private String body;
+
     @ManyToOne
-    @JoinColumn(name = "user")
-//    @JsonIgnoreProperties({"posts"})
+    @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"posts"})
     private User user;
 
-    public Post(CategoryType categoryType, String title, String description, User user) {
+
+    @JsonIgnoreProperties({"post"})
+    @OneToMany(mappedBy = "post")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Comment> comments;
+
+    public Post(CategoryType categoryType, String title, String description, String body, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
+        this.body = body;
         this.user = user;
+        this.comments = new ArrayList<>();
     }
 
     public Post() {
@@ -72,11 +87,27 @@ public class Post {
         this.description = description;
     }
 
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
