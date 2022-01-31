@@ -8,6 +8,7 @@ class PostService {
   }
 
   newPost(post) {
+    
     return axios.post(baseURL, post);
   }
 
@@ -16,6 +17,7 @@ class PostService {
   }
 
   editPost(post) {
+    console.log(baseURL + post.id, post);
     return axios.put(baseURL + post.id, post);
   }
 }

@@ -2,6 +2,8 @@ package com.clanhub.example.ClanHub.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Nationalized;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Long id;
 
     @Column(name="categoryType")
@@ -29,13 +32,15 @@ public class Post {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "user")
-//    @JsonIgnoreProperties({"posts"})
+    @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"posts"})
     private User user;
 
-//    @JsonIgnoreProperties({"post"})
-//    @OneToMany(mappedBy = "post")
-//    private List<Comment> comments;
+
+    @JsonIgnoreProperties({"post"})
+    @OneToMany(mappedBy = "post")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Comment> comments;
 
     public Post(CategoryType categoryType, String title, String description, String body, User user) {
         this.categoryType = categoryType;
@@ -43,7 +48,7 @@ public class Post {
         this.description = description;
         this.body = body;
         this.user = user;
-//        this.comments = new ArrayList<>();
+        this.comments = new ArrayList<>();
     }
 
     public Post() {
@@ -98,11 +103,11 @@ public class Post {
         this.user = user;
     }
 
-//    public List<Comment> getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(List<Comment> comments) {
-//        this.comments = comments;
-//    }
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }
