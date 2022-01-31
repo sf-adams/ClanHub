@@ -7,10 +7,15 @@
   text-decoration: none;
   border: 0;
   cursor: pointer;
+}
 
-  img {
-    max-width: 100%;
-  }
+.secondary-button {
+  background: $background-primary;
+  color: $background-secondary;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -54,6 +59,7 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 0 20px;
 }
 
 .each-topic {
@@ -70,7 +76,7 @@
 }
 
 /* Info */
-.info {
+.covid-info {
   background: $background-light;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   display: grid;
@@ -108,6 +114,26 @@ img {
 
 .footer-text {
   font-family: 'Outfit-400';
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+}
+
+.social-icon {
+  color: $background-secondary;
+  opacity: 0.7;
+  transition: all 0.5s ease;
+  padding: 0px 5px;
+}
+
+.social-icon:hover {
+  opacity: 1;
 }
 
 /* Media Queries */

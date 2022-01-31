@@ -2,7 +2,7 @@ import React from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from '../auth/AuthContext';
 import { Link } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 function HomeContainer() {
   const { user } = useAuthState()
@@ -37,29 +37,27 @@ function HomeContainer() {
             </Link>
           </div>
           <div className="each-topic">
-            <h3 className="topic-title">News</h3>
+            <h3 className="topic-title">Events</h3>
             <p>Find out about what's going on at CodeClan and any comms from the Student Services Team.</p>
             <Link to="/news" >
               <button className='main-button'>News</button>
             </Link>
           </div>
           <div className="each-topic">
-            <h3 className="topic-title">Events</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
+            <h3 className="topic-title">Resources</h3>
+            <p>See some of the best resources recommended by the community.</p>
             <Link to="/events" >
               <button className='main-button'>Events</button>
             </Link>
           </div>
         </section>
 
-        {/* <!-- Info Section --> */}
-        <section className="info">
-          <img src="https://image.ibb.co/j4Qz8x/pic1.jpg" alt="" />
+        <section className="covid-info">
+          <img src="https://source.unsplash.com/4rjV4VFpQnI" alt="" />
           <div>
-            <h2>Your Business On The Web</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?
-              Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
-            <a href="#" className="main-button">Learn More</a>
+            <h2>Covid Requirements</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?</p>
+            <a href="#" className="secondary-button">Learn More</a>
           </div>
         </section>
 
@@ -74,6 +72,23 @@ function HomeContainer() {
 
         <footer className='home-footer'>
           <p className='footer-text'>CodeClan &copy; 2022</p>
+          <div className="icon-container">
+            <div className="facebook">
+                  <a href="https://www.facebook.com/codeclanscotland//" target="_blank" rel="noopener noreferrer">
+                    <FaFacebook className="social-icon" size="1.5em" />
+                  </a>
+            </div>
+            <div className="linkedin">
+                  <a href="https://www.linkedin.com/school/codeclan/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin className="social-icon" size="1.5em" />
+                  </a>
+            </div>
+            <div className="twitter">
+                  <a href="https://twitter.com/CodeClanScot/" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter className="social-icon" size="1.5em" />
+                  </a>
+            </div>
+          </div>
         </footer>
       </div>
   );
