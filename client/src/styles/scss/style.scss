@@ -27,3 +27,9 @@
 
 .below{ margin-top: 50%;}
 
+//  This is important for allowing new line characters to be rendered 
+ 
+.comment-body {
+    color: red;
+    white-space: pre-wrap;
+}

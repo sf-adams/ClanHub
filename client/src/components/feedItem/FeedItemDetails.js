@@ -12,6 +12,17 @@ const FeedItemDetails = ({
     return filtered.post.id == post.id;
   });
 
+  const spacedText = post.body.split("\n").map((str) => (
+    <>
+      <p>{str}</p>
+      <br />
+    </>
+  ));
+
+
+  const handleClick = ()=> {
+    console.log(spacedText);
+  }
   // const commentNodes = filteredComments.map((comment)=> {
   //   return
   // })
@@ -20,11 +31,12 @@ const FeedItemDetails = ({
     <div className="post-page">
       <div className="post-details-container">
         <h3 className="post-details-header">{post.title}</h3>
+        <button onClick={handleClick}>click me</button>
         <p>
           {post.user?.firstName} {post.user?.lastName}
         </p>
         <p>{post.description}</p>
-        <p>{post.body}</p>
+        <div>{spacedText}</div>
       </div>
       <CommentList
         filteredComments={filteredComments}
@@ -33,7 +45,6 @@ const FeedItemDetails = ({
         updateComment={updateComment}
         post={post}
       />
-      
     </div>
   );
 };

@@ -630,6 +630,9 @@ img {
   margin-top: 50%;
 }
 
+.comment-body {
+  color: red;
+  white-space: pre-wrap;
+}
+
 /*# sourceMappingURL=style.css.map */
-
-
