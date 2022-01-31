@@ -5,13 +5,14 @@ import logo from "../../assets/main_logo.svg";
 
 function Navbar({ menuOpen, setMenuOpen }) {
   return (
-    <div className={"navbar " + (menuOpen && "active")}>
+    <div className={"navbar-container " + (menuOpen && "active")}>
       <div className="wrapper">
 
         <div className="left">
           <Link to="/home" className="logo" onClick={()=>setMenuOpen(false)}>
-            <img src={logo} alt="" />
+              <img src={logo} alt="" />
           </Link>
+          <span className="logo-text">ClanHub</span>
         </div>
 
         <div className="middle">
