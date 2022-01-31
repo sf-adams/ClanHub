@@ -125,6 +125,12 @@ function App() {
 
   // Crud actions on comments
 
+  const createComment = (newComment) => {
+    CommentService.newComment(newComment).then((savedComment) =>
+      setUsers([...comments, savedComment])
+    );
+  }; 
+
   return (
     <>
       <AuthContextProvider>
@@ -197,7 +203,11 @@ function App() {
               path="/feed/:id"
               element={
                 <PrivateRoute>
-                  <FeedItemContainer posts={posts} comments={comments} />
+                  <FeedItemContainer
+                    posts={posts}
+                    comments={comments}
+                    createComment={createComment}
+                  />
                 </PrivateRoute>
               }
             ></Route>

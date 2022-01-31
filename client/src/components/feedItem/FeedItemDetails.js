@@ -1,15 +1,13 @@
 import React from 'react';
 import CommentList from './comments/CommentList'
 
-const FeedItemDetails= ({post, comments})=> {
-
-
-  const filteredComments = comments.filter((filtered)=> {
+const FeedItemDetails = ({ post, comments, createComment }) => {
+  const filteredComments = comments.filter((filtered) => {
     return filtered.post.id == post.id;
-  })
+  });
 
   // const commentNodes = filteredComments.map((comment)=> {
-  //   return 
+  //   return
   // })
 
   return (
@@ -22,9 +20,12 @@ const FeedItemDetails= ({post, comments})=> {
         <p>{post.description}</p>
         <p>{post.body}</p>
       </div>
-      <CommentList filteredComments ={filteredComments}/>
+      <CommentList
+        filteredComments={filteredComments}
+        createComment={createComment}
+      />
     </div>
   );
-}
+};
 
 export default FeedItemDetails;
