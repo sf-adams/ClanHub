@@ -567,7 +567,7 @@ img {
   height: 10vh;
   background-color: #1b3445;
   color: white;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 3;
   transition: all 1s ease;
@@ -642,10 +642,6 @@ img {
 
 .feed-container-header {
   padding-top: 20%;
-}
-
-.below {
-  margin-top: 50%;
 }
 
 .comment-body {
