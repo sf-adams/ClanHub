@@ -24,22 +24,22 @@ function HomeContainer() {
 
         <section className="boxes">
           <div className="box">
-            <h3>Blog</h3>
+            <h3 className="box-title">Blog</h3>
             <p>See the latest long form content from the CodeClan community.</p>
             <a href="" className="main-button">Blog</a>
           </div>
           <div className="box">
-            <h3>Jobs</h3>
+            <h3 className="box-title">Jobs</h3>
             <p>See the currently available jobs, filtered by Software, Data or both.</p>
             <a href="" className="main-button">Jobs</a>
           </div>
           <div className="box">
-            <h3>News</h3>
+            <h3 className="box-title">News</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
             <a href="" className="main-button">News</a>
           </div>
           <div className="box">
-            <h3>Events</h3>
+            <h3 className="box-title">Events</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
             <a href="" className="main-button">Events</a>
           </div>
@@ -64,6 +64,10 @@ function HomeContainer() {
           <img src="https://source.unsplash.com/2q_frVRXWfQ/400x400" alt="" />
           <img src="https://source.unsplash.com/5Q07sS54D0Q/400x400" alt="" />
         </section>
+
+        <footer className='home-footer'>
+          <p className='footer-text'>CodeClan &copy; 2022</p>
+        </footer>
       </div>
   );
 }

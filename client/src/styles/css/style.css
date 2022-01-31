@@ -259,10 +259,16 @@ img {
 }
 
 .box {
-  background: #4da2cd;
+  background: #1b3445;
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  color: white;
+}
+
+.box-title {
+  color: white;
+  font-family: "Outfit-500";
 }
 
 /* Info */
@@ -273,6 +279,7 @@ img {
   grid-gap: 30px;
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
+  margin: 20px 0;
 }
 
 /* Portfolio */
@@ -288,12 +295,16 @@ img {
 }
 
 /* Footer */
-footer {
+.home-footer {
   margin-top: 2rem;
   background: #1b3445;
   color: white;
   text-align: center;
   padding: 1rem;
+}
+
+.footer-text {
+  font-family: "Outfit-400";
 }
 
 /* Media Queries */

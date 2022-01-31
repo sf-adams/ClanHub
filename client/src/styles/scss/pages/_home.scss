@@ -66,10 +66,16 @@ img {
 }
 
 .box {
-  background: $background-light;
+  background: $background-primary;
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  color: $background-secondary;
+}
+
+.box-title {
+  color: $background-secondary;
+  font-family: 'Outfit-500';
 }
 
 /* Info */
@@ -80,6 +86,7 @@ img {
   grid-gap: 30px;
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
+  margin: 20px 0;
 }
 
 /* Portfolio */
@@ -95,12 +102,16 @@ img {
 }
 
 /* Footer */
-footer {
+.home-footer {
   margin-top: 2rem;
   background: $background-primary;
   color: $background-secondary;
   text-align: center;
   padding: 1rem;
+}
+
+.footer-text {
+  font-family: 'Outfit-400';
 }
 
 /* Media Queries */
