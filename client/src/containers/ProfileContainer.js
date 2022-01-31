@@ -6,30 +6,23 @@ import ProfileDetails from "../components/profile/ProfileDetails";
 import ProfileHistoryList from "../components/profile/ProfileHistoryList";
 
 
-function ProfileContainer({ user, posts }) {
-  return (
-    <div className="profile-container">
-      <ProfileHeader user={user}/>
-      <ProfileDetails user={user} />
-      <ProfileHistoryList user={user} posts={posts} />
-
-        
-function ProfileContainer({user, loggedIn,}) {
-  // const [loginRef, setLoginRef] = useRef(loggedIn);
+function ProfileContainer({ user, posts, loggedIn }) {
 
   function namedPhoto(){
     if(loggedIn) {
     return `${loggedIn?.firstName} ${loggedIn?.lastName}`
     }
   }
-  
+
   return (
     <div className="profile-container">
-      <h1>This is the profile page.</h1>
+      <ProfileHeader user={user}/>
+      <ProfileDetails user={user} />
+      <ProfileHistoryList user={user} posts={posts} />
 
       <p>{user?.email}</p>
 
-      <div className="profileRight">
+      {/* <div className="profileRight">
         <div className="profileRightTop">
           <div className="profileCover">
             <img className="profileCoverImg" src="assets/post/3.jpeg" alt="" />
@@ -40,7 +33,7 @@ function ProfileContainer({user, loggedIn,}) {
             <span className="profileInfoDesc">I'm the first user!</span>
           </div>
         </div>
-      </div>
+      </div> */}
       <ul>
         <li>{loggedIn?.firstName}</li>
         <li>{loggedIn?.lastName}</li>

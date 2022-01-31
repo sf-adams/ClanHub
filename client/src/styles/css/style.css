@@ -1,3 +1,34 @@
+/* outfit-300 - latin */
+@font-face {
+  font-family: "Outfit-300";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../assets/fonts/outfit-v2-latin-300.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-300.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit-400";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/outfit-v2-latin-regular.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-regular.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit-500";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../assets/fonts/outfit-v2-latin-500.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-500.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit-600";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../assets/fonts/outfit-v2-latin-600.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-600.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit-700";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/outfit-v2-latin-700.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-700.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-700.ttf") format("truetype");
+}
 h3 {
   color: #1b3445;
   font-size: 2rem;
@@ -78,6 +109,7 @@ h1 {
 }
 
 .form-background {
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -87,44 +119,68 @@ h1 {
 }
 
 .form-container {
-  position: relative;
-  display: block;
-  background-color: white;
-  padding: 30px;
-  z-index: 2;
+  width: 70%;
+  height: 70%;
+  display: flex;
 }
 
-.form-component h3 {
+.form-left,
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-text {
+  font-size: 50px;
+  font-family: "Outfit-600";
+  color: white;
   margin-bottom: 30px;
 }
-.form-component .inner-container {
+
+.form-desc {
+  font-size: 1.4rem;
+  font-family: "Outfit-300";
+  color: white;
+}
+
+.form-box {
+  width: 100%;
+  height: 40%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-box .inner-container {
   display: block;
   color: #1b3445;
   width: 50%;
   margin-bottom: 20px;
 }
-.form-component .inner-container label {
+.form-box .inner-container label {
   display: block;
   color: #1b3445;
   font-size: 1rem;
   margin-bottom: 5px;
   transition: 0.4s;
 }
-.form-component .inner-container input {
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
+.form-box .inner-container input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
   display: block;
   width: 100%;
   padding: 10px 15px;
-  border-radius: 8px;
   transition: 0.4s;
 }
-.form-component .inner-container input:focus {
+.form-box .inner-container input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
-.form-component button {
+.form-box button {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 8px;
@@ -135,8 +191,12 @@ h1 {
   color: white;
   cursor: pointer;
 }
-.form-component button:hover {
+.form-box button:hover {
   background-position: 100%;
+}
+
+.cc-link {
+  padding-left: 5px;
 }
 
 .menu {
@@ -193,7 +253,7 @@ h1 {
   opacity: 1;
 }
 
-.navbar {
+.navbar-container {
   width: 100%;
   height: 10vh;
   background-color: #1b3445;
@@ -203,38 +263,54 @@ h1 {
   z-index: 3;
   transition: all 1s ease;
 }
-.navbar .wrapper {
+.navbar-container.active {
+  background-color: #1b3445;
+  color: white;
+}
+.navbar-container.active .hamburger span:first-child {
+  background-color: white;
+  transform: rotate(45deg);
+}
+.navbar-container.active .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-container.active .hamburger span:last-child {
+  background-color: white;
+  transform: rotate(-45deg);
+}
+
+.wrapper {
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.navbar .wrapper .left {
+.wrapper .left {
   display: flex;
   align-items: center;
 }
-.navbar .wrapper .left .logo {
+.wrapper .left .logo {
   width: 40px;
 }
-.navbar .wrapper .middle {
+.wrapper .middle {
   display: flex;
   align-items: center;
 }
-.navbar .wrapper .middle .profile-button {
+.wrapper .middle .profile-button {
   display: flex;
   align-items: center;
   margin-left: 30px;
 }
-.navbar .wrapper .middle .profile-button .icon {
+.wrapper .middle .profile-button .icon {
   font-size: 18px;
   margin-right: 5px;
   fill: white;
 }
-.navbar .wrapper .middle .profile-button span {
+.wrapper .middle .profile-button span {
   font-size: 15px;
   font-weight: 400;
 }
-.navbar .wrapper .right .hamburger {
+.wrapper .right .hamburger {
   width: 32px;
   height: 25px;
   display: flex;
@@ -242,27 +318,12 @@ h1 {
   justify-content: space-between;
   cursor: pointer;
 }
-.navbar .wrapper .right .hamburger span {
+.wrapper .right .hamburger span {
   width: 100%;
   height: 3px;
   background-color: white;
   transform-origin: left;
   transition: all 2s ease;
-}
-.navbar.active {
-  background-color: #1b3445;
-  color: white;
-}
-.navbar.active .hamburger span:first-child {
-  background-color: white;
-  transform: rotate(45deg);
-}
-.navbar.active .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-.navbar.active .hamburger span:last-child {
-  background-color: white;
-  transform: rotate(-45deg);
 }
 
 .feed-container-header {
