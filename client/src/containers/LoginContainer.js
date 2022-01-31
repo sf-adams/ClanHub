@@ -26,20 +26,29 @@ function LoginContainer() {
   return (
     <div className="form-background">
       <div className="form-container">
-        <h3> Login </h3>
-        {error && <p>{error}</p>}
-        <LoginForm
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          handleSubmit={handleSubmit}
-          auth={auth}
-        />
-        <div className="return-link-container">
-          <p>No account? Request one
-            <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">here</a>
-          </p>
+        <div className="form-left">
+        <h3 className="login-text">ClanHub</h3>
+          <span className="login-desc">
+            Community, Connect, Contribute
+          </span>
+        </div>
+
+        <div className="form-right">
+          <h3> Login </h3>
+          {error && <p>{error}</p>}
+          <LoginForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleSubmit={handleSubmit}
+            auth={auth}
+          />
+          <div className="return-link-container">
+            <p>No account? Request one
+              <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">here</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
