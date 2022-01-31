@@ -1,7 +1,10 @@
 import "./styles/css/style.css";
 import { useState, useEffect } from "react";
+
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import UserService from "./services/UserService";
+
+
 
 // Container & Component Imports
 import Navbar from "./components/navbar/Navbar";
@@ -18,7 +21,7 @@ import LayoutContainer from "./containers/LayoutContainer";
 
 // Authentication Imports
 import { auth } from "./auth/firebase-config";
-import { AuthContextProvider, useAuthState } from "./auth/AuthContext";
+import { AuthContextProvider } from "./auth/AuthContext";
 // import { onAuthStateChanged } from "firebase/auth";
 import NewProfileContainer from "./containers/NewProfileContainer";
 import { onAuthStateChanged } from "firebase/auth";
@@ -64,7 +67,9 @@ function App() {
       });
       return sel[0];
     }
+
   };
+
 
   const createUser = (newUser) => {
     UserService.newUser(newUser).then((savedUser) =>
@@ -97,9 +102,7 @@ function App() {
     setUser(currentUser);
   });
 
-  const trytosayhello = () => {
-    console.log(loggedIn);
-  };
+
 
   const checkUserCredentials = () => {
     console.log("checking state");
@@ -109,6 +112,7 @@ function App() {
       navigate("/profile");
     }
   };
+
 
   return (
     <>
