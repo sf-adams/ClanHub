@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import EditCommentForm from "./EditCommentForm";
 import { FiEdit3 } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
 import CommentService from '../../../services/CommentService'
 
-const Comment = ({ comment, post, deleteComment, updateComment }) => {
+const Comment = ({
+  comment,
+  post,
+  deleteComment,
+  updateComment
+}) => {
+
+  const [editModal, setEditModal] = useState(false);
+
   const handleClick = () => {
     console.log(comment);
   };
+
+  const handleEditModalChange = ()=> {
+    setEditModal(!editModal);
+  }
 
   return (
     <div className="comment-wrapper">
@@ -16,7 +28,10 @@ const Comment = ({ comment, post, deleteComment, updateComment }) => {
       <p className="comment-body">{comment.body}</p>
       {
         <div className="comment-crud-buttons-wrapper">
-          <FiEdit3 className="comment-edit-button" />
+          <FiEdit3
+            className="comment-edit-button"
+            onClick={handleEditModalChange}
+          />
           <MdDeleteOutline
             className="comment-edit-button"
             onClick={() => {
@@ -25,11 +40,14 @@ const Comment = ({ comment, post, deleteComment, updateComment }) => {
           />
         </div>
       }
-      <EditCommentForm
-        post={post}
-        comment={comment}
-        updateComment={updateComment}
-      />
+      {editModal ? (
+        <EditCommentForm
+          handleEditModalChange={handleEditModalChange}
+          post={post}
+          comment={comment}
+          updateComment={updateComment}
+        />
+      ) : null}
     </div>
   );
 };

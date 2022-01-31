@@ -1,6 +1,12 @@
 import React, {useState} from "react";
 
-const EditCommentForm = ({ comment, post, updateComment }) => {
+const EditCommentForm = ({
+  comment,
+  post,
+  updateComment,
+  handleModalToggle,
+  handleEditModalChange
+}) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [upvotes, setUpvotes] = useState(comment.upvotes);
@@ -13,14 +19,15 @@ const EditCommentForm = ({ comment, post, updateComment }) => {
     setBody(ev.target.value);
   };
 
-  const updatePostData = () => {
-      updateComment({
-          id: comment.id,
-          title: title,
-          body: body,
-          upvotes: comment.upvotes,
-          post: post
-      })
+  const updatePostData = async () => {
+    await updateComment({
+      id: comment.id,
+      title: title,
+      body: body,
+      upvotes: comment.upvotes,
+      post: post,
+    });
+    handleEditModalChange()
   };
 
   return (

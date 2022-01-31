@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewCommentForm = ({post, createComment }) => {
+const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [upvotes, setUpvotes] = useState(0);
@@ -15,13 +15,13 @@ const NewCommentForm = ({post, createComment }) => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    await createComment
-    ({
+    await createComment({
       title: title,
       body: body,
       upvotes: upvotes,
       post: post,
     });
+    handleModalToggle();
   };
 
   return (

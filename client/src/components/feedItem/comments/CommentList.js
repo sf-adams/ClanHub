@@ -18,6 +18,11 @@ const CommentList = ({
     }
   });
 
+  const handleModalToggle = ()=> {
+    console.log("Hello")
+    setModal(!modal);
+  }
+
   const commentNodes = filteredComments.map((comment, index) => {
     return (
       <Comment
@@ -25,6 +30,7 @@ const CommentList = ({
         comment={comment}
         key={index}
         updateComment={updateComment}
+        handleModalToggle={handleModalToggle}
       />
     );
   });
@@ -32,7 +38,7 @@ const CommentList = ({
   return (
     <>
       <div className="comment-list">{commentNodes}</div>
-      
+
       {toggleNoComments ? (
         <div className="new-comment-wrapper">
           <p>
@@ -40,19 +46,14 @@ const CommentList = ({
           </p>
         </div>
       ) : null}
-      <button
-        onClick={() => {
-          setModal(!modal);
-        }}
-      >
-        New Comment
-      </button>
+      <button onClick={handleModalToggle}>New Comment</button>
       {modal ? (
         <NewCommentForm
           post={post}
           createComment={createComment}
           deleteComment={deleteComment}
           updateComment={updateComment}
+          handleModalToggle={handleModalToggle}
         />
       ) : null}
     </>
