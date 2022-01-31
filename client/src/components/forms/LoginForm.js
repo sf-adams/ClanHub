@@ -1,7 +1,7 @@
 export default function LoginForm({email, setEmail, password, setPassword, handleSubmit, error }) {
 
   return (
-    <form className="form-component" onSubmit={handleSubmit}>
+    <form className="form-box" onSubmit={handleSubmit}>
 
       {error && <p>{error}</p>}
 
@@ -41,7 +41,7 @@ export default function LoginForm({email, setEmail, password, setPassword, handl
 
       <div className="return-link-container">
               <p>No account? Request one
-                <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password">here</a>
+                <a href="mailto:info@codeclan.com?subject=Request%20Username%20and%20Password" className="cc-link">here</a>
               </p>
             </div>
     </form>

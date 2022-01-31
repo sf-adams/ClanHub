@@ -34,8 +34,6 @@ function LoginContainer() {
         </div>
 
         <div className="form-right">
-          <div className="form-box">
-
             <LoginForm
               email={email}
               setEmail={setEmail}
@@ -45,7 +43,6 @@ function LoginContainer() {
               auth={auth}
               error={error}
             />
-          </div>
         </div>
       </div>
     </div>

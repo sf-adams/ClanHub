@@ -122,35 +122,32 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
 }
-
-.form-component .inner-container {
+.form-box .inner-container {
   display: block;
   color: #1b3445;
   width: 50%;
   margin-bottom: 20px;
 }
-.form-component .inner-container label {
+.form-box .inner-container label {
   display: block;
   color: #1b3445;
   font-size: 1rem;
   margin-bottom: 5px;
   transition: 0.4s;
 }
-.form-component .inner-container input {
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
+.form-box .inner-container input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
   display: block;
   width: 100%;
   padding: 10px 15px;
-  border-radius: 8px;
   transition: 0.4s;
 }
-.form-component .inner-container input:focus {
+.form-box .inner-container input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
-.form-component button {
+.form-box button {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 8px;
@@ -161,8 +158,12 @@ h1 {
   color: white;
   cursor: pointer;
 }
-.form-component button:hover {
+.form-box button:hover {
   background-position: 100%;
+}
+
+.cc-link {
+  padding-left: 5px;
 }
 
 .menu {
