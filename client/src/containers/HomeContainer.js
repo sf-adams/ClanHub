@@ -2,6 +2,7 @@ import React from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from '../auth/AuthContext';
 import { Link } from "react-router-dom";
+import { FaRegUser } from "react-icons/fa";
 
 function HomeContainer() {
   const { user } = useAuthState()
@@ -13,33 +14,41 @@ function HomeContainer() {
           <header className="showcase">
             <h1>Welcome to ClanHub</h1>
             <p>A community built by the community, ClanHub is a space for students and staff alike to share their ideas. Access your feed to see the latest posts.</p>
-            <Link to="/home" >
+            <Link to="/feed" >
               <button className='main-button'>Feed</button>
             </Link>
 
           </header>
         </section>
 
-        <section className="boxes">
-          <div className="box">
-            <h3 className="box-title">Blog</h3>
+        <section className="topics">
+          <div className="each-topic">
+            <h3 className="topic-title">Blog</h3>
             <p>See the latest long form content from the CodeClan community.</p>
-            <a href="" className="main-button">Blog</a>
+            <Link to="/blog" >
+              <button className='main-button'>Blog</button>
+            </Link>
           </div>
-          <div className="box">
-            <h3 className="box-title">Jobs</h3>
+          <div className="each-topic">
+            <h3 className="topic-title">Jobs</h3>
             <p>See the currently available jobs, filtered by Software, Data or both.</p>
-            <a href="" className="main-button">Jobs</a>
+            <Link to="/jobs" >
+              <button className='main-button'>Jobs</button>
+            </Link>
           </div>
-          <div className="box">
-            <h3 className="box-title">News</h3>
+          <div className="each-topic">
+            <h3 className="topic-title">News</h3>
             <p>Find out about what's going on at CodeClan and any comms from the Student Services Team.</p>
-            <a href="" className="main-button">News</a>
+            <Link to="/news" >
+              <button className='main-button'>News</button>
+            </Link>
           </div>
-          <div className="box">
-            <h3 className="box-title">Events</h3>
+          <div className="each-topic">
+            <h3 className="topic-title">Events</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
-            <a href="" className="main-button">Events</a>
+            <Link to="/events" >
+              <button className='main-button'>Events</button>
+            </Link>
           </div>
         </section>
 

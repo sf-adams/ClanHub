@@ -22,11 +22,9 @@
   padding-top: 10vh;
 }
 
-/* Showcase */
 .showcase {
   grid-area: showcase;
   min-height: 400px;
-  opacity: 0.9;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://source.unsplash.com/Y96OcAtUWw0');
   background-size: cover;
   background-position: center;
@@ -52,14 +50,13 @@
   color: $background-secondary;
 }
 
-.boxes {
+.topics {
   display: grid;
-
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.box {
+.each-topic {
   background: $background-primary;
   text-align: center;
   padding: 1.5rem 2rem;
@@ -67,7 +64,7 @@
   color: $background-secondary;
 }
 
-.box-title {
+.topic-title {
   color: $background-secondary;
   font-family: 'Outfit-500';
 }
@@ -86,8 +83,13 @@
 /* Portfolio */
 .portfolio {
   display: grid;
+  margin: 0 20px;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+img {
+  max-width: 100%;
 }
 
 .portfolio img {
