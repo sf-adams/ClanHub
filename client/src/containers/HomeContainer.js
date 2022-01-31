@@ -61,13 +61,51 @@ function HomeContainer() {
           </div>
         </section>
 
-        {/* <!-- Portfolio --> */}
-        <section className="portfolio">
-          <img src="https://source.unsplash.com/mk7D-4UCfmg/400x400" alt="" />
-          <img src="https://source.unsplash.com/m_HRfLhgABo/400x400" alt="" />
-          <img src="https://source.unsplash.com/QckxruozjRg/400x400" alt="" />
-          <img src="https://source.unsplash.com/2q_frVRXWfQ/400x400" alt="" />
-          <img src="https://source.unsplash.com/5Q07sS54D0Q/400x400" alt="" />
+        <section className="blog-posts">
+          <div className="blog-post-container">
+            <img src="https://source.unsplash.com/mk7D-4UCfmg/400x400" alt="Avatar" className="blog-post-image" />
+              <div className="blog-post-text">
+                <div className="title-text">
+                  Typing
+                </div>
+              </div>
+          </div>
+
+          <div className="blog-post-container">
+            <img src="https://source.unsplash.com/m_HRfLhgABo/400x400" alt="Avatar" className="blog-post-image" />
+              <div className="blog-post-text">
+                <div className="title-text">
+                  Set Up
+                </div>
+              </div>
+          </div>
+
+          <div className="blog-post-container">
+            <img src="https://source.unsplash.com/QckxruozjRg/400x400" alt="Avatar" className="blog-post-image" />
+              <div className="blog-post-text">
+                <div className="title-text">
+                  Working Together
+                </div>
+              </div>
+          </div>
+
+          <div className="blog-post-container">
+            <img src="https://source.unsplash.com/2q_frVRXWfQ/400x400" alt="Avatar" className="blog-post-image" />
+              <div className="blog-post-text">
+                <div className="title-text">
+                  Taking Notes
+                </div>
+              </div>
+          </div>
+
+          <div className="blog-post-container">
+            <img src="https://source.unsplash.com/5Q07sS54D0Q/400x400" alt="Avatar" className="blog-post-image" />
+              <div className="blog-post-text">
+                <div className="title-text">
+                  Whiteboarding
+                </div>
+              </div>
+          </div>
         </section>
 
         <footer className='home-footer'>
