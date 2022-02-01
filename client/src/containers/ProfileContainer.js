@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileDetails from "../components/profile/ProfileDetails";
 import ProfileHistoryList from "../components/profile/ProfileHistoryList";
-import { useAuth, upload } from "./firebase";
+import { useAuth, upload } from "../auth/firebase-config";
+import { useAuthState} from
 
 function ProfileContainer({ user, posts, loggedIn }) {
 
@@ -44,6 +45,7 @@ function ProfileContainer({ user, posts, loggedIn }) {
         handleChange={handleChange}
         handleUpload={handleClick}
         loading={loading}
+        photoURL={photoURL}
         />
       <ProfileHistoryList user={user} posts={posts} />
 
