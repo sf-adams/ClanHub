@@ -8,13 +8,16 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
 
 
   const handleClick = ()=> {
-    const menuTextToHide = document.getElementsByClassName("menu-container")[0];
-    console.log(menuTextToHide)
-    {menuOpen
-      ? (menuTextToHide.style.opacity = 0)
-      : menuTextToHide.style.opacity=1}
+    
     
     setMenuOpen(!menuOpen);
+    const menuTextToHide = document.getElementsByClassName("menu-container")[0];
+    console.log(menuTextToHide);
+    {
+      menuOpen
+        ? (menuTextToHide.style.opacity = 0)
+        : (menuTextToHide.style.opacity = 1);
+    }
   }
 
   return (
@@ -26,7 +29,6 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
           </Link>
           <span className="logo-text">ClanHub</span>
         </div>
-        MenuOpen
         <div className="middle">
           <FaRegUser
             onClick={checkUserCredentials}

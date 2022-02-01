@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import UserService from "../../services/UserService";
 
-import {Button, Modal, Form} from 'react-bootstrap'
+import { Button, Modal, Form } from "react-bootstrap";
 
-const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
+const FeedNewPostPopUp = ({
+  posts,
+  createPost,
+  loggedIn,
+  handleReset,
+}) => {
   const [categoryType, setCategoryType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -28,7 +33,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     );
   });
 
-  const getTime = ()=> {
+  const getTime = () => {
     const options = {
       weekday: "long",
       year: "numeric",
@@ -36,8 +41,8 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       day: "numeric",
     };
     const today = new Date();
-    return today.toLocaleDateString("en-UK", options)
-  }
+    return today.toLocaleDateString("en-UK", options);
+  };
 
   const handleCategoryChange = (ev) => {
     setCategoryType(ev.target.value);
@@ -51,14 +56,13 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     setDescription(ev.target.value);
   };
 
-   const handleBodyChange = (ev) => {
-     setBody(ev.target.value);
-   };
+  const handleBodyChange = (ev) => {
+    setBody(ev.target.value);
+  };
 
-  const resetValues =()=> {
-    document.getElementById("new-post-category").value='';
-  }
-
+  const resetValues = () => {
+    document.getElementById("new-post-category").value = "";
+  };
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -71,7 +75,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       upvotes: upvotes,
       user: loggedIn,
     });
-    resetValues()
+    resetValues();
     setCategoryType("");
     setTitle("");
     setDescription("");

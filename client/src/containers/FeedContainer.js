@@ -33,7 +33,7 @@ function FeedContainer({
 
   const handleNewPostRequest = (e) => {
     e.stopPropagation();
-    setModal(true);
+    setModal(!modal);
   };
 
   const handleReset = () => {

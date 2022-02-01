@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
@@ -8,6 +8,10 @@ import { auth } from "../../auth/firebase-config";
 function Menu({ menuOpen, setMenuOpen }) {
   const [toggleListShow1, setToggleListShow1] = useState(false);
   const [toggleListShow2, setToggleListShow2] = useState(false);
+
+  useEffect(() => {
+    document.getElementsByClassName("menu-container")[0].opacity = 0;
+  })
 
   const handleDropdown1 = (ev) => {
     const sel = document.getElementsByClassName("menu-arrow-icon")[0];
