@@ -29,13 +29,31 @@
   font-weight: 700;
   src: url("../../assets/fonts/outfit-v2-latin-700.woff2") format("woff2"), url("../../assets/fonts/outfit-v2-latin-700.woff") format("woff"), url("../../assets/fonts/outfit-v2-latin-700.ttf") format("truetype");
 }
-h3 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: black;
+  font-family: "Outfit-600" !important;
+  text-transform: capitalize;
+}
+
+h3 {
   font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.55rem;
 }
 
 body {
   color: #3b2c2c;
+}
+
+body {
+  font-family: "apple-system", "system-ui", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -423,7 +441,7 @@ hr {
   background: #1b3445;
   text-align: center;
   padding: 1.5rem 2rem;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  box-shadow: 0 1px 5px rgba(199, 199, 199, 0.8);
   color: white;
 }
 
@@ -532,6 +550,29 @@ img {
 
 .post-details-container {
   margin-top: 7.5rem;
+}
+.post-details-container .post-details-author {
+  color: #4d4d4d;
+  padding-bottom: 2.5rem;
+}
+.post-details-container .post-details-description-title {
+  padding-bottom: 1.5rem;
+}
+.post-details-container .post-details-body-title {
+  padding: 3.5rem 0 1.5rem 0;
+}
+
+.comment-list {
+  align-self: start;
+  padding-top: 2.5rem;
+  width: 100%;
+}
+.comment-list .comment-wrapper {
+  margin-bottom: 0.5em;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  width: min(400px, 50vw);
 }
 
 .menu {
@@ -701,11 +742,6 @@ body {
 
 .feed-container-header {
   padding-top: 20%;
-}
-
-.comment-body {
-  color: red;
-  white-space: pre-wrap;
 }
 
 /*# sourceMappingURL=style.css.map */

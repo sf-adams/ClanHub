@@ -1,18 +1,38 @@
+@use './fontface' as *;
+
+
 $text-primary: rgb(0, 0, 0);
 $text-body: rgb(10, 10, 10);
+$text-body-muted: rgb(77, 77, 77);
 $text-secondary: rgb(255, 255, 255);
-$text-accent: rgb(230,195,114);
-h3 {
+$text-accent: rgb(230, 195, 114);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $text-primary;
+  font-family: "Outfit-600" !important;
+  text-transform: capitalize;
+}
+
+h3 {
   font-size: 2rem;
 }
 
-body {
-    color: rgb(59, 44, 44);
+h4 {
+  font-size: 1.55rem;
 }
 
-//  Base colour styles 
+body {
+  color: rgb(59, 44, 44);
+}
 
-// $text-primary: black;
-// $text-secondary: rgb(0, 29, 124);
+// Typography base fonts
 
+body {
+  font-family: "apple-system", "system-ui", BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}

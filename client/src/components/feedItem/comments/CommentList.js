@@ -31,6 +31,7 @@ const CommentList = ({
         key={index}
         updateComment={updateComment}
         handleModalToggle={handleModalToggle}
+
       />
     );
   });
