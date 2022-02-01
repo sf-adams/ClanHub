@@ -46,6 +46,17 @@ export function AuthContextProvider({ children }) {
   );
 }
 
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    return unsub;
+  }, [])
+
+  return currentUser;
+}
+
 // This function returns the context, default sent to
 export const useAuthState = () => {
   const auth = useContext(AuthContext);

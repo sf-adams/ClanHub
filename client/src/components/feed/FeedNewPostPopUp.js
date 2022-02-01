@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import UserService from "../../services/UserService";
 
+
 import { Button, Modal, Form } from "react-bootstrap";
+
+
 
 const FeedNewPostPopUp = ({
   posts,
