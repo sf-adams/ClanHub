@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FeedEditPostPopUp from "./FeedEditPostPopUp";
+import FeedItemDeletePopUp from "./FeedItemDeletePopUp";
 import axios from "axios";
 import PostService from "../../services/PostService";
 
@@ -9,13 +10,10 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false); 
 
   const handleToggleEdit = () => {
     setToggleEdit(!toggleEdit);
-  };
-
-  const printPosts = () => {
-    console.log(post.id);
   };
 
   const setData = (id, categoryType, title, description, user) => {
@@ -28,6 +26,10 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
     console.log(post);
   };
 
+  const confirmDeletion =()=>{
+    deletePost(post?.id);
+  }
+
   return (
     <>
       <div className="feed-item-object">
@@ -36,7 +38,6 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
           {post.user?.firstName} {post.user?.lastName}
         </p>
         <p className="feed-item-object-description">{post.description}</p>
-
         {toggleEdit ? (
           <FeedEditPostPopUp
             post={post}
@@ -69,6 +70,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
             />
           </div>
         ) : null}
+        <FeedItemDeletePopUp/>
       </div>
     </>
   );
