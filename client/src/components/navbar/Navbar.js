@@ -6,18 +6,27 @@ import logo from "../../assets/main_logo.svg";
 function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCredentials}) {
   const navigate = useNavigate();
 
+
+  const handleClick = ()=> {
+    const menuTextToHide = document.getElementsByClassName("menu-container")[0];
+    console.log(menuTextToHide)
+    {menuOpen
+      ? (menuTextToHide.style.opacity = 0)
+      : menuTextToHide.style.opacity=1}
+    
+    setMenuOpen(!menuOpen);
+  }
+
   return (
     <div className={"navbar-container " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
-
           <Link to="/home" className="logo" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="" />
-
           </Link>
           <span className="logo-text">ClanHub</span>
         </div>
-        
+        MenuOpen
         <div className="middle">
           <FaRegUser
             onClick={checkUserCredentials}
@@ -26,7 +35,7 @@ function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCrede
           />
         </div>
         <div className="right">
-          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="hamburger" onClick={handleClick}>
             <span className="line1"></span>
             <span className="line2"></span>
             <span className="line3"></span>
