@@ -5,6 +5,7 @@
 
 .feed-container {
   margin-top: 7.5em;
+  margin-right: 20%;
 
   & .feed-container-header {
     padding: 0;
@@ -23,16 +24,22 @@
 
   .search-wrapper {
     display: flex;
+    width: fit-content;
     flex-direction: column;
     max-width: 60vw;
-    margin: auto;
+    margin: 0 auto;
+
+    div {
+      position: relative;
+      width: fit-content;
+    }
 
     .search-wrapper-1st {
       margin-left: 0em;
     }
 
     .search-wrapper-2nd input {
-      width: 50%;
+      width: fit-content !important;
     }
   }
 
@@ -41,6 +48,7 @@
   .feed-container-new-post-modal {
     @include modal-pop-up-form;
     width: clamp(300px, 40vw, 600px);
+    z-index: 5;
     margin: 0 auto;
     position: absolute;
     left: 20%;
@@ -62,24 +70,23 @@
     & .new-post-form {
       position: relative;
       width: 100%;
-    }
 
-    & .new-form-post-item {
-      display: flex;
-      margin: 0 auto;
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      width: 100%;
-      padding: 0;
+      & .new-form-post-item {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: left;
+     
+        padding: 0;
 
-      & label {
-        padding: 0.85em 0 0.5em 0;
-        font-variant: small-caps;
-      }
+        & label {
+          padding: 0.85em 0 0.5em 0;
+          font-variant: small-caps;
+        }
 
-      & input:last-child {
-        border-radius: 10px;
+        & input:last-child {
+          border-radius: 10px;
+        }
       }
     }
   }
@@ -88,36 +95,77 @@
 // The feed itself
 
 .feed-item-object {
-  padding: 2em;
-  background-color: $background-primary;
+  display: flex;
+  margin: 2.5em auto auto;
+  padding: 1.65rem 1.25rem;
+  background-color: $background-secondary;
+  box-shadow: 0.5px 0.5px 2px rgba(148, 148, 148, 0.8);
   border-radius: 10px;
-  color: $text-secondary;
-  width: max(200px, 60vw);
-  margin: 2.5em auto 0 auto;
+  color: $text-body !important;
+  width: max(200px, 40vw);
 
-  & .feed-item-object-title {
-    text-transform: capitalize;
-    padding-bottom: 1.5em;
+  & .feed-item-upvotes-wrapper {
+    position: relative;
+    width: 20%;
+
+    & .feed-item-upvotes {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    & .feed-item-upvotes:nth-child(2n-1) {
+      color: $text-accent;
+    }
   }
 
-  & .feed-item-object-author {
-    font-style: italic;
-    padding-bottom: 0.5em;
-  }
+  & .feed-item-object-text-wrapper {
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 0 5% 0 2%;
+    width: 100%;
+    height: 100%;
 
-  & .feed-item-link {
-    color: $text-secondary;
-    text-decoration: none;
-    display: block;
-  }
+    & .feed-item-object-title {
+      text-transform: capitalize;
+      padding-bottom: 0.85em;
+    }
 
-  & .feed-item-buttons {
-    position: absolute;
-    right: 25%;
-  }
+    & .feed-item-object-description {
+      padding-bottom: 1.15em;
+    }
 
-  p {
-    line-height: 1.5em;
+    .feed-item-object-metadata {
+      padding-top: 1rem;
+      width: 9.5rem;
+      position: relative;
+      display: flex;
+
+      p {
+        margin-right: 0.5rem;
+      }
+
+      & .feed-item-object-author {
+        font-style: italic;
+        padding-bottom: 0.5em;
+      }
+    }
+
+    & .feed-item-link {
+      // color: $text-secondary;
+      text-decoration: none;
+      display: block;
+    }
+
+    & .feed-item-buttons {
+      position: absolute;
+      right: 25%;
+    }
+    p {
+      line-height: 1.5em;
+    }
   }
 }
 
@@ -132,9 +180,8 @@
 
   .post-details-header {
     text-transform: capitalize;
-    padding-bottom: .6em;
+    padding-bottom: 0.6em;
   }
-
 
   .post-body-paragraph {
     padding-bottom: 1em;

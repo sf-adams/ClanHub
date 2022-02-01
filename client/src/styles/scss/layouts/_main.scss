@@ -1,0 +1,12 @@
+@use '../base/' as *;
+
+
+//  Styles for main components, used across the app
+
+#id {
+    background-color: $background-secondary;
+}
+
+body {
+  background-color: $background-secondary-modifier;
+}
