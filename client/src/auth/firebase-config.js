@@ -1,7 +1,7 @@
 import {initializeApp} from "firebase/app";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { useState, useEffect, useContext, createContext } from 'react';
-import firebase from "firebase";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Firebase details being read from .env file
 const firebaseConfig =  {
@@ -18,8 +18,25 @@ const firebaseConfig =  {
 const app = initializeApp(firebaseConfig);
 
 // Adding the storage facility to react
-export const storage = firebase.storage();
+const storage = getStorage(app);
 
 // The auth variable creates an authentication instance of app
 export const auth = getAuth(app);
+
+// Storage
+export async function upload(file, currentUser, setLoading) {
+  const fileRef = ref(storage, currentUser.uid + '.png');
+
+  setLoading(true);
+
+  const snapshot = await uploadBytes(fileRef, file);
+  const photoURL = await getDownloadURL(fileRef);
+
+  updateProfile(currentUser, {photoURL});
+
+  setLoading(false);
+  alert("Uploaded file!");
+}
+
 export default app;
+

@@ -1,21 +1,32 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileDetails from "../components/profile/ProfileDetails";
 import ProfileHistoryList from "../components/profile/ProfileHistoryList";
-import { storage } from "../auth/firebase-config";
+import { useAuth, upload } from "./firebase";
 
 function ProfileContainer({ user, posts, loggedIn }) {
 
   const [image, setImage] = useState(null);
+  const currentUser = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [photoURL, setPhotoURL] = useState("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png");
 
-  const handleChange = e => {
+  function handleChange(e) {
     if (e.target.files[0]) {
-
+      setImage(e.target.files[0])
     }
-  };
+  }
 
-  const handleUpload = () => {};
+  function handleClick() {
+    upload(image, currentUser, setLoading);
+  }
+
+  useEffect(() => {
+    if (currentUser?.photoURL) {
+      setPhotoURL(currentUser.photoURL);
+    }
+  }, [currentUser])
 
   function namedPhoto(){
     if(loggedIn) {
@@ -31,7 +42,8 @@ function ProfileContainer({ user, posts, loggedIn }) {
         image={image}
         setImage={setImage}
         handleChange={handleChange}
-        handleUpload={handleUpload}
+        handleUpload={handleClick}
+        loading={loading}
         />
       <ProfileHistoryList user={user} posts={posts} />
 
