@@ -1,6 +1,6 @@
+import {useState, useEffect } from 'react';
 import {initializeApp} from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
-import { useState, useEffect, useContext, createContext } from 'react';
+import { getAuth, updateProfile, onAuthStateChanged } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Firebase details being read from .env file
@@ -18,10 +18,21 @@ const firebaseConfig =  {
 const app = initializeApp(firebaseConfig);
 
 // Adding the storage facility to react
-const storage = getStorage(app);
+const storage = getStorage();
 
 // The auth variable creates an authentication instance of app
 export const auth = getAuth(app);
+
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    return unsub;
+  }, [])
+
+  return currentUser;
+}
 
 // Storage
 export async function upload(file, currentUser, setLoading) {
