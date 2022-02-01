@@ -46,6 +46,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+        <p>{post.time}</p>
         <p className="feed-item-object-description">{post.description}</p>
         {toggleEdit ? (
           <FeedEditPostPopUp

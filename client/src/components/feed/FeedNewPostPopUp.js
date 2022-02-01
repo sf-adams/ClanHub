@@ -28,6 +28,17 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
     );
   });
 
+  const getTime = ()=> {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const today = new Date();
+    return today.toLocaleDateString("en-UK", options)
+  }
+
   const handleCategoryChange = (ev) => {
     setCategoryType(ev.target.value);
   };
@@ -56,8 +67,9 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       title: title,
       description: description,
       body: body,
+      time: getTime(),
       upvotes: upvotes,
-      user: loggedIn
+      user: loggedIn,
     });
     resetValues()
     setCategoryType("");
