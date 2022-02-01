@@ -57,10 +57,10 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
             updatePost={updatePost}
           />
         ) : null}
-        <Link className="feed-item-link" to={`/feed/${post.id}`} post={post}>
+        <Link className="feed-item-link" to={`/feed/${post?.id}`} post={post}>
           See post
         </Link>
-        {user.email == post.user?.email ? (
+        {user?.email == post.user?.email ? (
           <div className="feed-item-buttons">
             <FiEdit3
               onClick={() => {
