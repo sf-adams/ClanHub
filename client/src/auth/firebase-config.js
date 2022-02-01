@@ -1,6 +1,7 @@
 import {initializeApp} from "firebase/app";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { useState, useEffect, useContext, createContext } from 'react'
+import { useState, useEffect, useContext, createContext } from 'react';
+import firebase from "firebase";
 
 // Firebase details being read from .env file
 const firebaseConfig =  {
@@ -15,6 +16,9 @@ const firebaseConfig =  {
 
 // This variable initialises the connection between FBase and Project
 const app = initializeApp(firebaseConfig);
+
+// Adding the storage facility to react
+export const storage = firebase.storage();
 
 // The auth variable creates an authentication instance of app
 export const auth = getAuth(app);

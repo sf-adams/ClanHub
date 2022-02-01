@@ -1,12 +1,15 @@
-
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { Link } from "react-router-dom";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileDetails from "../components/profile/ProfileDetails";
 import ProfileHistoryList from "../components/profile/ProfileHistoryList";
-
+import { storage } from "../auth/firebase-config";
 
 function ProfileContainer({ user, posts, loggedIn }) {
+
+  const [image, setImage] = useState(null);
+
+  const handleChange
 
   function namedPhoto(){
     if(loggedIn) {
