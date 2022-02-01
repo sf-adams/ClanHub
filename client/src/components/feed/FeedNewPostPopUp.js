@@ -56,6 +56,7 @@ const FeedNewPostPopUp = ({ posts, createPost, loggedIn, handleReset }) => {
       title: title,
       description: description,
       body: body,
+      time: "hello",
       upvotes: upvotes,
       user: loggedIn
     });

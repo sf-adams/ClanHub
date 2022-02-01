@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
@@ -6,6 +6,18 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const [body, setBody] = useState("");
   const [upvotes, setUpvotes] = useState(0);
   const navigate  = useNavigate();
+  const hello = "hello"
+
+  const getDate = ()=> {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const today = new Date();
+    return today.toLocaleDateString("en-UK", options);
+  }
 
   const handleTitleChange = (ev) => {
     setTitle(ev.target.value);
@@ -20,6 +32,7 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
     await createComment({
       title: title,
       body: body,
+      time: getDate(),
       upvotes: upvotes,
       post: post,
     });

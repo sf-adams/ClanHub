@@ -18,6 +18,12 @@ public class Comment {
     @Column(name="body")
     private String body;
 
+    @Column(name="time")
+    private String time;
+
+    @Column(name="name")
+    private String name;
+
     @Column(name="upvotes")
     private int upvotes;
 
@@ -25,9 +31,11 @@ public class Comment {
     @JoinColumn(name="post_id")
     private Post post;
 
-    public Comment(String title, String body, int upvotes, Post post) {
+    public Comment(String title, String body, String time, String name, int upvotes, Post post) {
         this.title = title;
         this.body = body;
+        this.time = time;
+        this.name = name;
         this.upvotes = upvotes;
         this.post = post;
     }
@@ -57,6 +65,16 @@ public class Comment {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public int getUpvotes() {

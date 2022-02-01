@@ -25,6 +25,7 @@ const Comment = ({ comment, post, deleteComment, updateComment }) => {
       <h3 className="comment-title">{comment.title}</h3>
       <button onClick={updateComment}>click me </button>
       <p className="comment-body">{comment.body}</p>
+      <p className="comment-time-stamp">{comment.time}</p>
       {
         <div className="comment-crud-buttons-wrapper">
           <FiEdit3
