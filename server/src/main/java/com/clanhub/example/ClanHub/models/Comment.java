@@ -1,5 +1,7 @@
 package com.clanhub.example.ClanHub.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,21 +20,34 @@ public class Comment {
     @Column(name="body")
     private String body;
 
+    @Column(name = "date")
+    String date;
+
     @Column(name="upvotes")
     private int upvotes;
 
     @ManyToOne
+    @JsonIgnoreProperties(value={"comments"}, allowSetters= true)
     @JoinColumn(name="post_id")
     private Post post;
 
-    public Comment(String title, String body, int upvotes, Post post) {
+    public Comment(String title, String body, String date, int upvotes, Post post) {
         this.title = title;
         this.body = body;
+        this.date = date;
         this.upvotes = upvotes;
         this.post = post;
     }
 
     public Comment() {
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Long getId() {
@@ -50,6 +65,7 @@ public class Comment {
     public void setTitle(String title) {
         this.title = title;
     }
+
 
     public String getBody() {
         return body;

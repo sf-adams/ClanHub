@@ -39,11 +39,11 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"posts"})
+    @JsonIgnoreProperties(value = {"posts"}, allowSetters= true)
     private User user;
 
 
-    @JsonIgnoreProperties({"post"})
+    @JsonIgnoreProperties(value ={"post"}, allowSetters= true)
     @OneToMany(mappedBy = "post")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Comment> comments;

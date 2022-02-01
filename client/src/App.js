@@ -56,7 +56,7 @@ function App() {
         })
       )
     );
-  });
+  }, []);
 
   useEffect(() => {
     CommentService.getComments().then((comments) => {

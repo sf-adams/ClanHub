@@ -18,6 +18,7 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     await createComment({
+      hello: title,
       title: title,
       body: body,
       upvotes: upvotes,
