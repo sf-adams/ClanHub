@@ -1,20 +1,21 @@
-import React from 'react';
-import CommentList from './comments/CommentList'
+import React from "react";
+import CommentList from "./comments/CommentList";
+import FeedItemParagraph from "./FeedItemParagraph";
 
 const FeedItemDetails = ({
   post,
   comments,
   createComment,
   deleteComment,
-  updateComment
+  updateComment,
 }) => {
   const filteredComments = comments.filter((filtered) => {
     return filtered.post.id == post.id;
   });
 
-  // const commentNodes = filteredComments.map((comment)=> {
-  //   return
-  // })
+  const spacedText = post.body
+    .split("\n")
+    .map((str, index) => <FeedItemParagraph key={index} str={str} />);
 
   return (
     <div className="post-page">
@@ -24,7 +25,7 @@ const FeedItemDetails = ({
           {post.user?.firstName} {post.user?.lastName}
         </p>
         <p>{post.description}</p>
-        <p>{post.body}</p>
+        <div className="post-body-text">{spacedText}</div>
       </div>
       <CommentList
         filteredComments={filteredComments}
@@ -33,7 +34,6 @@ const FeedItemDetails = ({
         updateComment={updateComment}
         post={post}
       />
-      
     </div>
   );
 };

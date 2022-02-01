@@ -10,8 +10,10 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
   const [toggleEdit, setToggleEdit] = useState(false);
-  const [confirmDelete, setConfirmDelete] = useState(false); 
+  const [toggleDeletionAlert, setToggleDeletionAlert] = useState(false);
 
+  // () => {
+  //               deletePost(post?.id)
   const handleToggleEdit = () => {
     setToggleEdit(!toggleEdit);
   };
@@ -26,9 +28,16 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
     console.log(post);
   };
 
-  const confirmDeletion =()=>{
-    deletePost(post?.id);
-  }
+  const handleModalPopUp = () => {
+    setToggleDeletionAlert(!toggleDeletionAlert);
+  };
+
+  const confirmDeletion = async (ev) => {
+    if (ev.target.innerHTML == "Yes") {
+      await deletePost(post?.id);
+    }
+    setToggleDeletionAlert(false);
+  };
 
   return (
     <>
@@ -37,6 +46,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
         <p className="feed-item-object-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+        <p>{post.time}</p>
         <p className="feed-item-object-description">{post.description}</p>
         {toggleEdit ? (
           <FeedEditPostPopUp
@@ -63,14 +73,12 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
                 );
               }}
             />
-            <MdDeleteOutline
-              onClick={() => {
-                deletePost(post?.id);
-              }}
-            />
+            <MdDeleteOutline onClick={handleModalPopUp} />
           </div>
         ) : null}
-        <FeedItemDeletePopUp/>
+        {toggleDeletionAlert ? (
+          <FeedItemDeletePopUp confirmDeletion={confirmDeletion} />
+        ) : null}
       </div>
     </>
   );

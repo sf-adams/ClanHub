@@ -47,7 +47,12 @@ function App() {
     PostService.getPosts(search).then((posts) =>
       setPosts(
         posts.data.filter((post) => {
-          return post.description.includes(search);
+          const userName = `${post.user.firstName} ${post.user.lastName}`;
+          return (
+            post.title.includes(search) 
+            || post.description.includes(search)
+            || userName.includes(search)
+          );
         })
       )
     );
@@ -55,12 +60,9 @@ function App() {
 
   useEffect(() => {
     CommentService.getComments().then((comments) => {
-      if (isMounted.current) {
-        setComments(comments.data);
-      }
+      setComments(comments.data);
     });
-    return (()=> {isMounted.current = false}) 
-  });
+  }, []);
 
   useEffect(() => {
     setLoggedIn(getLoggedIn);

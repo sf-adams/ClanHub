@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [upvotes, setUpvotes] = useState(0);
+  const navigate  = useNavigate();
 
   const handleTitleChange = (ev) => {
     setTitle(ev.target.value);
@@ -21,7 +23,7 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
       upvotes: upvotes,
       post: post,
     });
-    handleModalToggle();
+    window.location.reload()
   };
 
   return (
