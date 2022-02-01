@@ -9,7 +9,13 @@ function ProfileContainer({ user, posts, loggedIn }) {
 
   const [image, setImage] = useState(null);
 
-  const handleChange
+  const handleChange = e => {
+    if (e.target.files[0]) {
+
+    }
+  };
+
+  const handleUpload = () => {};
 
   function namedPhoto(){
     if(loggedIn) {
@@ -20,7 +26,13 @@ function ProfileContainer({ user, posts, loggedIn }) {
   return (
     <div className="profile-container">
       <ProfileHeader user={user}/>
-      <ProfileDetails user={user} />
+      <ProfileDetails
+        user={user}
+        image={image}
+        setImage={setImage}
+        handleChange={handleChange}
+        handleUpload={handleUpload}
+        />
       <ProfileHistoryList user={user} posts={posts} />
 
       <p>{user?.email}</p>
