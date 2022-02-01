@@ -562,6 +562,10 @@ img {
   transform: translateX(-40px) rotate(90deg);
 }
 
+.hidden-sidebar {
+  opacity: 0;
+}
+
 .navbar-container {
   width: 100%;
   height: 10vh;

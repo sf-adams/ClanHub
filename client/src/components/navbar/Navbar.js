@@ -3,22 +3,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import logo from "../../assets/main_logo.svg";
 
-function Navbar({ menuOpen, setMenuOpen, loggedIn, trytosayhello, checkUserCredentials}) {
+function Navbar({
+  menuOpen,
+  setMenuOpen,
+  loggedIn,
+  trytosayhello,
+  checkUserCredentials,
+}) {
   const navigate = useNavigate();
 
-
-  const handleClick = ()=> {
-    
-    
-    setMenuOpen(!menuOpen);
-    const menuTextToHide = document.getElementsByClassName("menu-container")[0];
-    console.log(menuTextToHide);
-    {
-      menuOpen
-        ? (menuTextToHide.style.opacity = 0)
-        : (menuTextToHide.style.opacity = 1);
+  const handleClick = () => {
+    const textToSee = document.getElementById("menu-container");
+    if (textToSee.classList.contains("hidden-sidebar")) {
+      textToSee.classList.remove("hidden-sidebar");
+    } else {
+      textToSee.classList.add("hidden-sidebar");
     }
-  }
+
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <div className={"navbar-container " + (menuOpen && "active")}>

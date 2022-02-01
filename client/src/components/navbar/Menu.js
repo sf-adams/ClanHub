@@ -9,9 +9,7 @@ function Menu({ menuOpen, setMenuOpen }) {
   const [toggleListShow1, setToggleListShow1] = useState(false);
   const [toggleListShow2, setToggleListShow2] = useState(false);
 
-  useEffect(() => {
-    document.getElementsByClassName("menu-container")[0].opacity = 0;
-  })
+  const menuToWithdraw = document.getElementsByClassName("menuOpen")[0]; 
 
   const handleDropdown1 = (ev) => {
     const sel = document.getElementsByClassName("menu-arrow-icon")[0];
@@ -37,7 +35,7 @@ function Menu({ menuOpen, setMenuOpen }) {
 
   return (
     <div className={"menu " + (menuOpen && "active")}>
-      <div className="menu-container">
+      <div id ="menu-container" className="menu-container hidden-sidebar">
         <ul>
           <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
           <li onClick={() => setMenuOpen(false)}>
