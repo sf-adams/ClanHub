@@ -34,9 +34,6 @@ public class Post {
     @Column(name="upvotes")
     private int upvotes;
 
-    @Column(name="time")
-    private String time;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"posts"})
@@ -48,12 +45,11 @@ public class Post {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Comment> comments;
 
-    public Post(CategoryType categoryType, String title, String description,  String body, String time, int upvotes, User user) {
+    public Post(CategoryType categoryType, String title, String description,  String body, int upvotes, User user) {
         this.categoryType = categoryType;
         this.title = title;
         this.description = description;
         this.body = body;
-        this.time = time;
         this.upvotes = upvotes;
         this.user = user;
         this.comments = new ArrayList<>();
@@ -109,14 +105,6 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public User getUser() {

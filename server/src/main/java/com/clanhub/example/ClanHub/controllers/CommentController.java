@@ -31,7 +31,7 @@ public class CommentController {
     }
 
     @PostMapping("/comments")
-    public ResponseEntity sagetDateveComment(@RequestBody Comment post) throws Exception{
+    public ResponseEntity saveComment(@RequestBody Comment post) throws Exception{
         commentRepository.save(post);
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
