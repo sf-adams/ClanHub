@@ -205,7 +205,7 @@ hr {
 
 .post-page {
   margin: 0 auto;
-  max-width: 60vw;
+  width: min(700px, 50vw);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -562,17 +562,42 @@ img {
   padding: 3.5rem 0 1.5rem 0;
 }
 
+.create-comment-button {
+  position: absolute;
+  right: 50%;
+}
+
 .comment-list {
   align-self: start;
   padding-top: 2.5rem;
   width: 100%;
 }
 .comment-list .comment-wrapper {
+  margin-top: 1.75rem;
   margin-bottom: 0.5em;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  width: min(400px, 50vw);
+}
+.comment-list .comment-wrapper .comment-title {
+  font-size: 1.25em;
+}
+.comment-list .comment-wrapper .comment-body {
+  padding: 0.75rem 0 1.5rem 0;
+}
+.comment-list .comment-wrapper .comment-body .comment-body-paragraph {
+  text-indent: 1.5em;
+  line-height: 1.5rem;
+  padding: 0.35rem 0;
+}
+
+.new-comment-modal {
+  padding: 2.5rem 0;
+}
+
+.comment-button {
+  color: #1b3445;
+  font-size: 1.75rem;
+  align-self: start;
 }
 
 .menu {

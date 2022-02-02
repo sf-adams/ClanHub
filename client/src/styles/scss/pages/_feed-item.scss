@@ -21,16 +21,49 @@
 
 // Styles for comments
 
+.create-comment-button {
+  position: absolute;
+  right: 50%;
+}
+
 .comment-list {
   align-self: start;
   padding-top: 2.5rem;
   width: 100%;
 
   .comment-wrapper {
-      margin-bottom: .5em;
+      margin-top: 1.75rem;
+    margin-bottom: 0.5em;
     background-color: $background-secondary;
     border-radius: 15px;
-    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-    width: min(400px, 50vw)
+    // box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+
+    .comment-title {
+      font-size: 1.25em;
+    }
+
+    .comment-body {
+      padding: 0.75rem 0 1.5rem 0;
+
+      .comment-body-paragraph {
+          text-indent: 1.5em;
+          line-height: 1.5rem;
+          padding: .35rem 0;
+      }
+    }
   }
+}
+
+// Styles for new comment modal box 
+
+ .new-comment-modal {
+    padding: 2.5rem 0;
+  }
+
+//  General styles for comment buttons
+
+.comment-button {
+  color: $text-alternate;
+  font-size: 1.75rem;
+  align-self: start;
 }
