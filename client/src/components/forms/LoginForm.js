@@ -1,12 +1,13 @@
 export default function LoginForm({email, setEmail, password, setPassword, handleSubmit, error }) {
 
   return (
-    <form className="form-box" onSubmit={handleSubmit}>
+    <div className="form-box">
+    <h2 className="login-form-title">Login:</h2>
+    <form className="login-form" onSubmit={handleSubmit}>
 
       {error && <p>{error}</p>}
 
       <div className="inner-container">
-        <label htmlFor="login-Email"> Email:</label>
         <input
           type="email"
           id="login-email"
@@ -20,7 +21,6 @@ export default function LoginForm({email, setEmail, password, setPassword, handl
       </div>
 
       <div className="inner-container">
-        <label htmlFor="login-password"> Password:</label>
         <input
           type="password"
           id="login-password"
@@ -45,5 +45,6 @@ export default function LoginForm({email, setEmail, password, setPassword, handl
               </p>
             </div>
     </form>
+    </div>
   );
 }

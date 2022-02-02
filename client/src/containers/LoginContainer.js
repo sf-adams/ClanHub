@@ -30,7 +30,7 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
         <div className="form-left">
         <h3 className="form-text">ClanHub</h3>
           <span className="form-desc">
-            Community, Connect, Contribute
+            (Insert great line here)
           </span>
         </div>
 
