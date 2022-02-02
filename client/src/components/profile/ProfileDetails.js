@@ -32,9 +32,9 @@ const ProfileDetails = ({ user, loggedIn }) => {
         <div className="profileCover">
           <div className="profile-banner-wrapper">
             <div className="profile-banner-overlay">
-              <h3>Profile Section</h3>
+              <h3>Profile</h3>
             </div>
-            <img className="profileCoverImg" src="https://source.unsplash.com/1527pjeb6jg" alt="Profile banner image" />
+            <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
           </div>
           {/* <img className="profileUserImg" src={blankProfile} alt="" /> */}
           <input type="file" onChange={handleChange} />
