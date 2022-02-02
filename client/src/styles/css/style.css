@@ -250,10 +250,11 @@ hr {
 .profileCover .profile-banner-wrapper .profile-banner-overlay h3 {
   position: absolute;
   top: 30%;
-  color: #f0f0f0;
+  color: #ededed;
   letter-spacing: 1.25rem;
   font-size: 2.25rem;
   font-variant: small-caps;
+  text-transform: lowercase;
 }
 .profileCover .profile-banner-wrapper .profile-cover-img {
   width: 100%;
@@ -302,7 +303,7 @@ hr {
 .profile-social-link .profileInfoGithub, .profile-social-link .profileInfoLinkedin {
   position: relative;
   background-color: #1b3445;
-  color: #f0f0f0 !important;
+  color: #ededed !important;
   font-size: 16px;
   padding: 8px 32px;
   border-radius: 10px;
@@ -378,7 +379,7 @@ hr {
   text-align: right;
 }
 .form-container .form-left .form-desc {
-  color: #f0f0f0;
+  color: #ededed;
   position: absolute;
   bottom: 22.5%;
   left: 2.5%;
@@ -452,6 +453,38 @@ hr {
   padding-left: 5px;
 }
 
+.home-container .top-container .showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
+  filter: grayscale(40%);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  margin-bottom: 20px;
+}
+.home-container .top-container .showcase .showcase-overlay-text * {
+  color: #ededed;
+}
+.home-container .top-container .showcase .showcase-overlay-text h1 {
+  letter-spacing: 0.3rem;
+}
+.home-container .top-container .showcase .showcase-overlay-text p {
+  padding-top: 0.6rem;
+  max-width: 50vw;
+  line-height: 2.2rem;
+}
+.home-container .top-container .showcase .showcase-overlay-text button {
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  background-color: #1b3445;
+}
+
 .main-button {
   background: #acadad;
   color: white;
@@ -464,32 +497,23 @@ hr {
 .secondary-button {
   background: #1b3445;
   color: white;
-  padding: 0.6rem 1.3rem;
+  padding: 0.65rem 1.3rem;
+  margin-top: 0.6rem;
   text-decoration: none;
   border: 0;
+  border-radius: 10px;
+  width: fit-content;
   cursor: pointer;
-  text-align: center;
-  margin: auto;
+  position: relative;
+}
+.secondary-button a {
+  color: #ededed;
+  text-decoration: none;
 }
 
 .wrapper {
   display: grid;
   grid-gap: 20px;
-}
-
-.showcase {
-  grid-area: showcase;
-  min-height: 400px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
-  background-size: cover;
-  background-position: center;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  margin-bottom: 20px;
 }
 
 .showcase h1 {
@@ -511,18 +535,26 @@ hr {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 0 20px;
 }
-
-.each-topic {
+.topics .each-topic {
+  position: relative;
   background: #1b3445;
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(199, 199, 199, 0.8);
   color: white;
+  border-radius: 10px;
 }
-
-.topic-title {
+.topics .topic-title {
   color: white;
   font-family: "Outfit-500";
+  padding-bottom: 0.6em;
+}
+.topics p {
+  line-height: 1.5em;
+  font-size: 0.7rem;
+}
+.topics button {
+  margin-top: 0.8em;
 }
 
 /* Info */
@@ -534,6 +566,12 @@ hr {
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
   margin: 20px 0;
+}
+.covid-info .covid-info-text-wrapper {
+  position: relative;
+}
+.covid-info .covid-info-text-wrapper h2 {
+  padding-bottom: 1.6rem;
 }
 
 .blog-posts {
