@@ -28,7 +28,7 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   };
 
   return (
-    <div className="new-comemnt-modal">
+    <div className="new-comment-modal">
       <h3 className="new-comment-modal-title">New Comment</h3>
 
       <form

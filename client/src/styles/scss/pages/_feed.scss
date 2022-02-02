@@ -76,7 +76,7 @@
         margin: 0 auto;
         flex-direction: column;
         justify-content: left;
-     
+
         padding: 0;
 
         & label {
@@ -173,7 +173,7 @@
 
 .post-page {
   margin: 0 auto;
-  max-width: 60vw;
+  width: min(700px, 50vw);
   display: flex;
   flex-direction: column;
   align-items: center;
