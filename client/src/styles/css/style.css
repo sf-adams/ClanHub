@@ -292,25 +292,28 @@ hr {
   background-color: #1b3445;
   flex-direction: row;
 }
+.form-container .form-wrapper {
+  width: 60vw;
+  position: relative;
+  display: flex;
+  background-color: red;
+}
 .form-container .form-left,
 .form-container .form-right {
-  text-align: center;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 .form-container .form-left {
   position: relative;
-  background-color: red;
 }
 .form-container .form-left img {
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   text-align: right;
 }
-.form-container .form-right {
-  background-color: green;
+.form-container .form-left .form-desc {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
 }
 .form-container .form-text {
   font-size: 5rem;
@@ -325,7 +328,7 @@ hr {
 }
 .form-container .form-box {
   width: fit-content;
-  height: 40%;
+  margin-left: 2.5rem;
   padding: 2.5rem 4.5rem;
   background-color: white;
   border-radius: 10px;

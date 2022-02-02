@@ -10,30 +10,37 @@
   background-color: $background-primary;
   flex-direction: row;
 
+  .form-wrapper {
+    width: 60vw;
+    position: relative;
+    display: flex;
+    background-color: red;
+  }
+
 .form-left,
 .form-right {
-
-  text-align: center;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .form-left {
   position: relative;
-  background-color: red;
 
   img {
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     text-align: right;
+  }
+
+  .form-desc {
+   position: absolute;
+   bottom: 10%;
+   left: 5%;
   }
 
 }
 
 .form-right {
-  background-color: green;
+
 }
 
 .form-text {
@@ -51,7 +58,7 @@
 
 .form-box {
   width: fit-content;
-  height: 40%;
+  margin-left: 2.5rem;
   padding: 2.5rem 4.5rem;
   background-color: $background-secondary;
   border-radius: 10px;

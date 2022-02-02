@@ -37,11 +37,12 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
 
   return (
     <div className="form-container">
+      <div className="form-wrapper">
         <div className="form-left">
         <img src={main_title} alt="" className ="form-page-title"/>
-          <span className="form-desc">
+          <p className="form-desc">
             (Insert great line here)
-          </span>
+          </p>
         </div>
 
         <div className="form-right">
@@ -55,6 +56,7 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
               error={error}
             />
 
+        </div>
         </div>
       </div>
   );

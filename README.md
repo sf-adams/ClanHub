@@ -4,38 +4,36 @@
   </a>
   <h1>ClanHub</h1>
 
-A prototype of a Christmas-themed educational app for primary-aged children; fictitiously commissioned by the BBC. It offers interactive learning and testing of Christmas-related facts from around the world, as well as some festive entertainment features.
+A platform that extends the community of CodeClan, allowing Students and Staff to share insights, experiences and opportunities. As an open source, decentralized community, ClanHub hopes to help those throughout their whole CodeClan journey. Whether student or staff, everyone has something to share, or someone new to meet.
 
-<img src = "static/demo_part_one.gif" width ="400" /> <img src = "static/demo_part_two.gif" width ="400" />
+<!-- <img src = "static/demo_part_one.gif" width ="400" /> <img src = "static/demo_part_two.gif" width ="400" /> -->
 
-[Report Issue](https://github.com/sf-adams/sleigh_ride/issues)
+[Report Issue](https://github.com/sf-adams/ClanHub/issues)
 ·
-[Group Repository](https://github.com/heathercking/BBCSleighRide)
+[CodeClan Website](https://codeclan.com/)
 
 </div>
 
 ## Features
-- Interactive Map with facts about Christmas around the world
-- Quiz to test your new Christmas knowledge
-- Random Joke Generator
-- Chatbot Santa
-- Let It Snow feature!
+- Feed and Forum, categorised and searchable
+- Layered authentication so that Admin, users and non-users all have different levels of access
+- Request Login details when new to the CodeClan community
+- Profile section with LinkedIn and GitHub details
 
 ## Tech Stack
 - JavaScript
 - React
-- MongoDB
-- CSS
+- Axios
+- Spring Boot H2
+- Java 11
+- SASS CSS
 - Various NPM libraries (npm install is required, as directed in 'Getting Started')
 
 ## Getting Started
-1. In `server` folder:
+1. In `IntelliJ IDEA CE` or other IDE:
 
 ```zsh
-Your local machine terminal:
-- npm install
-- npm run seeds
-- npm run server:dev (should be listening on port 5000)
+- run ClanHub Application
 ```
 
 2. In `client` folder:
