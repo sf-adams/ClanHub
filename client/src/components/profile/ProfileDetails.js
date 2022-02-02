@@ -56,11 +56,11 @@ const ProfileDetails = ({ user, loggedIn }) => {
           <div className="profile-social-link">
 
               <button className=" profileInfoGithub">
-                <FaGithub fill="white" size="2em" />
+                <FaGithub className= "social-icon" fill="white" size="1.5em" />
                 Github
               </button>
               <button className=" profileInfoLinkedin">
-                <FaLinkedin className="social-icon" />
+                <FaLinkedin className="social-icon" fill="white" size="1.5em" />
                 Linkedin
               </button>
 

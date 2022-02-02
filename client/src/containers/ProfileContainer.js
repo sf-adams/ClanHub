@@ -19,7 +19,7 @@ function ProfileContainer({ user, posts, loggedIn }) {
       <ProfileDetails user={user} loggedIn={loggedIn} />
       <ProfileHistoryList user={user} posts={posts} />
 
-      <p>{user?.email}</p>
+
 
       {/* <div className="profileRight">
         <div className="profileRightTop">
@@ -33,14 +33,7 @@ function ProfileContainer({ user, posts, loggedIn }) {
           </div>
         </div>
       </div> */}
-      <ul>
-        <li>{loggedIn?.firstName}</li>
-        <li>{loggedIn?.lastName}</li>
-        <li>{loggedIn?.email}</li>
-        <li>{loggedIn?.bio}</li>
-        <li>{loggedIn?.linkedin}</li>
-        <li>{loggedIn?.github}</li>
-      </ul>
+
 
       <Link to="/feed">Click to view your feed.</Link>
     </div>
