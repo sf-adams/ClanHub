@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
 import { useAuth} from "../../auth/AuthContext";
 import { upload } from "../../auth/firebase-config";
+import {MdOutlineAddAPhoto} from 'react-icons/md'
 
 const ProfileDetails = ({ user, loggedIn }) => {
 
@@ -32,13 +33,14 @@ const ProfileDetails = ({ user, loggedIn }) => {
         <div className="profileCover">
           <div className="profile-banner-wrapper">
             <div className="profile-banner-overlay">
-              <h3>Profile</h3>
+              <h3>profile</h3>
             </div>
             <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
           </div>
-          {/* <img className="profileUserImg" src={blankProfile} alt="" /> */}
+          <MdOutlineAddAPhoto className="upload-button">
           <input type="file" onChange={handleChange} />
-          <button disabled={loading || !image} onClick={handleClick}>Upload</button>
+          </MdOutlineAddAPhoto>
+          <MdOutlineAddAPhoto disabled={loading || !image} onClick={handleClick}/>
           <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
         </div>
         <div className="profileInfo">

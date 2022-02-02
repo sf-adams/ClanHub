@@ -230,6 +230,7 @@ hr {
 }
 
 .profileCover {
+  margin-top: 3.5rem;
   height: 320px;
   position: relative;
   background-color: red;
@@ -241,15 +242,20 @@ hr {
 }
 .profileCover .profile-banner-wrapper .profile-banner-overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0);
-  z-index: 5;
+  background-color: rgba(119, 119, 119, 0.4);
+  z-index: 2;
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
 }
 .profileCover .profile-banner-wrapper .profile-banner-overlay h3 {
   position: absolute;
+  top: 30%;
   color: #f0f0f0;
+  letter-spacing: 1.25rem;
+  font-size: 2.25rem;
+  font-variant: small-caps;
 }
 .profileCover .profile-banner-wrapper .profile-cover-img {
   width: 100%;
@@ -645,6 +651,7 @@ img {
   flex-direction: column;
   align-items: center;
   transition: all 1s ease;
+  z-index: 3 !important;
 }
 .menu.active {
   right: 0;
@@ -721,6 +728,7 @@ img {
   top: 0;
   z-index: 3;
   transition: all 1s ease;
+  z-index: 5;
 }
 .navbar-container.active {
   background-color: #1b3445;

@@ -10,7 +10,7 @@ A platform that extends the community of CodeClan, allowing Students and Staff t
 
 [Report Issue](https://github.com/sf-adams/ClanHub/issues)
 ·
-[CodeClan Website](https://codeclan.com/)
+[CodeClan](https://codeclan.com/)
 
 </div>
 
