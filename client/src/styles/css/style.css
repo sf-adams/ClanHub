@@ -61,6 +61,10 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  min-height: 100vh;
+}
+
 hr {
   background-color: lightgray;
 }
@@ -383,6 +387,7 @@ hr {
   width: fit-content;
   padding: 0.5em !important;
   color: #ededed;
+  cursor: pointer;
 }
 
 .profile-history-container {
@@ -507,19 +512,30 @@ hr {
 }
 
 .home-container .top-container .showcase {
+  position: relative;
   grid-area: showcase;
   min-height: 400px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
-  filter: grayscale(40%);
   background-size: cover;
   background-position: center;
-  padding: 3rem;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   margin-bottom: 20px;
+  z-index: -5;
+}
+.home-container .top-container .showcase .showcase-overlay-color {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(33, 33, 33, 0.5);
+  z-index: -500;
+}
+.home-container .top-container .showcase .showcase-overlay-text {
+  padding: 3rem;
 }
 .home-container .top-container .showcase .showcase-overlay-text * {
   color: #ededed;
@@ -536,10 +552,12 @@ hr {
   margin-top: 1.5rem;
   border-radius: 10px;
   background-color: #1b3445;
+  position: absolute;
 }
 
 .main-button {
   background: #acadad;
+  border-radius: 10px;
   color: white;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
@@ -623,6 +641,9 @@ hr {
 .covid-info .covid-info-text-wrapper {
   position: relative;
 }
+.covid-info .covid-info-text-wrapper p {
+  line-height: 1.5em;
+}
 .covid-info .covid-info-text-wrapper h2 {
   padding-bottom: 1.6rem;
 }
@@ -637,9 +658,18 @@ hr {
 .blog-post-container {
   position: relative;
 }
+.blog-post-container .blog-post-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1b3445;
+  opacity: 0;
+}
+.blog-post-container .blog-post-text p {
+  font-size: 1.3rem;
+}
 
 .blog-post-image {
-  opacity: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -647,9 +677,8 @@ hr {
   backface-visibility: hidden;
 }
 
-.blog-post-container:hover .blog-post-image {
-  opacity: 0.3;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+.blog-post-container:hover .blog-post-overlay {
+  opacity: 0.4;
 }
 
 .blog-post-text {
@@ -668,7 +697,6 @@ hr {
 }
 
 .title-text {
-  background-color: #1b3445;
   color: white;
   font-size: 16px;
   padding: 16px 32px;
@@ -766,13 +794,22 @@ img {
   align-self: start;
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .menu {
-  width: 30vw;
+  position: absolute;
+  width: 0px;
   height: 100vh;
   background-color: #1b3445;
   position: fixed;
   top: 0%;
-  right: -600px;
+  right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -781,12 +818,19 @@ img {
   z-index: 3 !important;
 }
 .menu.active {
-  right: 0;
+  width: 30vw;
 }
 .menu .menu-container {
   position: absolute;
   top: 30%;
   height: 60%;
+}
+.menu .menu-container .sidebar-menu-text {
+  opacity: 0;
+  animation-name: appear;
+  animation-duration: 0.1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
 }
 .menu .menu-container ul {
   margin-left: 20%;
@@ -848,6 +892,7 @@ img {
 
 .navbar-container {
   width: 100%;
+  padding: 0.45em 0;
   background-color: #1b3445;
   color: white;
   position: sticky;

@@ -11,6 +11,7 @@ function HomeContainer() {
     <div className="home-container">
       <section className="top-container">
         <header className="showcase">
+          <div className="showcase-overlay-color"></div>
           <div className="showcase-overlay-text">
             <h1>Welcome to ClanHub</h1>
             <p>
@@ -72,66 +73,69 @@ function HomeContainer() {
             reiciendis deleniti possimus nemo non repellendus?
           </p>
           <p className="secondary-button">
-            <a href="#">
-              Learn More
-            </a>
+            <a href="#">Learn More</a>
           </p>
         </div>
       </section>
 
       <section className="blog-posts">
         <div className="blog-post-container">
+          <div className="blog-post-overlay"></div>
           <img
             src="https://source.unsplash.com/mk7D-4UCfmg/400x400"
             alt="Avatar"
             className="blog-post-image"
           />
           <div className="blog-post-text">
-            <div className="title-text">Typing</div>
+            <p className="title-text">Typing</p>
           </div>
         </div>
 
         <div className="blog-post-container">
+          <div className="blog-post-overlay"></div>
           <img
             src="https://source.unsplash.com/m_HRfLhgABo/400x400"
             alt="Avatar"
             className="blog-post-image"
           />
           <div className="blog-post-text">
-            <div className="title-text">Set Up</div>
+            <p className="title-text">Set Up</p>
           </div>
         </div>
 
         <div className="blog-post-container">
+          <div className="blog-post-overlay"></div>
           <img
             src="https://source.unsplash.com/QckxruozjRg/400x400"
             alt="Avatar"
             className="blog-post-image"
           />
           <div className="blog-post-text">
-            <div className="title-text">Working Together</div>
+            <p className="title-text">Working Together</p>
           </div>
         </div>
 
         <div className="blog-post-container">
+          <div className="blog-post-overlay"></div>
           <img
             src="https://source.unsplash.com/2q_frVRXWfQ/400x400"
             alt="Avatar"
             className="blog-post-image"
           />
           <div className="blog-post-text">
-            <div className="title-text">Taking Notes</div>
+            <p className="title-text">Taking Notes</p>
           </div>
         </div>
 
         <div className="blog-post-container">
+          <div className="blog-post-overlay"></div>
           <img
             src="https://source.unsplash.com/5Q07sS54D0Q/400x400"
             alt="Avatar"
             className="blog-post-image"
           />
           <div className="blog-post-text">
-            <div className="title-text">Whiteboarding</div>
+            <p className="title-text">Whiteboarding</p>
           </div>
         </div>
       </section>

@@ -5,22 +5,33 @@
 .home-container {
   .top-container {
     .showcase {
+      position: relative;
       grid-area: showcase;
       min-height: 400px;
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("https://source.unsplash.com/Y96OcAtUWw0");
-      filter: grayscale(40%);
+      // filter: grayscale(80%);
       background-size: cover;
       background-position: center;
-      padding: 3rem;
+      padding: 3rem 0;
       display: flex;
       flex-direction: column; // margin: auto;
       align-items: start;
       justify-content: center;
       box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
       margin-bottom: 20px;
+      z-index: -5;
+
+      .showcase-overlay-color {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(33, 33, 33, 0.5);
+        z-index: -500;
+      }
 
       .showcase-overlay-text {
+        padding: 3rem;
         * {
           color: $text-secondary-muted;
         }
@@ -39,6 +50,7 @@
           margin-top: 1.5rem;
           border-radius: 10px;
           background-color: $background-primary;
+          position: absolute;
         }
       }
     }
@@ -47,6 +59,7 @@
 
 .main-button {
   background: $background-light;
+  border-radius: 10px;
   color: $background-secondary;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
@@ -68,11 +81,10 @@
   // display: block;
   // text-align: center;
 
-a {
-  color: $text-secondary-muted;
-  text-decoration: none;
-}
-
+  a {
+    color: $text-secondary-muted;
+    text-decoration: none;
+  }
 }
 
 .wrapper {
@@ -142,6 +154,10 @@ a {
   .covid-info-text-wrapper {
     position: relative;
 
+    p {
+      line-height: 1.5em;
+    }
+
     h2 {
       padding-bottom: 1.6rem;
     }
@@ -157,10 +173,21 @@ a {
 
 .blog-post-container {
   position: relative;
+
+  .blog-post-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $background-primary;
+    opacity: 0;
+  }
+
+  .blog-post-text p {
+    font-size: 1.3rem;
+  }
 }
 
 .blog-post-image {
-  opacity: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -168,9 +195,8 @@ a {
   backface-visibility: hidden;
 }
 
-.blog-post-container:hover .blog-post-image {
-  opacity: 0.3;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+.blog-post-container:hover .blog-post-overlay {
+  opacity: 0.4;
 }
 
 .blog-post-text {
@@ -189,7 +215,6 @@ a {
 }
 
 .title-text {
-  background-color: $background-primary;
   color: $background-secondary;
   font-size: 16px;
   padding: 16px 32px;

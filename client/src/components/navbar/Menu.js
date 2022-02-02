@@ -39,7 +39,7 @@ function Menu({ menuOpen, setMenuOpen, canSeeSidebarContent, handleClick }) {
   return (
     <div className={"menu " + (menuOpen && "active")}>
       <div id ="menu-container" className="menu-container" onClick = {handleClick}>
-        {canSeeSidebarContent?<ul>
+        {canSeeSidebarContent?<ul className = "sidebar-menu-text">
           <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
           <li onClick={() => setMenuOpen(false)}>
             <Link to="/home">Home</Link>

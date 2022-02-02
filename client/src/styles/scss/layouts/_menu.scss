@@ -1,29 +1,46 @@
 @use "../base/root" as *;
 @use "../vendors/" as *;
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .menu {
-  width: 30vw;
+  position: absolute;
+  width: 0px;
   height: 100vh;
   background-color: $primary;
   position: fixed;
   top: 0%;
-  right: -600px;
+  right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 1s ease;
-  z-index: 3!important;
-
+  z-index: 3 !important;
 
   &.active {
-    right: 0;
+    width: 30vw;
   }
 
   & .menu-container {
     position: absolute;
     top: 30%;
     height: 60%;
+
+    .sidebar-menu-text {
+      opacity: 0;
+      animation-name: appear;
+      animation-duration: 0.1s;
+      animation-delay: .6s;
+      animation-fill-mode: forwards;
+    }
 
     ul {
       margin-left: 20%;
@@ -41,7 +58,7 @@
         }
 
         ul li {
-          margin: .5em 0 .5em -0.6em;
+          margin: 0.5em 0 0.5em -0.6em;
         }
 
         a {
@@ -97,9 +114,8 @@
   }
 }
 
-
 // TOggle style to make the sidebar text invisible by default
 
 .hidden-sidebar {
-    opacity: 0;
+  opacity: 0;
 }

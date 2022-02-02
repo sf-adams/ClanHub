@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  min-height:100vh;
+}
+
 hr {
   background-color: $background-grey-faded;
 }
