@@ -9,19 +9,10 @@ function Navbar({
   loggedIn,
   trytosayhello,
   checkUserCredentials,
+  handleClick
 }) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    const textToSee = document.getElementById("menu-container");
-    if (textToSee.classList.contains("hidden-sidebar")) {
-      textToSee.classList.remove("hidden-sidebar");
-    } else {
-      textToSee.classList.add("hidden-sidebar");
-    }
-
-    setMenuOpen(!menuOpen);
-  };
 
   return (
     <div className={"navbar-container " + (menuOpen && "active")}>
@@ -30,7 +21,7 @@ function Navbar({
           <Link to="/home" className="logo" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="" />
           </Link>
-          <span className="logo-text">ClanHub</span>
+          {/* <span className="logo-text">ClanHub</span> */}
         </div>
         <div className="middle">
           <FaRegUser

@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<div align="center">
+  <a href="https://github.com/sf-adams/ClanHub">
+    <img src="client/src/assets/app_logo.svg" alt="Logo" width="125" height="125">
+  </a>
+  <h1>ClanHub</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A platform that extends the community of CodeClan, allowing Students and Staff to share insights, experiences and opportunities. As an open source, decentralized community, ClanHub hopes to help those throughout their whole CodeClan journey. Whether student or staff, everyone has something to share, or someone new to meet.
 
-## Available Scripts
+<!-- <img src = "static/demo_part_one.gif" width ="400" /> <img src = "static/demo_part_two.gif" width ="400" /> -->
 
-In the project directory, you can run:
+[Report Issue](https://github.com/sf-adams/ClanHub/issues)
+·
+[CodeClan](https://codeclan.com/)
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- Feed and Forum, categorised and searchable
+- Layered authentication so that Admin, users and non-users all have different levels of access
+- Request Login details when new to the CodeClan community
+- Profile section with LinkedIn and GitHub details
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+- JavaScript
+- React
+- Axios
+- Spring Boot H2
+- Java 11
+- SASS CSS
+- Various NPM libraries (npm install is required, as directed in 'Getting Started')
 
-### `npm test`
+## Getting Started
+1. In `IntelliJ IDEA CE` or other IDE:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```zsh
+- run ClanHub Application
+```
 
-### `npm run build`
+2. In `client` folder on new tab:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```zsh
+Your local machine terminal:
+- npm install
+- npm start (should be listening on port 3000)
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## The Team
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Currently there are two of us responsible for the first draft of ClanHub. All further contributors will be added here:
 
-### `npm run eject`
+<div align="center">
+  <a href="https://github.com/O-Marsters-1997">@O-Marsters-1997</a>
+  •
+  <a href="https://github.com/sf-adams">@sf-adams</a>
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Full Brief
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Minimum Viable Product
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+We have chosen to create a content-sharing and networking platform. Admin staff will create a profile, which will then be sent to users, where they can identify with any number of options (Cohort, GitHub, LinkedIn, Portfolio site link). As a key feature, our web app will center around a forum, allowing for the posting of information, which can be categorized and voted on.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Forum**: Users will be able to create, read, update and delete posts, as well as add votes for content they like. The first version will contain a limited number of categories, as well as limited sorting features. We would also like to have the following features: 
+    - When you click on a forum post, you will be taken to a separate post page, with the ability to make comments
+    - Users can see who made a post, and click on their file to be taken to the profile page of that user
+2. **Authentication/Authorisation** - Users will be able to sign up and log in to their account, with different users having different levels of access.
+3. **Job Section** - For those in the process of job hunting, or simply looking to see what jobs are available with partners, this section will be able.
+4. **Open Source** - To allow for Students or Staff to make improvements to the site, through a Feature Request Section, or at least through the GitHub repository.
+5. **Design** - CodeClan Theme, CC Colour Palette, Mobile-First Design.
 
-## Learn More
+### Extensions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Identified below are ideas for further development. If there is a feature that you could add, please go to the feature request section or get in touch!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Extended Access**: With users allocated a Cohort by staff, the system can work out whether a student is before, during or after their CodeClan learning experience, or a member of staff.
+2. **Rubber Duck** - Voting system throughout the forum, and potentially elsewhere (with the react icon for plastic duck).
+3. **Search Bar** - To help users who are looking for a post on a specific topic, without having to go through the various category filters.
+4. **Mentoring** - Profiles have the option to pick themselves as a mentor, so that a user looking for extra advice, or simply another connection on LinkedIn, a connection can be made.A user could be able to mark in their profile whether they are looking for a mentor or someone to mentor. 
+5. **Blog** - Users can submit blog content - an admin can review a blog post, and can either accept or reject the incoming blog post.
+6. **Alumni Area** - So that users can add other alumni or connect through LinkedIn.
+6. **Extras** - Some additional ideas:
+    - Tech Calendar
+    - Job Postings
+    - Getting Started coding area for newbies
+    - Tips and tricks section (or even just a category on the forum)
+    - Follow button

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../auth/firebase-config";
 
-function Menu({ menuOpen, setMenuOpen }) {
+function Menu({ menuOpen, setMenuOpen, canSeeSidebarContent, handleClick }) {
   const [toggleListShow1, setToggleListShow1] = useState(false);
   const [toggleListShow2, setToggleListShow2] = useState(false);
 
-  const menuToWithdraw = document.getElementsByClassName("menuOpen")[0]; 
+  const menuToWithdraw = document.getElementsByClassName("menuOpen")[0];
 
   const handleDropdown1 = (ev) => {
     const sel = document.getElementsByClassName("menu-arrow-icon")[0];
@@ -28,6 +28,7 @@ function Menu({ menuOpen, setMenuOpen }) {
     setToggleListShow2(!toggleListShow2);
   };
 
+
   const logout = async () => {
     setMenuOpen(false);
     await signOut(auth);
@@ -35,8 +36,8 @@ function Menu({ menuOpen, setMenuOpen }) {
 
   return (
     <div className={"menu " + (menuOpen && "active")}>
-      <div id ="menu-container" className="menu-container hidden-sidebar">
-        <ul>
+      <div id ="menu-container" className="menu-container" onClick = {handleClick}>
+        {canSeeSidebarContent?<ul>
           <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
           <li onClick={() => setMenuOpen(false)}>
             <Link to="/home">Home</Link>
@@ -64,10 +65,12 @@ function Menu({ menuOpen, setMenuOpen }) {
           <li onClick={logout}>
             <Link to="/">Sign Out</Link>
           </li>
-        </ul>
+        </ul>:null}
       </div>
     </div>
   );
-}
+};
+
+
 
 export default Menu;

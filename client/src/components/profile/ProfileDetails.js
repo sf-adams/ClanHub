@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
 import { useAuth} from "../../auth/AuthContext";
 import { upload } from "../../auth/firebase-config";
+import { MdAddAPhoto } from "react-icons/md";
+import { FaGithub, FaLinkedin} from "react-icons/fa";
 
 const ProfileDetails = ({ user, loggedIn }) => {
 
@@ -23,28 +25,61 @@ const ProfileDetails = ({ user, loggedIn }) => {
   useEffect(() => {
     if (currentUser?.photoURL) {
       setDisplayPhoto(currentUser.photoURL);
-    }
+  }
   }, [currentUser])
 
   return (
     <div className="profileRight">
       <div className="profileRightTop">
         <div className="profileCover">
-          <img className="profileCoverImg" src="assets/post/3.jpeg" alt="" />
-          {/* <img className="profileUserImg" src={blankProfile} alt="" /> */}
-          <input type="file" onChange={handleChange} />
-          <button disabled={loading || !image} onClick={handleClick}>Upload</button>
+          <div className="profile-banner-wrapper">
+            <div className="profile-banner-overlay">
+              <h3>profile</h3>
+            </div>
+            <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
+          </div>
+
           <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
         </div>
         <div className="profileInfo">
+
+          <div className="profile-picture-wrapper">
+          <div className="upload-button-wrapper">
+            <button disabled={loading || !image} onClick={handleClick}>Upload</button>
+            <input type="file" id="actual-btn" hidden/>
+            <label className="upload-button" for="actual-btn" onChange={handleChange}>
+              < MdAddAPhoto />
+            </label>
+          </div>
+          </div>
+
           <h4 className="profileInfoName">
             {loggedIn?.firstName} {loggedIn?.lastName}
           </h4>
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
-          <span className="profileInfoLinkedin">
+          <div className="profile-social-link">
+
+
+            <a href={loggedIn?.github} target="_blank" rel="noopener noreferrer" >
+              <button className="profileInfoGithub">
+                <FaGithub className="social-icon" fill="white" size="1.5em" />
+                GitHub
+              </button>
+            </a>
+            <a href={loggedIn?.linkedin} target="_blank" rel="noopener noreferrer" >
+              <button className="profileInfoLinkedin">
+                <FaLinkedin className="social-icon" fill="white" size="1.5em" />
+                LinkedIn
+              </button>
+            </a>
+
+            {/* Comment out section for now but bring in values for links when set up */}
+             {/* <span className="profileInfoLinkedin">
             Linkedin: {loggedIn?.linkedin}
-          </span>
-          <span className="profileInfoGithub">Github: {loggedIn?.github}</span>
+            </span>
+          <span className="profileInfoGithub">Github: {loggedIn?.github}</span> */}
+          </div>
+
         </div>
       </div>
     </div>

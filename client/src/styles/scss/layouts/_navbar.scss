@@ -2,13 +2,14 @@
 
 .navbar-container {
   width: 100%;
-  height: 10vh;
+  // height: 10vh;
   background-color: $background-primary;
   color: $background-secondary;
   position: sticky;
   top: 0;
   z-index: 3;
   transition: all 1s ease;
+   z-index: 5;
 
   &.active {
     background-color: $background-primary;
@@ -60,6 +61,7 @@
       .profile-button {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
           .icon {
             font-size: 18px;

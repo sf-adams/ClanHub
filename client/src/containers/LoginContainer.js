@@ -1,14 +1,26 @@
+// Library Imports
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../auth/firebase-config";
+
+// Component Imports
 import LoginForm from "../components/forms/LoginForm";
+import main_title from "../assets/main_title.svg";
+
+// Authentication Imports
 import { useAuthState } from "../auth/AuthContext";
+import { auth } from "../auth/firebase-config";
 
 function LoginContainer({ user, loggedIn, getUserObject }) {
+
+  // Creating variable for firebase authentication
+  const { logIn } = useAuthState();
+
+  // Creating states for user input
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
-  const { logIn } = useAuthState();
+
+  // Creating variable for navigation
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -24,14 +36,13 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
   };
 
   return (
-    <div className="form-background">
-      <div className="form-container">
-
+    <div className="form-container">
+      <div className="form-wrapper">
         <div className="form-left">
-        <h3 className="form-text">ClanHub</h3>
-          <span className="form-desc">
-            Community, Connect, Contribute
-          </span>
+        <img src={main_title} alt="" className ="form-page-title"/>
+          <p className="form-desc">
+            Community by the community
+          </p>
         </div>
 
         <div className="form-right">
@@ -46,8 +57,8 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
             />
 
         </div>
+        </div>
       </div>
-    </div>
   );
 }
 export default LoginContainer;
