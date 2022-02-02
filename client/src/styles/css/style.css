@@ -338,6 +338,7 @@ hr {
   margin-top: 3.25rem;
 }
 .profile-history-container .profile-history-list-item-wrapper {
+  padding: 0.75rem 2rem;
   background-color: white;
 }
 
