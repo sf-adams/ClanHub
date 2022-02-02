@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [upvotes, setUpvotes] = useState(0);
+  const navigate  = useNavigate();
 
   const handleTitleChange = (ev) => {
     setTitle(ev.target.value);
@@ -16,16 +18,17 @@ const NewCommentForm = ({ post, createComment, handleModalToggle }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     await createComment({
+      hello: title,
       title: title,
       body: body,
       upvotes: upvotes,
       post: post,
     });
-    handleModalToggle();
+    window.location.reload()
   };
 
   return (
-    <div className="new-comemnt-modal">
+    <div className="new-comment-modal">
       <h3 className="new-comment-modal-title">New Comment</h3>
 
       <form

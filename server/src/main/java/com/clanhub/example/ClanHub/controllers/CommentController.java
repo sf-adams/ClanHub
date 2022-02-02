@@ -2,6 +2,8 @@ package com.clanhub.example.ClanHub.controllers;
 
 import com.clanhub.example.ClanHub.models.Comment;
 import com.clanhub.example.ClanHub.repositories.CommentRepository;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,8 @@ public class CommentController {
     @Autowired
     CommentRepository commentRepository;
 
+    ObjectMapper mapper = new ObjectMapper();
+
     @GetMapping("/comments")
     public ResponseEntity<List<Comment>> getAllPosts(){
         List<Comment> foundComments = commentRepository.findAll();
@@ -31,9 +35,9 @@ public class CommentController {
     }
 
     @PostMapping("/comments")
-    public ResponseEntity saveComment(@RequestBody Comment post) throws Exception{
-        commentRepository.save(post);
-        return new ResponseEntity<>(post, HttpStatus.OK);
+    public ResponseEntity saveComment(@RequestBody Comment comment) throws JsonParseException, Exception{
+        commentRepository.save(comment);
+        return new ResponseEntity<>(comment, HttpStatus.OK);
     }
 
     @PutMapping("/comments/{id}")

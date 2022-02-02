@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
@@ -8,6 +8,8 @@ import { auth } from "../../auth/firebase-config";
 function Menu({ menuOpen, setMenuOpen }) {
   const [toggleListShow1, setToggleListShow1] = useState(false);
   const [toggleListShow2, setToggleListShow2] = useState(false);
+
+  const menuToWithdraw = document.getElementsByClassName("menuOpen")[0]; 
 
   const handleDropdown1 = (ev) => {
     const sel = document.getElementsByClassName("menu-arrow-icon")[0];
@@ -33,7 +35,7 @@ function Menu({ menuOpen, setMenuOpen }) {
 
   return (
     <div className={"menu " + (menuOpen && "active")}>
-      <div className="menu-container">
+      <div id ="menu-container" className="menu-container hidden-sidebar">
         <ul>
           <FiArrowRight className="menu-arrow-icon" onClick={handleDropdown1} />
           <li onClick={() => setMenuOpen(false)}>

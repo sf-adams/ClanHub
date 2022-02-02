@@ -1,30 +1,33 @@
-import React from 'react';
-import CommentList from './comments/CommentList'
+import React from "react";
+import CommentList from "./comments/CommentList";
+import FeedItemParagraph from "./FeedItemParagraph";
 
 const FeedItemDetails = ({
   post,
   comments,
   createComment,
   deleteComment,
-  updateComment
+  updateComment,
 }) => {
   const filteredComments = comments.filter((filtered) => {
     return filtered.post.id == post.id;
   });
 
-  // const commentNodes = filteredComments.map((comment)=> {
-  //   return
-  // })
+  const spacedText = post.body
+    .split("\n")
+    .map((str, index) => <FeedItemParagraph key={index} str={str} />);
 
   return (
     <div className="post-page">
       <div className="post-details-container">
         <h3 className="post-details-header">{post.title}</h3>
-        <p>
+        <p className="post-details-author">
           {post.user?.firstName} {post.user?.lastName}
         </p>
+        <h4 className="post-details-description-title">Post description</h4>
         <p>{post.description}</p>
-        <p>{post.body}</p>
+        <h4 className="post-details-body-title">Post Body</h4>
+        <div className="post-body-text">{spacedText}</div>
       </div>
       <CommentList
         filteredComments={filteredComments}
@@ -33,7 +36,6 @@ const FeedItemDetails = ({
         updateComment={updateComment}
         post={post}
       />
-      
     </div>
   );
 };

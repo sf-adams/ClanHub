@@ -28,6 +28,7 @@ const EditCommentForm = ({
       post: post,
     });
     handleEditModalChange()
+    window.location.reload()
   };
 
   return (

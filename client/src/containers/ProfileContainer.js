@@ -1,5 +1,4 @@
-
-import React, {useRef} from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import ProfileDetails from "../components/profile/ProfileDetails";
@@ -16,8 +15,12 @@ function ProfileContainer({ user, posts, loggedIn }) {
 
   return (
     <div className="profile-container">
+
       <ProfileHeader user={user}/>
-      <ProfileDetails user={user} />
+      <ProfileDetails user={user} loggedIn={loggedIn} />
+
+
+
       <ProfileHistoryList user={user} posts={posts} />
 
       <p>{user?.email}</p>
@@ -42,7 +45,6 @@ function ProfileContainer({ user, posts, loggedIn }) {
         <li>{loggedIn?.linkedin}</li>
         <li>{loggedIn?.github}</li>
       </ul>
-
 
       <Link to="/feed">Click to view your feed.</Link>
     </div>

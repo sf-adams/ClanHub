@@ -1,5 +1,5 @@
 import "./styles/css/style.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 
@@ -36,6 +36,8 @@ function App() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
+  const isMounted = useRef(true);
+
   // H2 Connections
   useEffect(() => {
     UserService.getUsers().then((users) => setUsers(users.data));
@@ -45,11 +47,16 @@ function App() {
     PostService.getPosts(search).then((posts) =>
       setPosts(
         posts.data.filter((post) => {
-          return post.description.includes(search);
+          const userName = `${post.user.firstName} ${post.user.lastName}`;
+          return (
+            post.title.includes(search) 
+            || post.description.includes(search)
+            || userName.includes(search)
+          );
         })
       )
     );
-  });
+  }, []);
 
   useEffect(() => {
     CommentService.getComments().then((comments) => {

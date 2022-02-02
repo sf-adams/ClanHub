@@ -1,4 +1,11 @@
+@use './root' as *;
+
+
 * {
   margin: 0%;
   box-sizing: border-box;
+}
+
+hr {
+  background-color: $background-grey-faded;
 }
