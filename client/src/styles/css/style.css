@@ -300,7 +300,8 @@ hr {
 .profile-social-link {
   margin-top: 1.125rem;
 }
-.profile-social-link .profileInfoGithub, .profile-social-link .profileInfoLinkedin {
+.profile-social-link .profileInfoGithub,
+.profile-social-link .profileInfoLinkedin {
   position: relative;
   background-color: #1b3445;
   color: #ededed !important;
@@ -328,8 +329,60 @@ hr {
 }
 
 .new-user-information-container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.new-user-information-container .new-user-information-wrapper {
   position: absolute;
-  margin-top: 30%;
+  padding: 2em;
+  background-color: white;
+  top: 20%;
+  border-radius: 10px;
+}
+.new-user-information-container h3 {
+  padding-bottom: 0.6em;
+  text-align: center;
+}
+.new-user-information-container p {
+  line-height: 1.5em;
+  font-size: 0.75em;
+}
+.new-user-information-container .new-user-information-para {
+  margin-bottom: 1.8rem !important;
+}
+.new-user-information-container .new-user-information-para .new-user-information-span {
+  font-weight: bold;
+}
+
+.new-user-information-form {
+  margin-top: 1em;
+}
+.new-user-information-form .new-user-information-form-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.6rem;
+}
+.new-user-information-form .new-user-information-form-item input {
+  padding: 0.35rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0.2px solid #7e7e7e;
+}
+.new-user-information-form .new-user-information-form-item label {
+  font-weight: 500;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  padding-bottom: 0.4rem;
+  font-size: 1.3em;
+}
+.new-user-information-form .new-user-form-submit {
+  background-color: #1b3445;
+  margin-top: 0.45em;
+  width: fit-content;
+  padding: 0.5em !important;
+  color: #ededed;
 }
 
 .profile-history-container {
