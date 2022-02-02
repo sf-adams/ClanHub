@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
 import { useAuth} from "../../auth/AuthContext";
 import { upload } from "../../auth/firebase-config";
-import { MdAddAPhoto } from "react-icons/md"
+import { MdAddAPhoto } from "react-icons/md";
+import { FaGithub, FaLinkedin} from "react-icons/fa";
 
 const ProfileDetails = ({ user, loggedIn }) => {
 
@@ -54,8 +55,14 @@ const ProfileDetails = ({ user, loggedIn }) => {
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
           <div className="profile-social-link">
 
-              <button className=" profileInfoGithub">Github</button>
-              <button className=" profileInfoLinkedin">Linkedin</button>
+              <button className=" profileInfoGithub">
+                <FaGithub fill="white" size="2em" />
+                Github
+              </button>
+              <button className=" profileInfoLinkedin">
+                <FaLinkedin className="social-icon" />
+                Linkedin
+              </button>
 
             {/* Comment out section for now but bring in values for links when set up */}
              {/* <span className="profileInfoLinkedin">

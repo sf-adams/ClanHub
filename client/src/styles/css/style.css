@@ -298,11 +298,22 @@ hr {
   font-weight: 300;
 }
 
-.profileInfoGithub, .profileInfoLinkedin {
+.profile-social-link {
+  margin-top: 2.5rem;
+}
+.profile-social-link .profileInfoGithub, .profile-social-link .profileInfoLinkedin {
   background-color: #1b3445;
   color: #f0f0f0 !important;
-  padding: 0.5rem;
+  font-size: 16px;
+  padding: 8px 32px;
   border-radius: 10px;
+}
+.profile-social-link .profileInfoGithub::before {
+  content: "\f0e1";
+  color: white;
+}
+.profile-social-link .profileInfoLinkedin {
+  margin-left: 1rem;
 }
 
 .profileRightBottom {

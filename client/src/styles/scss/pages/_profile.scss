@@ -88,17 +88,36 @@
 .profileInfoDesc{
   font-weight: 300;
 }
-
-
-
 }
+
+.profile-social-link {
+
+margin-top: 2.5rem;
 
 .profileInfoGithub, .profileInfoLinkedin {
+
   background-color: $background-primary;
   color: $text-secondary-muted !important;
-  padding: .5rem;
+  font-size: 16px;
+  padding: 8px 32px;
   border-radius: 10px;
 }
+
+
+.profileInfoGithub::before {
+  content: '\f0e1';
+  color: white;
+}
+
+
+
+.profileInfoLinkedin {
+  margin-left: 1rem;
+}
+}
+
+
+
 
 .profileRightBottom{
   display: flex;
