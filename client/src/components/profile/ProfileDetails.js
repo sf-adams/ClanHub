@@ -38,14 +38,18 @@ const ProfileDetails = ({ user, loggedIn }) => {
             </div>
             <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
           </div>
-
-          <input type="file" id="actual-btn" hidden/>
-          <label className="upload-button" for="actual-btn" onChange={handleChange}>
-            < MdAddAPhoto />
-          </label>
+          <div className="profile-picture-wrapper">
+            <div className="upload-button-wrapper">
+              <input type="file" id="actual-btn" hidden/>
+              <label className="upload-button" for="actual-btn" onChange={handleChange}>
+                < MdAddAPhoto />
+              </label>
+            </div>
+            <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
+          </div>
 
           <button disabled={loading || !image} onClick={handleClick}>Upload</button>
-          <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
+
         </div>
         <div className="profileInfo">
 
@@ -55,14 +59,17 @@ const ProfileDetails = ({ user, loggedIn }) => {
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
           <div className="profile-social-link">
 
-              <button className=" profileInfoGithub">
-                <FaGithub className= "social-icon" fill="white" size="1.5em" />
-                Github
-              </button>
-              <button className=" profileInfoLinkedin">
+
+            {/* <a href="`${user?.github}`" target="_blank" rel="noopener noreferrer" > */}
+              <button className="profileInfoGithub" onClick={()=>{window.location = (`${user?.linkedin}`)}}>
                 <FaLinkedin className="social-icon" fill="white" size="1.5em" />
-                Linkedin
+                GitHub
               </button>
+            {/* </a> */}
+            <button className="profileInfoLinkedin">
+              <FaLinkedin className="social-icon" fill="white" size="1.5em" />
+                Linkedin
+            </button>
 
             {/* Comment out section for now but bring in values for links when set up */}
              {/* <span className="profileInfoLinkedin">

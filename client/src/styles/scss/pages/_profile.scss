@@ -14,7 +14,6 @@
   // margin-top: 3.5rem;
   height: 320px;
   position: relative;
-  background-color: red;;
 
   .profile-banner-wrapper {
     position: relative;
@@ -52,6 +51,10 @@
   width: 100%;
   height: 250px;
   object-fit: cover;
+}
+
+.profile-picture-wrapper {
+  background-color: red !important;
 }
 
 
@@ -115,8 +118,6 @@ margin-top: 1.125rem;
   // font-size: 5rem!important;
 
 }
-
-
 }
 
 
@@ -148,4 +149,8 @@ margin-top: 1.125rem;
   flex-direction: column;
   align-items: center;
   margin-top: 3.25rem;
+
+  .profile-history-list-item-wrapper {
+    background-color: $background-secondary;
+  }
 }

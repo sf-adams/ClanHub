@@ -232,7 +232,6 @@ hr {
 .profileCover {
   height: 320px;
   position: relative;
-  background-color: red;
 }
 .profileCover .profile-banner-wrapper {
   position: relative;
@@ -265,6 +264,10 @@ hr {
   width: 100%;
   height: 250px;
   object-fit: cover;
+}
+
+.profile-picture-wrapper {
+  background-color: red !important;
 }
 
 .profileUserImg {
@@ -336,6 +339,9 @@ hr {
   flex-direction: column;
   align-items: center;
   margin-top: 3.25rem;
+}
+.profile-history-container .profile-history-list-item-wrapper {
+  background-color: white;
 }
 
 .form-container {
@@ -463,10 +469,6 @@ hr {
 .wrapper {
   display: grid;
   grid-gap: 20px;
-}
-
-.top-container {
-  padding-top: 10vh;
 }
 
 .showcase {
@@ -800,6 +802,7 @@ img {
 .wrapper .middle .profile-button {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .wrapper .middle .profile-button .icon {
   font-size: 18px;
