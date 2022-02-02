@@ -53,13 +53,9 @@ Your local machine terminal:
 
 ## The Team
 
-While I have made some changes to our [group project](https://github.com/heathercking/BBCSleighRide), the original Sleigh Ride app was built by our team:
+Currently there are two of us responsible for the first draft of ClanHub. All further contributors will be added here:
 
 <div align="center">
-  <a href="https://github.com/heathercking">@heathercking</a>
-  •
-  <a href="https://github.com/Gazian">@Gazian</a>
-  •
   <a href="https://github.com/O-Marsters-1997">@O-Marsters-1997</a>
   •
   <a href="https://github.com/sf-adams">@sf-adams</a>
@@ -69,56 +65,29 @@ While I have made some changes to our [group project](https://github.com/heather
 
 ### Minimum Viable Product
 
-
 We have chosen to create a content-sharing and networking platform. Admin staff will create a profile, which will then be sent to users, where they can identify with any number of options (Cohort, GitHub, LinkedIn, Portfolio site link). As a key feature, our web app will center around a forum, allowing for the posting of information, which can be categorized and voted on.
 
 1. **Forum**: Users will be able to create, read, update and delete posts, as well as add votes for content they like. The first version will contain a limited number of categories, as well as limited sorting features. We would also like to have the following features: 
-    - How to say Merry Christmas
-    - Main Day Celebrated On
-    - Christmas Meal
-2. **Quiz** - To maintain educational purpose, the user will be able to click on a button that takes them to a quiz, to test their learning from the Christmas app
-3. **Joke** - For some entertaining festive spirit, the user will be able to click on a button that reveals a random Christmas joke
-4. **Design** - BBC Theme, Christmas Colour Palette, Well Rounded Design (as a minimum) for the MVP.
-
-Forum - 
-The first version will contain a limited number of categories, as well as limited sorting features
-Users can see who made a post, and click on their file to be taken to the profile page of that user
-When you click on a forum post, you will be taken to a separate post page, with the ability to make comments
-Authentication/Authorisation - Users will be able to sign up and log in to their account, with different users having different levels of access.
-Job Section - For those in the process of job hunting, or simply looking to see what jobs are available with partners, this section will be able 
-Open Source - To allow for Students or Staff to make improvements to the site, through a Feature Request Section, or at least through the GitHub repository
-Design - CodeClan Theme, CC Colour Palette, Mobile-First Design
-
-
-
-1. **Map**: Users will be able to select a country from the map and see some key facts about Christmas in that country. The prototype will include a limited selection of countries, including at least one from each continent. When you click on the country, you will see these key facts: 
-    - How to say Merry Christmas
-    - Main Day Celebrated On
-    - Christmas Meal
-2. **Quiz** - To maintain educational purpose, the user will be able to click on a button that takes them to a quiz, to test their learning from the Christmas app
-3. **Joke** - For some entertaining festive spirit, the user will be able to click on a button that reveals a random Christmas joke
-4. **Design** - BBC Theme, Christmas Colour Palette, Well Rounded Design (as a minimum) for the MVP.
+    - When you click on a forum post, you will be taken to a separate post page, with the ability to make comments
+    - Users can see who made a post, and click on their file to be taken to the profile page of that user
+2. **Authentication/Authorisation** - Users will be able to sign up and log in to their account, with different users having different levels of access.
+3. **Job Section** - For those in the process of job hunting, or simply looking to see what jobs are available with partners, this section will be able.
+4. **Open Source** - To allow for Students or Staff to make improvements to the site, through a Feature Request Section, or at least through the GitHub repository.
+5. **Design** - CodeClan Theme, CC Colour Palette, Mobile-First Design.
 
 ### Extensions
 
-Identified below are ideas for further development. Some of them have been implemented, as indicated.
+Identified below are ideas for further development. If there is a feature that you could add, please go to the feature request section or get in touch!
 
-To help improve the user experience, some additional features include:
-- A Santa Chatbot (npm library) (complete)
-- 'Let it snow' button triggering falling snow (complete)
-- Quiz Interactivity (complete):
-    - Visual representations or indications of results or progress
-    - Candy Cane life counter
-    - Christmas Colour palette used to full
-    - Results saved to database
-- Interactive game, such as tic-tac-toe (in development - 'present' placeholder created)
-- Music/Audio - Potential previews of a country’s song, as well as some audio effects for things like Christmas Crackers and Sledges
-- Search Bar - To help users who don’t know the location of a particular country, the app will include a search bar
-- Joke/Fact - add a fact into the jokes area, and make it like pulling a Christmas cracker that has a joke on one side and a random fact on the other
-- Extra Design - Interactivity with buttons, enhanced versions of the MVP:
-    - Loading Screen - Sleigh
-    - Custom Pins on Map - candy canes
-- Blog Content
-    - Ability to scale the level of content with further information in mind (Without intruding on the user experience)
-    - Also potential work with the BBC API, to filter the stories according to Christmas topics
-    - Signposting towards other resources, that would allow for further years to interact with the app
+1. **Extended Access**: With users allocated a Cohort by staff, the system can work out whether a student is before, during or after their CodeClan learning experience, or a member of staff.
+2. **Rubber Duck** - Voting system throughout the forum, and potentially elsewhere (with the react icon for plastic duck).
+3. **Search Bar** - To help users who are looking for a post on a specific topic, without having to go through the various category filters.
+4. **Mentoring** - Profiles have the option to pick themselves as a mentor, so that a user looking for extra advice, or simply another connection on LinkedIn, a connection can be made.A user could be able to mark in their profile whether they are looking for a mentor or someone to mentor. 
+5. **Blog** - Users can submit blog content - an admin can review a blog post, and can either accept or reject the incoming blog post.
+6. **Alumni Area** - So that users can add other alumni or connect through LinkedIn.
+6. **Extras** - Some additional ideas:
+    - Tech Calendar
+    - Job Postings
+    - Getting Started coding area for newbies
+    - Tips and tricks section (or even just a category on the forum)
+    - Follow button
