@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import ProfileHistoryListItem from "./ProfileHistoryListItem";
 
 const ProfileHistoryList = ({ user, posts }) => {
@@ -21,15 +22,17 @@ const ProfileHistoryList = ({ user, posts }) => {
   };
 
   return (
-    <>
+    <div className = "profile-history-container">
       <h4 className="profile-section-logged-in-posts" onClick={handleClick}>
         View recent user activity
       </h4>
 
       <div style={{ display: toggleVisiblePosts ? "block" : "none" }}>
         {postNodes}
+         <Link to="/feed">Click to view your feed.</Link>
       </div>
-    </>
+
+    </div>
   );
 };
 

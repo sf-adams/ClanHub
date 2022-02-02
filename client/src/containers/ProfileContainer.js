@@ -34,8 +34,6 @@ function ProfileContainer({ user, posts, loggedIn }) {
         </div>
       </div> */}
 
-
-      <Link to="/feed">Click to view your feed.</Link>
     </div>
   );
 }

@@ -11,7 +11,7 @@
 // This is the start of styling for the cover photo
 
 .profileCover{
-  margin-top: 3.5rem;
+  // margin-top: 3.5rem;
   height: 320px;
   position: relative;
   background-color: red;;
@@ -92,7 +92,7 @@
 
 .profile-social-link {
 
-margin-top: 2.5rem;
+margin-top: 1.125rem;
 
 .profileInfoGithub, .profileInfoLinkedin {
 
@@ -138,4 +138,14 @@ margin-top: 2.5rem;
 .new-user-information-container {
   position: absolute;
   margin-top: 30%;
+}
+
+
+// Styles starting for profile history section
+
+.profile-history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3.25rem;
 }
