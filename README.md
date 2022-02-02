@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/sf-adams/ClanHub">
-    <img src="client/src/assets/images/santa_favicon.svg" alt="Logo" width="125" height="125">
+    <img src="client/src/assets/app_logo.svg" alt="Logo" width="125" height="125">
   </a>
   <h1>ClanHub</h1>
 
@@ -36,18 +36,11 @@ A platform that extends the community of CodeClan, allowing Students and Staff t
 - run ClanHub Application
 ```
 
-2. In `client` folder:
-
-```zsh
-Your local machine terminal:
-- npm install
-- npm start (should be listening on port 3000)
-```
-
 2. In `client` folder on new tab:
 
 ```zsh
 Your local machine terminal:
+- npm install
 - npm start (should be listening on port 3000)
 ```
 
