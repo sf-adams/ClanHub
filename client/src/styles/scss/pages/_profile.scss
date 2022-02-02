@@ -145,8 +145,18 @@ margin-top: 1.125rem;
   align-items: center;
   margin-top: 3.25rem;
 
+  h4 {
+    margin-bottom: 2.2rem;
+  }
+
   .profile-history-list-item-wrapper {
     padding: .75rem 2rem;
     background-color: $background-secondary;
-  }
+    line-height: 1.5rem;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.115rem;
+      }
+    }
 }

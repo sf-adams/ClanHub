@@ -29,7 +29,7 @@ const ProfileHistoryList = ({ user, posts }) => {
 
       <div style={{ display: toggleVisiblePosts ? "block" : "none" }}>
         {postNodes}
-         <Link to="/feed">Click to view your feed.</Link>
+         <Link className = "profile-history-list-link" to="/feed">Click to view your feed.</Link>
       </div>
 
     </div>
