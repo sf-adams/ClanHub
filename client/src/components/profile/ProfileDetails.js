@@ -23,14 +23,19 @@ const ProfileDetails = ({ user, loggedIn }) => {
   useEffect(() => {
     if (currentUser?.photoURL) {
       setDisplayPhoto(currentUser.photoURL);
-    }
+  }
   }, [currentUser])
 
   return (
     <div className="profileRight">
       <div className="profileRightTop">
         <div className="profileCover">
-          <img className="profileCoverImg" src="assets/post/3.jpeg" alt="" />
+          <div className="profile-banner-wrapper">
+            <div className="profile-banner-overlay">
+              <h3>Profile Section</h3>
+            </div>
+            <img className="profileCoverImg" src="https://source.unsplash.com/1527pjeb6jg" alt="Profile banner image" />
+          </div>
           {/* <img className="profileUserImg" src={blankProfile} alt="" /> */}
           <input type="file" onChange={handleChange} />
           <button disabled={loading || !image} onClick={handleClick}>Upload</button>

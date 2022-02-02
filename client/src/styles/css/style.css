@@ -232,8 +232,20 @@ hr {
 .profileCover {
   height: 320px;
   position: relative;
+  background-color: red;
 }
-
+.profileCover .profile-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.profileCover .profile-banner-wrapper .profile-banner-overlay {
+  position: relative;
+  background-color: red;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+}
 .profileCoverImg {
   width: 100%;
   height: 250px;
