@@ -269,31 +269,40 @@ hr {
 }
 
 .profileUserImg {
+  position: absolute;
+  z-index: 50;
+  left: 45%;
+  bottom: -30%;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 150px;
   border: 3px solid #1b3445;
 }
 
 .profileInfo {
+  margin-top: 7.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-.profileInfoName {
+.profileInfo *:not(.profileInfoName) {
+  color: #0a0a0a;
+  line-height: 1.5em;
+}
+.profileInfo .profileInfoName {
   font-size: 24px;
 }
-
-.profileInfoDesc {
+.profileInfo .profileInfoDesc {
   font-weight: 300;
+}
+
+.profileInfoGithub, .profileInfoLinkedin {
+  background-color: #1b3445;
+  color: #f0f0f0 !important;
+  padding: 0.5rem;
+  border-radius: 10px;
 }
 
 .profileRightBottom {

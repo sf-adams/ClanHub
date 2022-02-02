@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import blankProfile from "../../assets/new_profile_photo.svg";
 import { useAuth} from "../../auth/AuthContext";
 import { upload } from "../../auth/firebase-config";
-import {MdOutlineAddAPhoto} from 'react-icons/md'
+import { MdAddAPhoto } from "react-icons/md"
 
 const ProfileDetails = ({ user, loggedIn }) => {
 
@@ -37,21 +37,33 @@ const ProfileDetails = ({ user, loggedIn }) => {
             </div>
             <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
           </div>
-          <MdOutlineAddAPhoto className="upload-button">
-          <input type="file" onChange={handleChange} />
-          </MdOutlineAddAPhoto>
-          <MdOutlineAddAPhoto disabled={loading || !image} onClick={handleClick}/>
+
+          <input type="file" id="actual-btn" hidden/>
+          <label className="upload-button" for="actual-btn" onChange={handleChange}>
+            < MdAddAPhoto />
+          </label>
+
+          <button disabled={loading || !image} onClick={handleClick}>Upload</button>
           <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
         </div>
         <div className="profileInfo">
+
           <h4 className="profileInfoName">
             {loggedIn?.firstName} {loggedIn?.lastName}
           </h4>
           <span className="profileInfoDesc">{loggedIn?.bio}</span>
-          <span className="profileInfoLinkedin">
+          <div className="profile-social-link">
+
+              <button className=" profileInfoGithub">Github</button>
+              <button className=" profileInfoLinkedin">Linkedin</button>
+
+            {/* Comment out section for now but bring in values for links when set up */}
+             {/* <span className="profileInfoLinkedin">
             Linkedin: {loggedIn?.linkedin}
-          </span>
-          <span className="profileInfoGithub">Github: {loggedIn?.github}</span>
+            </span>
+          <span className="profileInfoGithub">Github: {loggedIn?.github}</span> */}
+          </div>
+
         </div>
       </div>
     </div>

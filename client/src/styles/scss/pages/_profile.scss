@@ -54,33 +54,50 @@
   object-fit: cover;
 }
 
+
+
 .profileUserImg {
+  position: absolute;
+  z-index: 50;
+  left: 45%;
+  bottom: -30%;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 150px;
   border: 3px solid $background-primary;
 
 }
 
 .profileInfo{
+  margin-top: 7.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-.profileInfoName{
+  & *:not(.profileInfoName) {
+    color: $text-body;
+    line-height: 1.5em;
+  }
+
+  .profileInfoName{
   font-size: 24px;
 }
 
 .profileInfoDesc{
   font-weight: 300;
+}
+
+
+
+}
+
+.profileInfoGithub, .profileInfoLinkedin {
+  background-color: $background-primary;
+  color: $text-secondary-muted !important;
+  padding: .5rem;
+  border-radius: 10px;
 }
 
 .profileRightBottom{
