@@ -266,14 +266,10 @@ hr {
   object-fit: cover;
 }
 
-.profile-picture-wrapper {
-  background-color: red !important;
-}
-
 .profileUserImg {
   position: absolute;
   z-index: 50;
-  left: 45%;
+  left: 45.7%;
   bottom: -30%;
   width: 150px;
   height: 150px;
@@ -310,6 +306,7 @@ hr {
   font-size: 16px;
   padding: 8px 32px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .profile-social-link .profileInfoLinkedin {
   margin-left: 1rem;

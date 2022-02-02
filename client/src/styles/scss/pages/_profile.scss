@@ -53,16 +53,13 @@
   object-fit: cover;
 }
 
-.profile-picture-wrapper {
-  background-color: red !important;
-}
 
 
 
 .profileUserImg {
   position: absolute;
   z-index: 50;
-  left: 45%;
+  left: 45.7%;
   bottom: -30%;
   width: 150px;
   height: 150px;
@@ -105,6 +102,7 @@ margin-top: 1.125rem;
   font-size: 16px;
   padding: 8px 32px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .profileInfoLinkedin {
@@ -119,9 +117,6 @@ margin-top: 1.125rem;
 
 }
 }
-
-
-
 
 .profileRightBottom{
   display: flex;
@@ -151,6 +146,7 @@ margin-top: 1.125rem;
   margin-top: 3.25rem;
 
   .profile-history-list-item-wrapper {
+    padding: .75rem 2rem;
     background-color: $background-secondary;
   }
 }

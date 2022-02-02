@@ -38,20 +38,20 @@ const ProfileDetails = ({ user, loggedIn }) => {
             </div>
             <img className="profile-cover-img" src="https://source.unsplash.com/yxNURc8he3o" alt="Profile banner image" />
           </div>
-          <div className="profile-picture-wrapper">
-            <div className="upload-button-wrapper">
-              <input type="file" id="actual-btn" hidden/>
-              <label className="upload-button" for="actual-btn" onChange={handleChange}>
-                < MdAddAPhoto />
-              </label>
-            </div>
-            <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
-          </div>
 
-          <button disabled={loading || !image} onClick={handleClick}>Upload</button>
-
+          <img src={displayPhoto} alt="Avatar" className="profileUserImg"/>
         </div>
         <div className="profileInfo">
+
+          <div className="profile-picture-wrapper">
+          <div className="upload-button-wrapper">
+            <button disabled={loading || !image} onClick={handleClick}>Upload</button>
+            <input type="file" id="actual-btn" hidden/>
+            <label className="upload-button" for="actual-btn" onChange={handleChange}>
+              < MdAddAPhoto />
+            </label>
+          </div>
+          </div>
 
           <h4 className="profileInfoName">
             {loggedIn?.firstName} {loggedIn?.lastName}
@@ -60,16 +60,18 @@ const ProfileDetails = ({ user, loggedIn }) => {
           <div className="profile-social-link">
 
 
-            {/* <a href="`${user?.github}`" target="_blank" rel="noopener noreferrer" > */}
-              <button className="profileInfoGithub" onClick={()=>{window.location = (`${user?.linkedin}`)}}>
-                <FaLinkedin className="social-icon" fill="white" size="1.5em" />
+            <a href={loggedIn?.github} target="_blank" rel="noopener noreferrer" >
+              <button className="profileInfoGithub">
+                <FaGithub className="social-icon" fill="white" size="1.5em" />
                 GitHub
               </button>
-            {/* </a> */}
-            <button className="profileInfoLinkedin">
-              <FaLinkedin className="social-icon" fill="white" size="1.5em" />
-                Linkedin
-            </button>
+            </a>
+            <a href={loggedIn?.linkedin} target="_blank" rel="noopener noreferrer" >
+              <button className="profileInfoLinkedin">
+                <FaLinkedin className="social-icon" fill="white" size="1.5em" />
+                LinkedIn
+              </button>
+            </a>
 
             {/* Comment out section for now but bring in values for links when set up */}
              {/* <span className="profileInfoLinkedin">
