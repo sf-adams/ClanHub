@@ -38,7 +38,7 @@ public class DataLoader implements ApplicationRunner {
         User user3 = new User("Mick", "Arthur", "a person","M@A.com", "MA", "MAX");
         userRepository.save(user3);
 
-        User user4 = new User("Sam", "Adams", "a person","sam@gmail.com", "IG", "IGA");
+        User user4 = new User("Sam", "Adams", "CodeClan Student From E53","sam@gmail.com", "https://www.linkedin.com/in/sf-adams/", "https://github.com/sf-adams");
         userRepository.save(user4);
 
         Post post1 = new Post(CategoryType.FEATURE, "how to use Git", "jdksfvbkjasdbfkjsd", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Morbi tempus iaculis urna id volutpat lacus laoreet non. Vehicula ipsum a arcu cursus. Aliquet nibh praesent tristique magna sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Suspendisse interdum consectetur libero id faucibus. Aliquam sem et tortor consequat id porta nibh. Molestie nunc non blandit massa enim nec dui nunc mattis. Consectetur adipiscing elit duis tristique sollicitudin. Faucibus a pellentesque sit amet.\n" +
