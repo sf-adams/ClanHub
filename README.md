@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+<div align="center">
+  <a href="https://github.com/sf-adams/ClanHub">
+    <img src="client/src/assets/images/santa_favicon.svg" alt="Logo" width="125" height="125">
+  </a>
+  <h1>ClanHub</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A prototype of a Christmas-themed educational app for primary-aged children; fictitiously commissioned by the BBC. It offers interactive learning and testing of Christmas-related facts from around the world, as well as some festive entertainment features.
 
-## Available Scripts
+<img src = "static/demo_part_one.gif" width ="400" /> <img src = "static/demo_part_two.gif" width ="400" />
 
-In the project directory, you can run:
+[Report Issue](https://github.com/sf-adams/sleigh_ride/issues)
+·
+[Group Repository](https://github.com/heathercking/BBCSleighRide)
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- Interactive Map with facts about Christmas around the world
+- Quiz to test your new Christmas knowledge
+- Random Joke Generator
+- Chatbot Santa
+- Let It Snow feature!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+- JavaScript
+- React
+- MongoDB
+- CSS
+- Various NPM libraries (npm install is required, as directed in 'Getting Started')
 
-### `npm test`
+## Getting Started
+1. In `server` folder:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```zsh
+Your local machine terminal:
+- npm install
+- npm run seeds
+- npm run server:dev (should be listening on port 5000)
+```
 
-### `npm run build`
+2. In `client` folder:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```zsh
+Your local machine terminal:
+- npm install
+- npm start (should be listening on port 3000)
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## The Team
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+While I have made some changes to our [group project](https://github.com/heathercking/BBCSleighRide), the original Sleigh Ride app was built by our team:
 
-### `npm run eject`
+<div align="center">
+  <a href="https://github.com/heathercking">@heathercking</a>
+  •
+  <a href="https://github.com/Gazian">@Gazian</a>
+  •
+  <a href="https://github.com/O-Marsters-1997">@O-Marsters-1997</a>
+  •
+  <a href="https://github.com/sf-adams">@sf-adams</a>
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Full Brief
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Minimum Viable Product
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+We chose to create educational content about Christmas around the world; fictitiously commissioned by the BBC. As a key feature, our web app centres around an interactive world map. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Map**: Users will be able to select a country from the map and see some key facts about Christmas in that country. The prototype will include a limited selection of countries, including at least one from each continent. When you click on the country, you will see these key facts: 
+    - How to say Merry Christmas
+    - Main Day Celebrated On
+    - Christmas Meal
+2. **Quiz** - To maintain educational purpose, the user will be able to click on a button that takes them to a quiz, to test their learning from the Christmas app
+3. **Joke** - For some entertaining festive spirit, the user will be able to click on a button that reveals a random Christmas joke
+4. **Design** - BBC Theme, Christmas Colour Palette, Well Rounded Design (as a minimum) for the MVP.
 
-## Learn More
+### Extensions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Identified below are ideas for further development. Some of them have been implemented, as indicated.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To help improve the user experience, some additional features include:
+- A Santa Chatbot (npm library) (complete)
+- 'Let it snow' button triggering falling snow (complete)
+- Quiz Interactivity (complete):
+    - Visual representations or indications of results or progress
+    - Candy Cane life counter
+    - Christmas Colour palette used to full
+    - Results saved to database
+- Interactive game, such as tic-tac-toe (in development - 'present' placeholder created)
+- Music/Audio - Potential previews of a country’s song, as well as some audio effects for things like Christmas Crackers and Sledges
+- Search Bar - To help users who don’t know the location of a particular country, the app will include a search bar
+- Joke/Fact - add a fact into the jokes area, and make it like pulling a Christmas cracker that has a joke on one side and a random fact on the other
+- Extra Design - Interactivity with buttons, enhanced versions of the MVP:
+    - Loading Screen - Sleigh
+    - Custom Pins on Map - candy canes
+- Blog Content
+    - Ability to scale the level of content with further information in mind (Without intruding on the user experience)
+    - Also potential work with the BBC API, to filter the stories according to Christmas topics
+    - Signposting towards other resources, that would allow for further years to interact with the app

@@ -283,37 +283,47 @@ hr {
 }
 
 .form-container {
-  background-color: red;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #1b3445;
   flex-direction: row;
 }
-
-.form-left,
-.form-right {
+.form-container .form-left,
+.form-container .form-right {
+  text-align: center;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-.form-text {
-  font-size: 50px;
+.form-container .form-left {
+  position: relative;
+  background-color: red;
+}
+.form-container .form-left img {
+  height: 80%;
+  width: 80%;
+  text-align: right;
+}
+.form-container .form-right {
+  background-color: green;
+}
+.form-container .form-text {
+  font-size: 5rem;
   font-family: "Outfit-600";
   color: white;
   margin-bottom: 30px;
 }
-
-.form-desc {
+.form-container .form-desc {
   font-size: 1.4rem;
   font-family: "Outfit-300";
   color: white;
 }
-
-.form-box {
+.form-container .form-box {
   width: fit-content;
   height: 40%;
   padding: 2.5rem 4.5rem;
@@ -323,20 +333,20 @@ hr {
   flex-direction: column;
   justify-content: space-between;
 }
-.form-box .inner-container {
+.form-container .form-box .inner-container {
   display: block;
   color: #1b3445;
   width: 100%;
   margin-bottom: 20px;
 }
-.form-box .inner-container label {
+.form-container .form-box .inner-container label {
   display: block;
   color: #1b3445;
   font-size: 1rem;
   margin-bottom: 5px;
   transition: 0.4s;
 }
-.form-box .inner-container input {
+.form-container .form-box .inner-container input {
   border-radius: 10px;
   border: 1px solid gray;
   font-size: 18px;
@@ -345,10 +355,10 @@ hr {
   padding: 10px 15px;
   transition: 0.4s;
 }
-.form-box .inner-container input:focus {
+.form-container .form-box .inner-container input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
-.form-box button {
+.form-container .form-box button {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 8px;
@@ -359,11 +369,10 @@ hr {
   color: white;
   cursor: pointer;
 }
-.form-box button:hover {
+.form-container .form-box button:hover {
   background-position: 100%;
 }
-
-.cc-link {
+.form-container .cc-link {
   padding-left: 5px;
 }
 
