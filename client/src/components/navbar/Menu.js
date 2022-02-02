@@ -12,6 +12,7 @@ function Menu({ menuOpen, setMenuOpen, canSeeSidebarContent, handleClick }) {
   const menuToWithdraw = document.getElementsByClassName("menuOpen")[0];
 
   const handleDropdown1 = (ev) => {
+    ev.stopPropagation();
     const sel = document.getElementsByClassName("menu-arrow-icon")[0];
     toggleListShow1
       ? sel.classList.remove("menu-arrow-icon-active")
@@ -21,6 +22,7 @@ function Menu({ menuOpen, setMenuOpen, canSeeSidebarContent, handleClick }) {
   };
 
   const handleDropdown2 = (ev) => {
+    ev.stopPropagation();
     const sel = document.getElementsByClassName("menu-arrow-icon")[1];
     toggleListShow2
       ? sel.classList.remove("menu-arrow-icon-active")
