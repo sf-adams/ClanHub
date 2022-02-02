@@ -54,6 +54,17 @@ Currently there are two of us responsible for the first draft of ClanHub. All fu
   <a href="https://github.com/sf-adams">@sf-adams</a>
 </div>
 
+## Contribute
+1. Clone repo and create a new branch:
+
+```zsh
+- git checkout https://github.com/alichtman/stronghold -b name_for_new_branch
+```
+
+2. Make changes and test
+
+3. Submit Pull Request with comprehensive description of changes
+
 ## Full Brief
 
 ### Minimum Viable Product
