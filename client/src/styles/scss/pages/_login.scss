@@ -1,19 +1,14 @@
 @use '../base' as *;
 
-.form-background {
+.form-container {
+  background-color: red;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $background-primary;
-  flex-direction: column;
-}
-
-.form-container {
-  width: 70%;
-  height: 70%;
-  display: flex;
+  // background-color: $background-pcolumnrimary;
+  flex-direction: row;
 }
 
 .form-left,
@@ -40,7 +35,7 @@
 .form-box {
   width: fit-content;
   height: 40%;
-  padding: 20px;
+  padding: 2.5rem 4.5rem;
   background-color: $background-secondary;
   border-radius: 10px;
   display: flex;
@@ -50,8 +45,10 @@
   .inner-container {
     display: block;
     color: $background-primary;
-    width: 50%;
+    width: 100%;
     margin-bottom: 20px;
+
+
 
     label {
       display: block;

@@ -24,8 +24,8 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
   };
 
   return (
-    <div className="form-background">
-      <div className="form-container">
+    <div className="form-container">
+
 
         <div className="form-left">
         <h3 className="form-text">ClanHub</h3>
@@ -47,7 +47,6 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
 
         </div>
       </div>
-    </div>
   );
 }
 export default LoginContainer;
