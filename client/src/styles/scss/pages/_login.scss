@@ -14,7 +14,7 @@
     width: 60vw;
     position: relative;
     display: flex;
-    background-color: red;
+    // background-color: red;
   }
 
 .form-left,
@@ -32,9 +32,11 @@
   }
 
   .form-desc {
+    color: $text-secondary-muted;
    position: absolute;
-   bottom: 10%;
-   left: 5%;
+   bottom: 22.5%;
+   left: 2.5%;
+   font-size: .95rem;
   }
 
 }
@@ -58,13 +60,18 @@
 
 .form-box {
   width: fit-content;
-  margin-left: 2.5rem;
+  margin-left: 5.5rem;
   padding: 2.5rem 4.5rem;
   background-color: $background-secondary;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+
+  .login-form-title {
+    padding-bottom: .85rem;
+  }
 
   .inner-container {
     display: block;
@@ -100,6 +107,7 @@
 
   button {
     display: inline-block;
+    margin-bottom: 2rem;
     padding: 10px 15px;
     border-radius: 8px;
     background-image: linear-gradient(to right, rgb(77, 162, 205) 50%, rgb(77, 162, 205) 50%, rgb(27, 52, 69) 50%);

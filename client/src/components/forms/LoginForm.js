@@ -15,7 +15,7 @@ export default function LoginForm({email, setEmail, password, setPassword, handl
           value={email}
           required
           autoComplete="off"
-          placeholder="Email"
+          placeholder="Email:"
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
@@ -28,7 +28,7 @@ export default function LoginForm({email, setEmail, password, setPassword, handl
           value={password}
           required
           autoComplete="off"
-          placeholder="Password"
+          placeholder="Password:"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>

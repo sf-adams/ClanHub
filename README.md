@@ -44,6 +44,13 @@ Your local machine terminal:
 - npm start (should be listening on port 3000)
 ```
 
+2. In `client` folder on new tab:
+
+```zsh
+Your local machine terminal:
+- npm start (should be listening on port 3000)
+```
+
 ## The Team
 
 While I have made some changes to our [group project](https://github.com/heathercking/BBCSleighRide), the original Sleigh Ride app was built by our team:
@@ -62,7 +69,27 @@ While I have made some changes to our [group project](https://github.com/heather
 
 ### Minimum Viable Product
 
-We chose to create educational content about Christmas around the world; fictitiously commissioned by the BBC. As a key feature, our web app centres around an interactive world map. 
+
+We have chosen to create a content-sharing and networking platform. Admin staff will create a profile, which will then be sent to users, where they can identify with any number of options (Cohort, GitHub, LinkedIn, Portfolio site link). As a key feature, our web app will center around a forum, allowing for the posting of information, which can be categorized and voted on.
+
+1. **Forum**: Users will be able to create, read, update and delete posts, as well as add votes for content they like. The first version will contain a limited number of categories, as well as limited sorting features. We would also like to have the following features: 
+    - How to say Merry Christmas
+    - Main Day Celebrated On
+    - Christmas Meal
+2. **Quiz** - To maintain educational purpose, the user will be able to click on a button that takes them to a quiz, to test their learning from the Christmas app
+3. **Joke** - For some entertaining festive spirit, the user will be able to click on a button that reveals a random Christmas joke
+4. **Design** - BBC Theme, Christmas Colour Palette, Well Rounded Design (as a minimum) for the MVP.
+
+Forum - 
+The first version will contain a limited number of categories, as well as limited sorting features
+Users can see who made a post, and click on their file to be taken to the profile page of that user
+When you click on a forum post, you will be taken to a separate post page, with the ability to make comments
+Authentication/Authorisation - Users will be able to sign up and log in to their account, with different users having different levels of access.
+Job Section - For those in the process of job hunting, or simply looking to see what jobs are available with partners, this section will be able 
+Open Source - To allow for Students or Staff to make improvements to the site, through a Feature Request Section, or at least through the GitHub repository
+Design - CodeClan Theme, CC Colour Palette, Mobile-First Design
+
+
 
 1. **Map**: Users will be able to select a country from the map and see some key facts about Christmas in that country. The prototype will include a limited selection of countries, including at least one from each continent. When you click on the country, you will see these key facts: 
     - How to say Merry Christmas

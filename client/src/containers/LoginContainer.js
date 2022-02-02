@@ -41,7 +41,7 @@ function LoginContainer({ user, loggedIn, getUserObject }) {
         <div className="form-left">
         <img src={main_title} alt="" className ="form-page-title"/>
           <p className="form-desc">
-            (Insert great line here)
+            Community by the community
           </p>
         </div>
 

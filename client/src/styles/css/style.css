@@ -296,7 +296,6 @@ hr {
   width: 60vw;
   position: relative;
   display: flex;
-  background-color: red;
 }
 .form-container .form-left,
 .form-container .form-right {
@@ -311,9 +310,11 @@ hr {
   text-align: right;
 }
 .form-container .form-left .form-desc {
+  color: #f0f0f0;
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  bottom: 22.5%;
+  left: 2.5%;
+  font-size: 0.95rem;
 }
 .form-container .form-text {
   font-size: 5rem;
@@ -328,13 +329,16 @@ hr {
 }
 .form-container .form-box {
   width: fit-content;
-  margin-left: 2.5rem;
+  margin-left: 5.5rem;
   padding: 2.5rem 4.5rem;
   background-color: white;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.form-container .form-box .login-form-title {
+  padding-bottom: 0.85rem;
 }
 .form-container .form-box .inner-container {
   display: block;
@@ -363,6 +367,7 @@ hr {
 }
 .form-container .form-box button {
   display: inline-block;
+  margin-bottom: 2rem;
   padding: 10px 15px;
   border-radius: 8px;
   background-image: linear-gradient(to right, #4da2cd 50%, #4da2cd 50%, #1b3445 50%);
