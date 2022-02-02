@@ -58,7 +58,7 @@ Currently there are two of us responsible for the first draft of ClanHub. All fu
 1. Clone repo and create a new branch:
 
 ```zsh
-- git checkout https://github.com/alichtman/stronghold -b name_for_new_branch
+- git checkout https://github.com/sf-adams/ClanHub -b name_for_new_branch
 ```
 
 2. Make changes and test
