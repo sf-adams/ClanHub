@@ -1,24 +1,92 @@
-@use '../base' as *;
+@use "../base" as *;
+
+// Styles start for the main home container
+
+.home-container {
+  .top-container {
+    .showcase {
+      position: relative;
+      grid-area: showcase;
+      min-height: 400px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://source.unsplash.com/Y96OcAtUWw0");
+      // filter: grayscale(80%);
+      background-size: cover;
+      background-position: center;
+      padding: 3rem 0;
+      display: flex;
+      flex-direction: column; // margin: auto;
+      align-items: start;
+      justify-content: center;
+      box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+      margin-bottom: 20px;
+      z-index: -5;
+
+      .showcase-overlay-color {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(33, 33, 33, 0.5);
+        z-index: -500;
+      }
+
+      .showcase-overlay-text {
+        padding: 3rem;
+        * {
+          color: $text-secondary-muted;
+        }
+
+        h1 {
+          letter-spacing: 0.3rem;
+        }
+
+        p {
+          padding-top: 0.6rem;
+          max-width: 50vw;
+          line-height: 2.2rem;
+        }
+
+        button {
+          margin-top: 1.5rem;
+          border-radius: 10px;
+          background-color: $background-blue;
+          position: absolute;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
 
 .main-button {
-  background: $background-light;
+  background: $background-blue;
+  border-radius: 10px;
   color: $background-secondary;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
   border: 0;
-  cursor: pointer;
+  cursor: pointer !important;
+  z-index: 9000;
 }
 
 .secondary-button {
   background: $background-primary;
   color: $background-secondary;
-  padding: 0.6rem 1.3rem;
+  padding: 0.65rem 1.3rem;
+  margin-top: 1rem;
   text-decoration: none;
   border: 0;
+  border-radius: 10px;
+  width: fit-content;
   cursor: pointer;
+  position: relative;
   // display: block;
-  text-align: center;
-  margin: auto;
+  // text-align: center;
+
+  a {
+    color: $text-secondary-muted;
+    text-decoration: none;
+  }
 }
 
 .wrapper {
@@ -30,26 +98,11 @@
 //   padding-top: 10vh;
 // }
 
-.showcase {
-  grid-area: showcase;
-  min-height: 400px;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://source.unsplash.com/Y96OcAtUWw0');
-  background-size: cover;
-  background-position: center;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  margin-bottom: 20px;
-}
-
 .showcase h1 {
   font-size: 4rem;
   margin-bottom: 0;
   color: $background-secondary;
-  font-family: 'Outfit-600';
+  font-family: "Outfit-600";
 }
 
 .showcase p {
@@ -63,19 +116,31 @@
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 0 20px;
-}
 
-.each-topic {
-  background: $background-primary;
-  text-align: center;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 1px 5px rgba(199, 199, 199, 0.8);
-  color: $background-secondary;
-}
+  .each-topic {
+    position: relative;
+    background: $background-primary;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 1px 5px rgba(199, 199, 199, 0.8);
+    color: $background-secondary;
+    border-radius: 10px;
+  }
 
-.topic-title {
-  color: $background-secondary;
-  font-family: 'Outfit-500';
+  .topic-title {
+    color: $background-secondary;
+    font-family: "Outfit-500";
+    padding-bottom: 0.6em;
+  }
+
+  p {
+    line-height: 1.5em;
+    font-size: 0.7rem;
+  }
+
+  button {
+    margin-top: 0.8em;
+  }
 }
 
 /* Info */
@@ -87,6 +152,19 @@
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
   margin: 20px 0;
+
+  .covid-info-text-wrapper {
+    position: relative;
+
+    p:not(.secondary-button) {
+      line-height: 1.5em;
+      padding-top: 1.2rem;
+    }
+
+    h2 {
+      padding-bottom: 1.6rem;
+    }
+  }
 }
 
 .blog-posts {
@@ -98,24 +176,34 @@
 
 .blog-post-container {
   position: relative;
+
+  .blog-post-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $background-primary;
+    opacity: 0;
+  }
+
+  .blog-post-text p {
+    font-size: 1.3rem;
+  }
 }
 
 .blog-post-image {
-  opacity: 1;
   display: block;
   width: 100%;
   height: auto;
-  transition: .5s ease;
+  transition: 0.5s ease;
   backface-visibility: hidden;
 }
 
-.blog-post-container:hover .blog-post-image {
-  opacity: 0.3;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+.blog-post-container:hover .blog-post-overlay {
+  opacity: 0.4;
 }
 
 .blog-post-text {
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -130,7 +218,6 @@
 }
 
 .title-text {
-  background-color: $background-primary;
   color: $background-secondary;
   font-size: 16px;
   padding: 16px 32px;
@@ -154,7 +241,7 @@ img {
 }
 
 .footer-text {
-  font-family: 'Outfit-400';
+  font-family: "Outfit-400";
 }
 
 .icon-container {
@@ -163,7 +250,6 @@ img {
   align-items: center;
   justify-content: center;
   padding: 5px;
-
 }
 
 .social-icon {

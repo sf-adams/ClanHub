@@ -53,19 +53,17 @@ const NewProfileForm = ({ user, createUser }) => {
     navigate("/home");
   };
 
-  const checkEmail = () => {
-    // console.log(user.email)
-  };
-
   return (
-    <>
+    <div className="new-user-information-wrapper">
       <h3>New User Information</h3>
-      <button onClick={checkEmail}>email</button>
       <p>
         You have not entered your user information, please do so before entering
-        the site
+        the site.
       </p>
-      <p>Your email is {user.email}</p>
+      <p className="new-user-information-para">
+        Your email is 
+        <span className="new-user-information-span"> {user.email}</span>
+      </p>
 
       <form
         action="POST"
@@ -73,7 +71,7 @@ const NewProfileForm = ({ user, createUser }) => {
         onSubmit={handleSubmit}
       >
         <div className="new-user-information-form-item">
-          <label htmlFor="firstName">First name:</label>
+          <label htmlFor="firstName">First name</label>
           <input
             type="text"
             id="firstName"
@@ -85,7 +83,7 @@ const NewProfileForm = ({ user, createUser }) => {
           />
         </div>
         <div className="new-user-information-form-item">
-          <label htmlFor="lastName">Last name:</label>
+          <label htmlFor="lastName">Last name</label>
           <input
             type="text"
             id="lastName"
@@ -97,7 +95,7 @@ const NewProfileForm = ({ user, createUser }) => {
           />
         </div>
         <div className="new-user-information-form-item">
-          <label htmlFor="bio">About:</label>
+          <label htmlFor="bio">About</label>
           <input
             type="text"
             id="bio"
@@ -132,11 +130,11 @@ const NewProfileForm = ({ user, createUser }) => {
             onChange={handleGithubChange}
           />
         </div>
-        <div className="new-user-information-form-item">
-          <input type="submit" id="submit" />
+        <div className="new-user-information-form-item ">
+          <input type="submit" id="submit"  className="new-user-form-submit"/>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
