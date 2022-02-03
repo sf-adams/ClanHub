@@ -6,7 +6,7 @@
 
 A platform that extends the community of CodeClan, allowing Students and Staff to share insights, experiences and opportunities. As an open source, decentralized community, ClanHub hopes to help those throughout their whole CodeClan journey. Whether student or staff, everyone has something to share, or someone new to meet.
 
-<img src = "static/demo_part_one.gif" width ="400" /> <img src = "static/demo_part_two.gif" width ="400" />
+<img src = "./client/src/static/demo_part_one.gif" width ="400" /> <img src = "./client/src/static/demo_part_two.gif" width ="400" />
 
 [Report Issue](https://github.com/sf-adams/ClanHub/issues)
 ·
