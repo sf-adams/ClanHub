@@ -45,11 +45,11 @@ const ProfileDetails = ({ user, loggedIn }) => {
 
           <div className="profile-picture-wrapper">
           <div className="upload-button-wrapper">
-            <button disabled={loading || !image} onClick={handleClick}>Upload</button>
-            <input type="file" id="actual-btn" hidden/>
-            <label className="upload-button" for="actual-btn" onChange={handleChange}>
+            <input type="file" id="actual-btn" onChange={handleChange}/>
+            {/* <label className="upload-button" for="actual-btn" onChange={handleChange}>
               < MdAddAPhoto />
-            </label>
+            </label> */}
+            <button disabled={loading || !image} onClick={handleClick}>Upload</button>
           </div>
           </div>
 

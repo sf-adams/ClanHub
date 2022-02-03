@@ -45,7 +45,7 @@ const FeedItem = ({ post, posts, user, deletePost, updatePost }) => {
 
   return (
     <>
-      <section onClick = {()=> {navigate(`/feed/${post?.id}`)}} className="feed-item-object">
+      <section className="feed-item-object">
         <div className="feed-item-upvotes-wrapper">
           <AiOutlineArrowUp className="feed-item-upvotes" />
           <span className="feed-item-upvotes ">{post.upvotes}</span>
