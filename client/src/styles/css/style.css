@@ -61,6 +61,10 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  min-height: 100vh;
+}
+
 hr {
   background-color: lightgray;
 }
@@ -250,10 +254,11 @@ hr {
 .profileCover .profile-banner-wrapper .profile-banner-overlay h3 {
   position: absolute;
   top: 30%;
-  color: #f0f0f0;
+  color: #ededed;
   letter-spacing: 1.25rem;
   font-size: 2.25rem;
   font-variant: small-caps;
+  text-transform: lowercase;
 }
 .profileCover .profile-banner-wrapper .profile-cover-img {
   width: 100%;
@@ -299,10 +304,11 @@ hr {
 .profile-social-link {
   margin-top: 1.125rem;
 }
-.profile-social-link .profileInfoGithub, .profile-social-link .profileInfoLinkedin {
+.profile-social-link .profileInfoGithub,
+.profile-social-link .profileInfoLinkedin {
   position: relative;
   background-color: #1b3445;
-  color: #f0f0f0 !important;
+  color: #ededed !important;
   font-size: 16px;
   padding: 8px 32px;
   border-radius: 10px;
@@ -327,8 +333,61 @@ hr {
 }
 
 .new-user-information-container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.new-user-information-container .new-user-information-wrapper {
   position: absolute;
-  margin-top: 30%;
+  padding: 2em;
+  background-color: white;
+  top: 20%;
+  border-radius: 10px;
+}
+.new-user-information-container h3 {
+  padding-bottom: 0.6em;
+  text-align: center;
+}
+.new-user-information-container p {
+  line-height: 1.5em;
+  font-size: 0.75em;
+}
+.new-user-information-container .new-user-information-para {
+  margin-bottom: 1.8rem !important;
+}
+.new-user-information-container .new-user-information-para .new-user-information-span {
+  font-weight: bold;
+}
+
+.new-user-information-form {
+  margin-top: 1em;
+}
+.new-user-information-form .new-user-information-form-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.6rem;
+}
+.new-user-information-form .new-user-information-form-item input {
+  padding: 0.35rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0.2px solid #7e7e7e;
+}
+.new-user-information-form .new-user-information-form-item label {
+  font-weight: 500;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  padding-bottom: 0.4rem;
+  font-size: 1.3em;
+}
+.new-user-information-form .new-user-form-submit {
+  background-color: #1b3445;
+  margin-top: 0.45em;
+  width: fit-content;
+  padding: 0.5em !important;
+  color: #ededed;
+  cursor: pointer;
 }
 
 .profile-history-container {
@@ -378,7 +437,7 @@ hr {
   text-align: right;
 }
 .form-container .form-left .form-desc {
-  color: #f0f0f0;
+  color: #ededed;
   position: absolute;
   bottom: 22.5%;
   left: 2.5%;
@@ -452,8 +511,53 @@ hr {
   padding-left: 5px;
 }
 
+.home-container .top-container .showcase {
+  position: relative;
+  grid-area: showcase;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  margin-bottom: 20px;
+  z-index: -5;
+}
+.home-container .top-container .showcase .showcase-overlay-color {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(33, 33, 33, 0.5);
+  z-index: -500;
+}
+.home-container .top-container .showcase .showcase-overlay-text {
+  padding: 3rem;
+}
+.home-container .top-container .showcase .showcase-overlay-text * {
+  color: #ededed;
+}
+.home-container .top-container .showcase .showcase-overlay-text h1 {
+  letter-spacing: 0.3rem;
+}
+.home-container .top-container .showcase .showcase-overlay-text p {
+  padding-top: 0.6rem;
+  max-width: 50vw;
+  line-height: 2.2rem;
+}
+.home-container .top-container .showcase .showcase-overlay-text button {
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  background-color: #1b3445;
+  position: absolute;
+}
+
 .main-button {
   background: #acadad;
+  border-radius: 10px;
   color: white;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
@@ -464,32 +568,23 @@ hr {
 .secondary-button {
   background: #1b3445;
   color: white;
-  padding: 0.6rem 1.3rem;
+  padding: 0.65rem 1.3rem;
+  margin-top: 0.6rem;
   text-decoration: none;
   border: 0;
+  border-radius: 10px;
+  width: fit-content;
   cursor: pointer;
-  text-align: center;
-  margin: auto;
+  position: relative;
+}
+.secondary-button a {
+  color: #ededed;
+  text-decoration: none;
 }
 
 .wrapper {
   display: grid;
   grid-gap: 20px;
-}
-
-.showcase {
-  grid-area: showcase;
-  min-height: 400px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/Y96OcAtUWw0");
-  background-size: cover;
-  background-position: center;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  margin-bottom: 20px;
 }
 
 .showcase h1 {
@@ -511,18 +606,26 @@ hr {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 0 20px;
 }
-
-.each-topic {
+.topics .each-topic {
+  position: relative;
   background: #1b3445;
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(199, 199, 199, 0.8);
   color: white;
+  border-radius: 10px;
 }
-
-.topic-title {
+.topics .topic-title {
   color: white;
   font-family: "Outfit-500";
+  padding-bottom: 0.6em;
+}
+.topics p {
+  line-height: 1.5em;
+  font-size: 0.7rem;
+}
+.topics button {
+  margin-top: 0.8em;
 }
 
 /* Info */
@@ -535,6 +638,15 @@ hr {
   padding: 3rem;
   margin: 20px 0;
 }
+.covid-info .covid-info-text-wrapper {
+  position: relative;
+}
+.covid-info .covid-info-text-wrapper p {
+  line-height: 1.5em;
+}
+.covid-info .covid-info-text-wrapper h2 {
+  padding-bottom: 1.6rem;
+}
 
 .blog-posts {
   display: grid;
@@ -546,9 +658,18 @@ hr {
 .blog-post-container {
   position: relative;
 }
+.blog-post-container .blog-post-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1b3445;
+  opacity: 0;
+}
+.blog-post-container .blog-post-text p {
+  font-size: 1.3rem;
+}
 
 .blog-post-image {
-  opacity: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -556,9 +677,8 @@ hr {
   backface-visibility: hidden;
 }
 
-.blog-post-container:hover .blog-post-image {
-  opacity: 0.3;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+.blog-post-container:hover .blog-post-overlay {
+  opacity: 0.4;
 }
 
 .blog-post-text {
@@ -577,7 +697,6 @@ hr {
 }
 
 .title-text {
-  background-color: #1b3445;
   color: white;
   font-size: 16px;
   padding: 16px 32px;
@@ -675,13 +794,22 @@ img {
   align-self: start;
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .menu {
-  width: 30vw;
+  position: absolute;
+  width: 0px;
   height: 100vh;
   background-color: #1b3445;
   position: fixed;
   top: 0%;
-  right: -600px;
+  right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -690,12 +818,19 @@ img {
   z-index: 3 !important;
 }
 .menu.active {
-  right: 0;
+  width: 30vw;
 }
 .menu .menu-container {
   position: absolute;
   top: 30%;
   height: 60%;
+}
+.menu .menu-container .sidebar-menu-text {
+  opacity: 0;
+  animation-name: appear;
+  animation-duration: 0.1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
 }
 .menu .menu-container ul {
   margin-left: 20%;
@@ -757,6 +892,7 @@ img {
 
 .navbar-container {
   width: 100%;
+  padding: 0.45em 0;
   background-color: #1b3445;
   color: white;
   position: sticky;
