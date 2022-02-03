@@ -70,7 +70,11 @@ function HomeContainer() {
           <h2>Covid Requirements</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias
-            reiciendis deleniti possimus nemo non repellendus?
+            reiciendis deleniti possimus nemo non repellendus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis, culpa est doloribus, repellendus neque a, aliquam accusantium commodi non nostrum odit saepe exercitationem natus molestiae. Ea, quia illum? Nihil. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati numquam distinctio debitis perspiciatis ea dolor in, cum, suscipit vel fuga praesentium, fugit temporibus! Est dolor esse nostrum facere eum provident.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias
+            reiciendis deleniti possimus nemo non repellendus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis, culpa est doloribus, repellendus neque a, aliquam accusantium commodi non nostrum odit saepe exercitationem natus molestiae. Ea, quia illum? Nihil. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati numquam distinctio debitis perspiciatis ea dolor in, cum, suscipit vel fuga praesentium, fugit temporibus! Est dolor esse nostrum facere eum provident.
           </p>
           <p className="secondary-button">
             <a href="#">Learn More</a>

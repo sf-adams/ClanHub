@@ -49,8 +49,9 @@
         button {
           margin-top: 1.5rem;
           border-radius: 10px;
-          background-color: $background-primary;
+          background-color: $background-blue;
           position: absolute;
+          cursor: pointer;
         }
       }
     }
@@ -58,20 +59,21 @@
 }
 
 .main-button {
-  background: $background-light;
+  background: $background-blue;
   border-radius: 10px;
   color: $background-secondary;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
   border: 0;
-  cursor: pointer;
+  cursor: pointer !important;
+  z-index: 9000;
 }
 
 .secondary-button {
   background: $background-primary;
   color: $background-secondary;
   padding: 0.65rem 1.3rem;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
   text-decoration: none;
   border: 0;
   border-radius: 10px;
@@ -154,8 +156,9 @@
   .covid-info-text-wrapper {
     position: relative;
 
-    p {
+    p:not(.secondary-button) {
       line-height: 1.5em;
+      padding-top: 1.2rem;
     }
 
     h2 {

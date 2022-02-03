@@ -551,25 +551,27 @@ hr {
 .home-container .top-container .showcase .showcase-overlay-text button {
   margin-top: 1.5rem;
   border-radius: 10px;
-  background-color: #1b3445;
+  background-color: #4da2cd;
   position: absolute;
+  cursor: pointer;
 }
 
 .main-button {
-  background: #acadad;
+  background: #4da2cd;
   border-radius: 10px;
   color: white;
   padding: 0.6rem 1.3rem;
   text-decoration: none;
   border: 0;
-  cursor: pointer;
+  cursor: pointer !important;
+  z-index: 9000;
 }
 
 .secondary-button {
   background: #1b3445;
   color: white;
   padding: 0.65rem 1.3rem;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
   text-decoration: none;
   border: 0;
   border-radius: 10px;
@@ -630,7 +632,7 @@ hr {
 
 /* Info */
 .covid-info {
-  background: #acadad;
+  background: #e8e8e8;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   display: grid;
   grid-gap: 30px;
@@ -641,8 +643,9 @@ hr {
 .covid-info .covid-info-text-wrapper {
   position: relative;
 }
-.covid-info .covid-info-text-wrapper p {
+.covid-info .covid-info-text-wrapper p:not(.secondary-button) {
   line-height: 1.5em;
+  padding-top: 1.2rem;
 }
 .covid-info .covid-info-text-wrapper h2 {
   padding-bottom: 1.6rem;
